@@ -1,16 +1,16 @@
 Key Project Facts
 
-Project name: Open vSwitch for NFV (ovs-nfv)
-Repo name: ovsnfv 
+Project name: Open vSwitch for NFV (ovsnfv)
+Repo name: ovsnfv
 Project Creation Date: 21st July 2015
-Project Category: Collaborative Development 
-Lifecycle State: Incubation 
-Primary Contact: Mark D. Gray mark.d.gray@intel.com 
-Project Lead: Mark D. Gray mark.d.gray@intel.com 
-Jira Project Name: Open vSwitch for NFV 
-Mailing list tag: [ovs-nfv] 
-Jira Project Prefix: OVSNFV 
-IRC: #opnfv-ovs-nfv 
+Project Category: Collaborative Development
+Lifecycle State: Incubation
+Primary Contact: Mark D. Gray mark.d.gray@intel.com
+Project Lead: Mark D. Gray mark.d.gray@intel.com
+Jira Project Name: Open vSwitch for NFV
+Mailing list tag: [ovsnfv]
+Jira Project Prefix: OVSNFV
+IRC: #opnfv-ovsnfv
 Committers:
 
 Mark Gray (Intel, mark.d.gray@intel.com)
@@ -20,4 +20,4 @@ Hongbo Tianhongbo (Huawei, hongbo.tianhongbo@huawei.com)
 Tom Herbert (Red Hat, therbert@redhat.com)
 
 Link to TSC approval: http://ircbot.wl.linuxfoundation.org/meetings/opnfv-meeting/2015/opnfv-meeting.2015-07-21-14.02.txt
-Link to approval of additional submitters: 
+Link to approval of additional submitters:
