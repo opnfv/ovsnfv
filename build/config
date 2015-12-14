@@ -1,0 +1,5 @@
+# config file to be populated with configuration parameters for build.
+
+# OVS TAG
+export OVSTAG=master
+#export NOCHECK=true
