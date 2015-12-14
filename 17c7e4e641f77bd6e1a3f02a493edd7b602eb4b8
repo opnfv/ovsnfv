@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_8002a33c",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-14T15:02:34Z",
+      "side": 1,
+      "message": "These might get cleaned up after each build? Fatih will know but I think each Jenkins build creates its own temp workspace.",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_60ffaf35",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-14T15:02:34Z",
+      "side": 1,
+      "message": "Remove commented code",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_40fcab3e",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-14T15:02:34Z",
+      "side": 1,
+      "message": "Would be good to put into artifacts at this point.",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
