@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a5c5d37_9b11f2ae",
+        "filename": "ci/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-14T22:15:38Z",
+      "side": 1,
+      "message": "I don\u0027t know if you have other plans with this script. if not, you can skip this script and we can directly execute buildovs.sh.",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_8002a33c",
         "filename": "ci/buildovs.sh",
         "patchSetId": 1
@@ -13,6 +30,24 @@
       "writtenOn": "2015-12-14T15:02:34Z",
       "side": 1,
       "message": "These might get cleaned up after each build? Fatih will know but I think each Jenkins build creates its own temp workspace.",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_7b263e18",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-14T22:15:38Z",
+      "side": 1,
+      "message": "yep, we had a discussion and Thomas will switch to WORKSPACE.",
+      "parentUuid": "9a5c5d37_8002a33c",
       "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -47,6 +82,24 @@
       "writtenOn": "2015-12-14T15:02:34Z",
       "side": 1,
       "message": "Would be good to put into artifacts at this point.",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_5b237a05",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-14T22:15:38Z",
+      "side": 1,
+      "message": "my suggestion is to do fix this in separate patch once the build part is ok.\n\na question btw; how will you version the artifacts?",
+      "parentUuid": "9a5c5d37_40fcab3e",
       "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
