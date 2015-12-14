@@ -1,0 +1,6 @@
+# config file to be populated with configuration parameters for build.
+
+# OVS TAG
+export OVSTAG=MASTER
+#export NOCHECK=true
+export GS_URL=artifacts.opnfv.org/ovsnfv
