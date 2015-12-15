@@ -145,12 +145,14 @@ fi
 
 echo "---------------------------------------"
 echo "Copy RPM into $TMP_RELEASE_DIR"
-echo cp $RPMDIR/RPMS/*.rpm $TMP_RELEASE_DIR
 echo
 cp $RPMDIR/RPMS/x86_64/*.rpm $TMP_RELEASE_DIR
 
 # cleanup
 
+echo "---------------------------------------"
+echo "Cleanup $TMP_RELEASE_DIR"
+echo
 cd $BUILDDIR
 
 if [ -d $TMPDIR ]
@@ -161,7 +163,7 @@ fi
 
 # copy artifacts.
 
-if [ -z ${JENKINS+1} ]; then
+if [ ! -z ${JENKINS+1} ]; then
     upload_artifacts.sh
 fi
 
