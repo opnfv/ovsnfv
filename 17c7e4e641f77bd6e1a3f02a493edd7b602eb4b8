@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_3be566a8",
+        "filename": "ci/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-16T19:18:22Z",
+      "side": 1,
+      "message": "Yes, this is the master build script so I will not skip this script. It will call buildovs.sh and later buildovsdpdk.sh and maybe more. We may the flexibility for the scripts to see what server they are running on and do different things such as build a deb package.",
+      "parentUuid": "9a5c5d37_9b11f2ae",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_8002a33c",
         "filename": "ci/buildovs.sh",
         "patchSetId": 1
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_605b2f55",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-16T19:18:22Z",
+      "side": 1,
+      "message": "Yes, I clean it up below after the script. This is a place holder until I can figure out the path name to the temp area that Jenkins uses.\nI will add Fatih as a reviewer to request this feedback on this patch.",
+      "parentUuid": "9a5c5d37_8002a33c",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_60ffaf35",
         "filename": "ci/buildovs.sh",
         "patchSetId": 1
@@ -65,6 +101,24 @@
       "writtenOn": "2015-12-14T15:02:34Z",
       "side": 1,
       "message": "Remove commented code",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_207e57af",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-16T19:18:22Z",
+      "side": 1,
+      "message": "This is a place holder without checking to add build check target back in once I am sure the Jenkins build works. rpmbuild runs all upstream checks as a default.",
+      "parentUuid": "9a5c5d37_60ffaf35",
       "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -100,6 +154,42 @@
       "side": 1,
       "message": "my suggestion is to do fix this in separate patch once the build part is ok.\n\na question btw; how will you version the artifacts?",
       "parentUuid": "9a5c5d37_40fcab3e",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_a049278d",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-16T19:18:22Z",
+      "side": 1,
+      "message": "Yes. I will find out how to move rpm to artificatory. This is a place holder in the meantime.",
+      "parentUuid": "9a5c5d37_40fcab3e",
+      "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_3bfc463e",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-16T19:18:22Z",
+      "side": 1,
+      "message": "The artifacts are versioned by rpmbuild.",
+      "parentUuid": "9a5c5d37_5b237a05",
       "revId": "17c7e4e641f77bd6e1a3f02a493edd7b602eb4b8",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
