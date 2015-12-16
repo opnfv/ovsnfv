@@ -2,5 +2,5 @@
 
 # OVS TAG
 export OVSTAG=MASTER
-export NOCHECK=true
+#export NOCHECK=true
 export GS_URL=artifacts.opnfv.org/ovsnfv
