@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_58137bb8",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-16T08:46:16Z",
+      "side": 1,
+      "message": "where the version is set?",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "b2c6a1ab45f88899010bbbc0d4e936f457a10cb3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_d8264b16",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-16T08:46:16Z",
+      "side": 1,
+      "message": "$GS_URL looks not set to me.",
+      "range": {
+        "startLine": 19,
+        "startChar": 43,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "b2c6a1ab45f88899010bbbc0d4e936f457a10cb3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_f8110fad",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-16T08:46:16Z",
+      "side": 1,
+      "message": "$RPMFILE looks not set to me.",
+      "revId": "b2c6a1ab45f88899010bbbc0d4e936f457a10cb3",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
