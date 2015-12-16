@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_f8ec6fc9",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-16T08:19:55Z",
+      "side": 1,
+      "message": "Is there an RPMFILE2? What does the \"2\" refer to?",
+      "revId": "21683d159c8cfee80dcb100bb02c0f24dcef276d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_38e327db",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-16T08:19:55Z",
+      "side": 1,
+      "message": "This is how the upload to artifacts works?",
+      "revId": "21683d159c8cfee80dcb100bb02c0f24dcef276d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_18e863b3",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-16T08:19:55Z",
+      "side": 1,
+      "message": "Is this code still needed?",
+      "revId": "21683d159c8cfee80dcb100bb02c0f24dcef276d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
