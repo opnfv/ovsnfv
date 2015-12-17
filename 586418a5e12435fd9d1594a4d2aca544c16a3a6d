@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_cfc43f94",
+        "filename": "build/config",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-17T18:27:50Z",
+      "side": 1,
+      "message": "should this not be \"master\"? Is the purpose of this var to store the actual ref we want to use",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_afc10b82",
+        "filename": "build/config",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-17T18:27:50Z",
+      "side": 1,
+      "message": "What about other tags?",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_ef7383af",
         "filename": "build/config",
         "patchSetId": 1
@@ -59,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_8fbe47fe",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-17T18:27:50Z",
+      "side": 1,
+      "message": "What black magic is this :) !?!? Why +1?",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_cf68bfbc",
         "filename": "ci/buildovs.sh",
         "patchSetId": 1
@@ -70,6 +121,40 @@
       "writtenOn": "2015-12-17T16:56:46Z",
       "side": 1,
       "message": "you source something from a directory which you check existence of it after attempting to source the file?\n\nthe directory pointed by BUILD_BASE doesn\u0027t exist either so the line will fail.\n\ndo I miss something here?",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_6fbb130f",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-17T18:27:50Z",
+      "side": 1,
+      "message": "I think rpmbuild can do or does this automatically? It would make it simpler.",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_4f384fa0",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-17T18:27:50Z",
+      "side": 1,
+      "message": "I didnt know capital letters worked!",
       "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -155,6 +240,40 @@
       "writtenOn": "2015-12-17T18:05:53Z",
       "side": 1,
       "message": "Before you upload the rpms to artifacts site, would it be worth it to try to install the rpms locally to make sure they are valid first?",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_2f3d1b90",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-17T18:27:50Z",
+      "side": 1,
+      "message": "As an FYI, while doing the fuel integration, we gave up on creating debian packages!!! Instead we compile from source on the compute node!",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_0f425710",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-17T18:27:50Z",
+      "side": 1,
+      "message": "There is no license here. Is it intentional?",
       "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
