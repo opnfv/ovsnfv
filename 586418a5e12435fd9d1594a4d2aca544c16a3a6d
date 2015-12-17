@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_6f48b35b",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 2907
+      },
+      "writtenOn": "2015-12-17T16:23:51Z",
+      "side": 1,
+      "message": "I\u0027m not too familiar with the expected format of header, but if it is like ODL\u0027s then the user/email line is not needed here.",
+      "range": {
+        "startLine": 4,
+        "startChar": 11,
+        "endLine": 4,
+        "endChar": 17
+      },
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_8f4be758",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 2907
+      },
+      "writtenOn": "2015-12-17T16:23:51Z",
+      "side": 1,
+      "message": "nitpick: fix extra space",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
