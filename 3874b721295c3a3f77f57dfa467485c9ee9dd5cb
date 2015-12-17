@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_6f1793ee",
+        "filename": "build/config",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-17T20:07:02Z",
+      "side": 1,
+      "message": "please do not set GS_URL as I commented in previous patch.",
+      "revId": "3874b721295c3a3f77f57dfa467485c9ee9dd5cb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_4fd4cf1f",
+        "filename": "ci/build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-17T20:07:02Z",
+      "side": 1,
+      "message": "this is unnecessary.",
+      "revId": "3874b721295c3a3f77f57dfa467485c9ee9dd5cb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_2fd99b57",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-17T20:07:02Z",
+      "side": 1,
+      "message": "same comment as the previous patch; you source somethin which might not be there. check existence first and then attempt to do stuff with it.",
+      "revId": "3874b721295c3a3f77f57dfa467485c9ee9dd5cb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
