@@ -93,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_8f908796",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 235
+      },
+      "writtenOn": "2015-12-17T17:18:40Z",
+      "side": 1,
+      "message": "rpmbuild will use the tar.gz in the sources dir, I think you\u0027re untarring here to get the spec file, you can untar just the spec instead of the whole tar if you\u0027d like and extract it from an existing tar instead of coping it.\n\nI think it works like this:\ntar -xz -C $TMPDIR -f openvswitch-$VERSION.tar.gz rhel/openvswitch.spec\n\nthat should put the specfile in $TMP and you can remove cp openvswitch-$VERSION.tar.gz $TMPDIR and tar -xzf openvswitch-$VERSION.tar.gz",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_8f4be758",
         "filename": "ci/buildovs.sh",
         "patchSetId": 1
