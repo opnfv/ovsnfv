@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a5c5d37_0f6ff7c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-17T16:56:46Z",
+      "side": 1,
+      "message": "Please move the JIRA stuff to the line just before the signed-off line.\n\nPlease leave a blank space after commit message subject line.",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_ef7383af",
+        "filename": "build/config",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-17T16:56:46Z",
+      "side": 1,
+      "message": "do not set the GS_URL here. It needs to be set within jenkins job and used by your script.\n\nThe reason for this is that we upload to different folders for master and stable branches that are set by the job as well. Your script should be agnostic to git branch in your opnfv repo.",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_6f48b35b",
         "filename": "ci/buildovs.sh",
         "patchSetId": 1
@@ -19,6 +53,40 @@
         "endLine": 4,
         "endChar": 17
       },
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_cf68bfbc",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-17T16:56:46Z",
+      "side": 1,
+      "message": "you source something from a directory which you check existence of it after attempting to source the file?\n\nthe directory pointed by BUILD_BASE doesn\u0027t exist either so the line will fail.\n\ndo I miss something here?",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_cfaf9fe2",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-17T16:56:46Z",
+      "side": 1,
+      "message": "can this be done like this?\n\n   v\u003d$($TMPDIR/ovs/utilities/ovs-vsctl --version | head -1 | cut -d\u0027 \u0027 -f4)",
       "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
