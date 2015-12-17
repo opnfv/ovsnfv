@@ -124,6 +124,40 @@
       "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_2fd63b50",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 334
+      },
+      "writtenOn": "2015-12-17T18:05:53Z",
+      "side": 1,
+      "message": "The normal ovs spec file only includes the userspace module - Don\u0027t you also need to build the kernel module here as well?  Something like:\nrpmbuild -bb -D \"kversion $kernel_version\" -D \"kflavors default\" --without check rhel/openvswitch-kmod-${os_type}.spec\n\nWhere os_type would be rhel7",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_0fcb77a6",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 334
+      },
+      "writtenOn": "2015-12-17T18:05:53Z",
+      "side": 1,
+      "message": "Before you upload the rpms to artifacts site, would it be worth it to try to install the rpms locally to make sure they are valid first?",
+      "revId": "586418a5e12435fd9d1594a4d2aca544c16a3a6d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
