@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_a1c11f82",
+        "filename": "ci/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-18T21:11:24Z",
+      "side": 1,
+      "message": "this script is executed by all types of jobs; verify, merge, and daily. we only store artifacts from merge or daily jobs.",
+      "revId": "ae9133bb8eb8322d411722617f667e01df63d5b9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_c1c41394",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-18T21:11:24Z",
+      "side": 1,
+      "message": "the urls to gs are wrong - hardcoded. They will be set by jenkins job enabling us to store artifacts produced from master branch and stable/brahmaputra properly in correct places.",
+      "revId": "ae9133bb8eb8322d411722617f667e01df63d5b9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
