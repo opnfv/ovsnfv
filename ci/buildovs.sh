@@ -33,9 +33,10 @@ export BUILD_BASE=$WORKSPACE/build
 if [ ! -d $BUILD_BASE ]
 then
     mkdir -p $BUILD_BASE
-    if [ ! -f $BUILD_BASE/config ]; then
-        touch $BUILd_BASE/config
-    fi
+fi
+
+if [ ! -f $BUILD_BASE/config ]; then
+    touch $BUILd_BASE/config
 fi
 
 export PATH=$PATH:$WORKSPACE/ci:$BUILD_BASE
@@ -56,7 +57,6 @@ echo "--------------------------------------------------"
 echo "Build OVS RPM from upstream git $TAG"
 echo
 
-mkdir -p $RPMDIR/BUILD
 mkdir -p $RPMDIR/RPMS
 mkdir -p $RPMDIR/SOURCES
 mkdir -p $RPMDIR/SPECS
@@ -167,8 +167,8 @@ fi
 
 # copy artifacts.
 
-if [ ! -z ${JENKINS+1} ]; then
-    upload_artifacts.sh
-fi
+#if [ ! -z ${JENKINS+1} ]; then
+#    upload_artifacts.sh
+#fi
 
 exit 0

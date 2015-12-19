@@ -12,11 +12,11 @@ export RPMFILE_D=openvswitch-debuginfo-$VERSION-1.x86_64.rpm
 export RPMFILE=openvswitch-$VERSION-1.x86_64.rpm
 
 # upload artifact and additional files to google storage
-echo gsutil cp $TMP_RELEASE_DIR/$RPMFILE_D gs://artifacts.opnfv.org/ovsnfv/opnfv-$DATE-$RPMFILE_D
-gsutil cp $TMP_RELEASE_DIR/$RPMFILE_D gs://artifacts.opnfv.org/ovsnfv/opnfv-$DATE-$RPMFILE_D
+echo gsutil cp $TMP_RELEASE_DIR/$RPMFILE_D $GS_URL/ovsnfv/opnfv-$DATE-$RPMFILE_D
+gsutil cp $TMP_RELEASE_DIR/$RPMFILE_D $GS_URL/ovsnfv/opnfv-$DATE-$RPMFILE_D
 
-echo gsutil cp $TMP_RELEASE_DIR/$RPMFILE gs://artifacts.opnfv.org/ovsnfv/opnfv-$DATE-$RPMFILE
-gsutil cp $TMP_RELEASE_DIR/$RPMFILE gs://artifacts.opnfv.org/ovsnfv/opnfv-$DATE-$RPMFILE
+echo gsutil cp $TMP_RELEASE_DIR/$RPMFILE $GS_URL/ovsnfv/opnfv-$DATE-$RPMFILE
+gsutil cp $TMP_RELEASE_DIR/$RPMFILE $GS_URL/ovsnfv/opnfv-$DATE-$RPMFILE
 
 echo
 echo "------------------------------------------------------"
