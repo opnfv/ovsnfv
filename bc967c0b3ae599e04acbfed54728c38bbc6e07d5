@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_41614338",
+        "filename": "build/config",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "again, please do not set GS_URL here as I pointed in previous patch and in mail.\n\nhere is the same comment.\nhttps://gerrit.opnfv.org/gerrit/#/c/4699/1/build/config",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_c1dbf3eb",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "don\u0027t see JENKINS env var used anywhere so no need to have it set here.",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_a1d8ffef",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "please change if condition to\n\n   if [[ \"$JOB_NAME\" \u003d~ \"daily\" ]]; then\n\nso you upload artifacts from daily job and nothing else due to reasons I listed in my mail.",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_814e1bc0",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "change $GS_URL/ovsnfv/ to $GS_URL",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_a1511f64",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "change $GS_URL/ovsnfv/ to $GS_URL",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_614b27b1",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "change $GS_URL/ovsnfv/ to $GS_URL",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_41c82322",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "change $GS_URL/ovsnfv/ to $GS_URL",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_21cd2f32",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 254
+      },
+      "writtenOn": "2015-12-19T22:02:02Z",
+      "side": 1,
+      "message": "change http://artifacts.opnfv.org/ovsnfv to $GS_URL",
+      "revId": "bc967c0b3ae599e04acbfed54728c38bbc6e07d5",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
