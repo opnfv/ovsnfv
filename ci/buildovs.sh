@@ -165,7 +165,7 @@ fi
 
 # copy artifacts.
 
-if [ "$JOB_NAME" == "daily" ]; then
+if [[ "$JOB_NAME" =~ "daily" ]]; then
     upload_artifacts.sh
 fi
 
