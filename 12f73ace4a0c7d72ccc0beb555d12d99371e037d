@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a5c5d37_cf50b5d6",
+        "filename": "ci/fuel_deploy_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-23T17:35:05Z",
+      "side": 1,
+      "message": "I have one more comment as I think of it. Is this script a build script or a deploy script? If it is a build script should it (1) be called from master build script, build.sh. (2) Could we centralize the use of configuration information in build/config.\n\nIf it is a deploy script should we create a deploy directory and put our configuration parameters in a config file in that directory?",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_ef901997",
         "filename": "ci/fuel_deploy_artifact.sh",
         "patchSetId": 2
