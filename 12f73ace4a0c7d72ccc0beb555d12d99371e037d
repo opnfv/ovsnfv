@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a5c5d37_ef901997",
+        "filename": "ci/fuel_deploy_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2015-12-23T15:55:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure where $POD_CONF_DIR is sourced from? I copied this from Fuel but I couldn\u0027t find it in their Jenkins setup.",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
