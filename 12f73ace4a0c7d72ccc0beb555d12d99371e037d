@@ -16,6 +16,64 @@
       "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_0f47ed1e",
+        "filename": "ci/fuel_deploy_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-23T17:27:29Z",
+      "side": 1,
+      "message": "I am not familiar with Fuel but does this command also copy the resultant iso product back to the artifactory?",
+      "parentUuid": "9a5c5d37_ef901997",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_4f45e515",
+        "filename": "ci/fuel_download_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-23T17:27:29Z",
+      "side": 1,
+      "message": "Extra whitespace here.",
+      "range": {
+        "startLine": 10,
+        "startChar": 63,
+        "endLine": 10,
+        "endChar": 64
+      },
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_2f4cf141",
+        "filename": "ci/fuel_download_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2015-12-23T17:27:29Z",
+      "side": 1,
+      "message": "Although I guess we could always presume that /tmp exists, what I do in my build script is to create a scratch area in the build directory and wipe it when I am done. I thought this would allow the script to be executed from any environment, Jenkins or locally.",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
