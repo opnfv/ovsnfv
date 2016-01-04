@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_6e9d4259",
+        "filename": "ci/fuel_deploy_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-04T10:48:47Z",
+      "side": 1,
+      "message": "It\u0027s a deploy script. Yes, we can create a deploy subdirectory in the ci folder. Is this ok?",
+      "parentUuid": "9a5c5d37_cf50b5d6",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_ef901997",
         "filename": "ci/fuel_deploy_artifact.sh",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_ae933a4e",
+        "filename": "ci/fuel_deploy_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-04T10:48:47Z",
+      "side": 1,
+      "message": "In this case, we are using the iso from Fuel rather than generating it. So we just pull it from the artifactory.",
+      "parentUuid": "9a5c5d37_0f47ed1e",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_4f45e515",
         "filename": "ci/fuel_download_artifact.sh",
         "patchSetId": 2
@@ -77,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_ceb78ed7",
+        "filename": "ci/fuel_download_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-04T10:48:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a5c5d37_4f45e515",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_2f4cf141",
         "filename": "ci/fuel_download_artifact.sh",
         "patchSetId": 2
@@ -88,6 +142,41 @@
       "writtenOn": "2015-12-23T17:27:29Z",
       "side": 1,
       "message": "Although I guess we could always presume that /tmp exists, what I do in my build script is to create a scratch area in the build directory and wipe it when I am done. I thought this would allow the script to be executed from any environment, Jenkins or locally.",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_eea81279",
+        "filename": "ci/fuel_download_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-04T10:48:47Z",
+      "side": 1,
+      "message": "Are you referring to $WORKSPACE? I don\u0027t create Workspace. I think it is provided by Jenkins and gets wiped automatically?",
+      "parentUuid": "9a5c5d37_2f4cf141",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_0eaec685",
+        "filename": "ci/fuel_download_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-04T10:48:47Z",
+      "side": 1,
+      "message": "This is where the iso is pulled from the artifactory.",
       "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
