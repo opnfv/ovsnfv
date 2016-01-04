@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "9a5c5d37_91ac17a2",
+        "filename": "ci/fuel_download_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-04T15:11:16Z",
+      "side": 1,
+      "message": "I did it in my local repo. I havent pushed yet because I was waiting for other feedback. Either way, it appears the recommendation is to use the Fuel/CI pipeline.",
+      "parentUuid": "9a5c5d37_b13b9b9b",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a5c5d37_2f4cf141",
         "filename": "ci/fuel_download_artifact.sh",
         "patchSetId": 2
@@ -196,6 +214,24 @@
       "side": 1,
       "message": "I didn\u0027t know it was wiped automatically. I stand corrected.",
       "parentUuid": "9a5c5d37_eea81279",
+      "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a5c5d37_71af6395",
+        "filename": "ci/fuel_download_artifact.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-04T15:11:16Z",
+      "side": 1,
+      "message": "That was my assumption! I will confirm if we need to push ahead with this patch.",
+      "parentUuid": "9a5c5d37_d1384fa2",
       "revId": "12f73ace4a0c7d72ccc0beb555d12d99371e037d",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
