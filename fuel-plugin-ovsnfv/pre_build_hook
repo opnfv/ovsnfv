@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -eux
+
+BUILD_FOR=${BUILD_FOR:-ubuntu}
+DIR="$(dirname `readlink -f $0`)"
+TMP=${DIR}/tmp
+
+INCLUDE_DEPENDENCIES=${INCLUDE_DEPENDENCIES:-true}
+ovs_ref=${ovs_ref:-master}
+dpdk_ref=${dpdk_ref:-2.1.0}
+networking_ovs_dpdk=${networking_ovs_dpdk:-master}
+
+rm -rf ${TMP}
+mkdir -p ${TMP}
+rm -rf ${DIR}/repositories/${BUILD_FOR}/*
+
+# sudo apt-get install -qq --reinstall --print-uris bash | perl -lne "/'(.*?)'/;print \$1"
+if [ "$INCLUDE_DEPENDENCIES" = true ]
+then
+  wget --content-disposition -N -P ${DIR}/repositories/${BUILD_FOR}/ -i "${DIR}/ovs_package/${BUILD_FOR}/dependencies.txt"
+fi
+
+cd ${TMP}
+
+rm -rf ${TMP}/networking-ovs-dpdk
+git clone https://github.com/openstack/networking-ovs-dpdk ${TMP}/networking-ovs-dpdk
+#rm -rf ${TMP}/networking-ovs-dpdk/.git #Install requires this to be a git repo
+tar cfz ${DIR}/repositories/${BUILD_FOR}/networking-ovs-dpdk.tgz networking-ovs-dpdk
+
+rm -rf ${TMP}/ovs
+git clone https://github.com/openvswitch/ovs  --branch master --single-branch ovs
+rm -rf ${TMP}/ovs/.git
+tar cfz ${DIR}/repositories/${BUILD_FOR}/ovs.tgz ovs
+
+rm -rf ${TMP}/dpdk
+git clone http://dpdk.org/git/dpdk --branch v2.1.0 --single-branch dpdk
+rm -rf ${TMP}/dpdk/.git
+tar cfz ${DIR}/repositories/${BUILD_FOR}/dpdk.tgz dpdk
+
+cd -
+rm -rf ${TMP}
+
