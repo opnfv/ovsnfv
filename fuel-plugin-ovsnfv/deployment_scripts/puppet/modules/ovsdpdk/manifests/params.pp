@@ -41,6 +41,7 @@ class ovsdpdk::params {
   $nova_conf_dir            = '/etc/nova'
   $nova_conf                = "${nova_conf_dir}/nova.conf"
   $ml2_ovs_conf             = '/etc/neutron/plugins/ml2/openvswitch_agent.ini'
+  $ml2_conf                 = '/etc/neutron/plugins/ml2/ml2_conf.ini'
   $neutron_l3_conf          = '/etc/neutron/l3_agent.ini'
 
   # OVS config
