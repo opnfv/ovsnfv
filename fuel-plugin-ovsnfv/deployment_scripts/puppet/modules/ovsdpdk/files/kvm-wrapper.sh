@@ -39,8 +39,8 @@ while [ $# -gt 0 ]; do
      esac
 done
 echo "qemu ${args[@]}"  > /tmp/qemu.orig
-if [ -e /usr/bin/qemu-system-x86_64 ]; then
-    exec /usr/bin/qemu-system-x86_64  "${args[@]}"
+if [ -e /usr/local/bin/qemu-system-x86_64 ]; then
+    exec /usr/local/bin/qemu-system-x86_64  "${args[@]}"
 elif [ -e /usr/libexec/qemu-kvm.orig ]; then
     exec /usr/libexec/qemu-kvm.orig  "${args[@]}"
 fi

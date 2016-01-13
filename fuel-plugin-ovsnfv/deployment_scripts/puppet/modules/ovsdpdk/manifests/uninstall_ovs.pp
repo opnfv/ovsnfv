@@ -6,41 +6,37 @@ class ovsdpdk::uninstall_ovs (
   $openvswitch_service_name = $::ovsdpdk::params::openvswitch_service_name,
   $openvswitch_agent        = $::ovsdpdk::params::openvswitch_agent,
   $install_packages         = $::ovsdpdk::params::install_packages,
-  $openvswitch_agent        = $::ovsdpdk::params::openvswitch_agent,
 ) inherits ovsdpdk {
 
-  #Due to dependencies to other packages, we won't purge vanilla OVS  
+  #Due to dependencies to other packages, we won't purge vanilla OVS
   #package { $remove_packages: ensure => 'purged' }
 
   if $compute == 'True' {
-	  exec { "/usr/sbin/service ${openvswitch_service_name} stop":
-	    user => root,
-	  }
+    exec { "/usr/sbin/service ${openvswitch_service_name} stop":
+      user => root,
+    }
 
-# This is required for Liberty
-#	  exec { "/usr/sbin/service ${openvswitch_agent} stop":
-#	    user => root,
-#	    path => "/usr/bin:/bin",
-#	  }
+    exec { "/usr/sbin/service ${openvswitch_agent} stop":
+      user => root,
+      path => "/usr/bin:/bin",
+    }
+
+    exec { '/sbin/modprobe -r openvswitch':
+      onlyif  => "/bin/grep -q '^openvswitch' '/proc/modules'",
+      user    => root,
+      require => Exec["/usr/sbin/service ${openvswitch_service_name} stop"],
+    }
   }
 
   if $controller == 'True' {
-	  exec { '/usr/sbin/service neutron-server stop':
-	    user => root,
-	    path => "/usr/bin:/bin",
-	    onlyif => "ps aux |  grep -vws grep | grep -ws neutron-server"
-	  }
+    exec { '/usr/sbin/service neutron-server stop':
+      user   => root,
+      path   => ["/usr/bin", "/bin", "/sbin"],
+      onlyif => "ps aux | grep -vws grep | grep -ws neutron-server",
+    }
   }
 
   package { $install_packages: ensure => 'installed' }
-
-  if $compute == 'True' {
-	  exec { '/sbin/modprobe -r openvswitch':
-	    onlyif  => "/bin/grep -q '^openvswitch' '/proc/modules'",
-	    user    => root,
-#	    require => Exec["/usr/sbin/service ${openvswitch_agent} stop"],
-	  }
-  }
 
 }
 

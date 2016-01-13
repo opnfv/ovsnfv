@@ -29,16 +29,37 @@ class ovsdpdk::clone(
   exec { "wget dpdk":
     command => "rm -rf dpdk.tgz $ovs_dpdk_dir && wget http://$master_ip:8080/plugins/fuel-plugin-ovsnfv-0.0/repositories/ubuntu/dpdk.tgz && tar xf dpdk.tgz && mv dpdk $ovs_dpdk_dir",
     path    => "/usr/bin:/usr/sbin:/bin:/sbin",
+    require => File[$dest],
   }
 
   exec { "wget ovs":
     command => "rm -rf ovs.tgz $ovs_dir && wget http://$master_ip:8080/plugins/fuel-plugin-ovsnfv-0.0/repositories/ubuntu/ovs.tgz && tar xf ovs.tgz && mv ovs $ovs_dir",
     path    => "/usr/bin:/usr/sbin:/bin:/sbin",
+    require => File[$dest],
   }
 
   exec { "wget networking_ovs_dpdk":
     command => "rm -rf networking-ovs-dpdk.tgz $networking_ovs_dpdk_dir && wget http://$master_ip:8080/plugins/fuel-plugin-ovsnfv-0.0/repositories/ubuntu/networking-ovs-dpdk.tgz && tar xf networking-ovs-dpdk.tgz && mv networking-ovs-dpdk $networking_ovs_dpdk_dir",
     path    => "/usr/bin:/usr/sbin:/bin:/sbin",
+    require => File[$dest],
+  }
+
+  exec { "wget qemu":
+    command => "rm -rf qemu-2.2.1.tar.bz2 /opt/code/qemu && wget http://$master_ip:8080/plugins/fuel-plugin-ovsnfv-0.0/repositories/ubuntu/qemu-2.2.1.tar.bz2 && tar xf qemu-2.2.1.tar.bz2 && mv qemu-2.2.1 /opt/code/qemu",
+    path    => "/usr/bin:/usr/sbin:/bin:/sbin",
+    require => File[$dest],
+  }
+
+  exec { "wget libvirt":
+    command => "rm -rf libvirt-1.2.12.tar.gz /opt/code/libvirt && wget http://$master_ip:8080/plugins/fuel-plugin-ovsnfv-0.0/repositories/ubuntu/libvirt-1.2.12.tar.gz && tar xf libvirt-1.2.12.tar.gz && mv libvirt-1.2.12 /opt/code/libvirt",
+    path    => "/usr/bin:/usr/sbin:/bin:/sbin",
+    require => File[$dest],
+  }
+
+  exec { "wget libvirt-python":
+    command => "rm -rf libvirt-python-1.2.12.tar.gz /opt/code/libvirt-python && wget http://$master_ip:8080/plugins/fuel-plugin-ovsnfv-0.0/repositories/ubuntu/libvirt-python-1.2.12.tar.gz && tar xf libvirt-python-1.2.12.tar.gz && mv libvirt-python-1.2.12 /opt/code/libvirt-python",
+    path    => "/usr/bin:/usr/sbin:/bin:/sbin",
+    require => File[$dest],
   }
 
   exec { "install pbr":
