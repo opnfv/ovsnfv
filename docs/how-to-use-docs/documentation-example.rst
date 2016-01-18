@@ -1,5 +1,5 @@
 .. two dots create a comment. please leave this logo at the top of each of your rst files.
-.. image:: ../etc/opnfv-logo.png 
+.. image:: ../etc/opnfv-logo.png
   :height: 40
   :width: 200
   :alt: OPNFV
@@ -21,8 +21,9 @@ this is the directory structure of the docs/ directory that can be found in the 
     ./how-to-use-docs/documentation-example.rst
     ./how-to-use-docs/index.rst
 
-To create your own documentation, Create any number of directories (depending on your need) and place in each of them an index.rst.
-This index file must refence your other rst files.
+To create your own documentation, Create any number of directories (depending
+on your need) and place in each of them an index.rst.  This index file must
+refence your other rst files.
 
 * Here is an example index.rst
 
@@ -59,7 +60,7 @@ For verify jobs a link to the documentation will show up as a comment in gerrit 
 
 * Merge jobs
 
-Once you are happy with the look of your documentation you can submit the patchset the merge job will 
+Once you are happy with the look of your documentation you can submit the patchset the merge job will
 copy the output of each documentation directory to http://artifacts.opnfv.org/$project/docs/$name_of_your_folder/index.html
 
 Here are some quick examples of how to use rst markup
