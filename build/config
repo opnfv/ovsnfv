@@ -1,5 +1,26 @@
 # config file to be populated with configuration parameters for build.
 
-# OVS TAG
+# OVS configuration.
+#
+# OVS TAG or revision to build. The default is master which causes an RPM to be
+# built from the top of current master. The tag uses the current ovs naming and
+# release convention. This option can be overriden in the command line.
+#
 export OVSTAG=master
-#export NOCHECK=true
+#
+# when NOCHECK is yes, the ovs rpm is build with the --without check option which
+# Disables running "make check" as the RPM is built.
+#
+export NOCHECK=yes
+#
+# URL to external URL for patches to be applied for Open vSwitch.
+#
+export PATCH=none
+#
+# DPDK configuration.
+#
+export DPDK_PATCH=none
+#
+# When KMOD is set, the Linux kernel module is built and tested.
+#
+export KMOD=yes
