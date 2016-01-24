@@ -1,5 +1,15 @@
 # config file to be populated with configuration parameters for build.
 
+# OVS configuration.
+# #
 # OVS TAG
 export OVSTAG=master
 #export NOCHECK=true
+#
+# URL to external URL for patches to be applied for Open vSwitch.
+#
+export PATCH=none
+#
+# DPDK configuration.
+#
+export DPDK_PATCH=none
