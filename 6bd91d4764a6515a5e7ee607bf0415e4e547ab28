@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a4e6583_e422af00",
+        "filename": "fuel-plugin-ovsnfv/deployment_scripts/puppet/manifests/ovs-install-ovsnfv-compute.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-27T16:27:04Z",
+      "side": 1,
+      "message": "Can you remove this commented code?",
+      "revId": "6bd91d4764a6515a5e7ee607bf0415e4e547ab28",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
