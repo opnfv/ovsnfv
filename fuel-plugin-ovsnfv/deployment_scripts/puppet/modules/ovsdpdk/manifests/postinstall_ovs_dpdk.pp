@@ -16,6 +16,7 @@ class ovsdpdk::postinstall_ovs_dpdk (
 
   package {'crudini': ensure => installed }
 
+  # compute node specific changes
   if $compute == 'True' {
     # adapt configuration files
     exec {'adapt_nova_conf':
@@ -27,10 +28,18 @@ class ovsdpdk::postinstall_ovs_dpdk (
     }
 
     exec {'adapt_ml2_conf_datapath':
-      command => "sudo crudini --set ${ml2_ovs_conf} ovs datapath_type ${ovs_datapath_type}",
+      command => "sudo crudini --set ${ml2_conf} ovs datapath_type ${ovs_datapath_type}",
       path    => ['/usr/bin','/bin'],
       user    => root,
-      onlyif  => "test -f ${ml2_ovs_conf}",
+      onlyif  => "test -f ${ml2_conf}",
+      require => Package['crudini'],
+    }
+
+    exec {'adapt_ml2_conf_agent_type':
+      command => "sudo crudini --set ${ml2_conf} agent agent_type 'DPDK OVS Agent'",
+      path    => ['/usr/bin','/bin'],
+      user    => root,
+      onlyif  => "test -f ${ml2_conf}",
       require => Package['crudini'],
     }
 
@@ -53,7 +62,8 @@ class ovsdpdk::postinstall_ovs_dpdk (
       require => Service["${openvswitch_service_name}"],
     }
 
-    exec { "${plugin_dir}/files/configure_bridges.sh ${ovs_datapath_type}":
+    exec {'configure_bridges':
+      command => "${plugin_dir}/files/configure_bridges.sh ${ovs_datapath_type}",
       user    => root,
       require => Exec['restart_ovs'],
     }
@@ -73,8 +83,57 @@ class ovsdpdk::postinstall_ovs_dpdk (
       user    => root,
       require => [ Exec['libvirtd_disable_tls'], Service['libvirtd'] ],
     }
+
+    service {"${openvswitch_agent}":
+      ensure  => 'running',
+      require => [ Exec['restart_ovs'], Service["${openvswitch_service_name}"], Exec['adapt_ml2_conf_datapath'], Exec['adapt_ml2_conf_agent_type']  ],
+    }
+
+    exec { "ovs-vsctl --no-wait set Open_vSwitch . other_config:pmd-cpu-mask=${ovs_pmd_core_mask}":
+      path    => ['/usr/bin','/bin'],
+      user    => root,
+      require => Service["${openvswitch_agent}"],
+    }
   }
 
+  # controller specific part
+  if $controller == 'True' {
+    service {'neutron-server':
+      ensure => 'running',
+    }
+
+    exec {'append_NUMATopologyFilter':
+      command => "sudo crudini --set ${nova_conf} DEFAULT scheduler_default_filters RetryFilter,AvailabilityZoneFilter,RamFilter,\
+CoreFilter,DiskFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter,NUMATopologyFilter",
+      path    => ['/usr/bin','/bin'],
+      user    => root,
+      onlyif  => "test -f ${nova_conf}",
+      require => Package['crudini'],
+    }
+
+    exec { 'agents_flavors_update':
+      command => "${plugin_dir}/files/agents_flavors_update.sh",
+      user      => 'root',
+      logoutput => 'true',
+      timeout   => 0,
+      require   => [ Service['neutron-server'], Exec['append_NUMATopologyFilter'] ],
+    }
+
+    exec {'restart_neutron_server':
+      command => "/usr/sbin/service neutron-server restart",
+      user    => root,
+      require => Exec['agents_flavors_update'],
+    }
+
+    exec {'restart_nova_scheduler':
+      command => "/usr/sbin/service nova-scheduler restart",
+      user    => root,
+      require => Exec['agents_flavors_update'],
+    }
+
+  }
+
+  # common part
   exec {'adapt_ml2_conf_mechanism_driver':
     command => "sudo crudini --set ${ml2_conf} ml2 mechanism_drivers ovsdpdk",
     path    => ['/usr/bin','/bin'],
@@ -90,59 +149,4 @@ class ovsdpdk::postinstall_ovs_dpdk (
     onlyif  => "test -f ${ml2_conf}",
     require => Package['crudini'],
   }
-
-  if $controller == 'True' {
-    service {'neutron-server':
-      ensure => 'running',
-    }
-
-    exec {'append_NUMATopologyFilter':
-      command => "sudo crudini --set ${nova_conf} DEFAULT scheduler_default_filters RetryFilter,AvailabilityZoneFilter,RamFilter,CoreFilter,DiskFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter,NUMATopologyFilter",
-      path    => ['/usr/bin','/bin'],
-      user    => root,
-      onlyif  => "test -f ${nova_conf}",
-      require => Package['crudini'],
-    }
-
-    exec { 'remove_old_agent':
-      command => "${plugin_dir}/files/remove_agent.sh $adminrc_user $adminrc_password $adminrc_tenant $adminrc_hostname",
-      user      => 'root',
-      logoutput => 'true',
-      timeout   => 0,
-      require   => [ Service['neutron-server'], Exec['append_NUMATopologyFilter'] ],
-    }
-
-    exec {'restart_neutron_server':
-      command => "/usr/sbin/service neutron-server restart",
-      user    => root,
-      require => Exec['remove_old_agent'],
-    }
-
-    exec {'restart_nova_scheduler':
-      command => "/usr/sbin/service nova-scheduler restart",
-      user    => root,
-      require => Exec['remove_old_agent'],
-    }
-
-  }
-
-  if $compute == 'True' {
-    exec { 'patch_ovs_agent':
-      command => "cp ${plugin_dir}/files/neutron-plugin-openvswitch-agent.conf /etc/init/neutron-plugin-openvswitch-agent.conf",
-      path    => ['/usr/bin','/bin'],
-      user    => root,
-    }
-
-    service {"${openvswitch_agent}":
-      ensure  => 'running',
-      require => [ Exec['restart_ovs'], Service["${openvswitch_service_name}"], Exec['patch_ovs_agent'] ],
-    }
-
-    exec { "ovs-vsctl --no-wait set Open_vSwitch . other_config:pmd-cpu-mask=${ovs_pmd_core_mask}":
-      path    => ['/usr/bin','/bin'],
-      user    => root,
-      require => Service["${openvswitch_agent}"],
-    }
-  }
-
 }

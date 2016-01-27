@@ -54,9 +54,9 @@ http://archive.ubuntu.com/ubuntu/pool/main/g/glib2.0/libglib2.0-dev_2.40.2-0ubun
 http://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libltdl-dev_2.4.2-1.7ubuntu1_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/universe/libn/libnl/libnl-dev_1.1-8ubuntu1_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/libt/libtool/libtool_2.4.2-1.7ubuntu1_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2-dev_2.9.1+dfsg1-3ubuntu4.6_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2-dev_2.9.1+dfsg1-3ubuntu4.7_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/libp/libpciaccess/libpciaccess-dev_0.13.2-1_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.1+dfsg1-3ubuntu4.6_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.1+dfsg1-3ubuntu4.7_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/pkg-config/pkg-config_0.26-1ubuntu4_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/m/m4/m4_1.4.17-2ubuntu1_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/f/flex/libfl-dev_2.5.35-10.1ubuntu2_amd64.deb

@@ -23,7 +23,7 @@ fi
 
 cd ${TMP}
 
-git clone https://github.com/openstack/networking-ovs-dpdk --branch stable/kilo --single-branch networking-ovs-dpdk
+git clone https://github.com/openstack/networking-ovs-dpdk --branch stable/liberty --single-branch networking-ovs-dpdk
 rm -rf ${TMP}/networking_ovs_dpdk/.git
 tar cfz ${DIR}/repositories/${BUILD_FOR}/networking-ovs-dpdk.tgz networking-ovs-dpdk
 
