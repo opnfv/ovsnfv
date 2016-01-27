@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 
 set -x
+
 # access openstack cli
+source /root/openrc
 
-export OS_PROJECT_NAME=admin
-export OS_USERNAME=$1
-export OS_PASSWORD=$2
-export OS_TENANT_NAME=$3
-export OS_AUTH_URL=https://$4:5000/v2.0
-
-sleep 150
+sleep 10
 neutron agent-list
 
 # Force update of vswitch agents
@@ -17,7 +13,7 @@ for i in `neutron agent-list | grep "Open vSwitch agent" | awk {'print $2'}`; do
   neutron agent-update $i
 done
 
-sleep 150
+sleep 10
 neutron agent-list
 
 # grep id and remove dead agent on all compute nodes
