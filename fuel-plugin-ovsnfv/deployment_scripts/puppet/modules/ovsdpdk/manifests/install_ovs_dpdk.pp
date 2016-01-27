@@ -16,7 +16,11 @@ class ovsdpdk::install_ovs_dpdk (
 
   if $compute == 'True' {
     exec {'create_ovs_dpdk':
-      command => "mv /etc/init.d/openvswitch-switch /tmp/openvswitch-switch.bak;cp ${networking_ovs_dpdk_dir}/devstack/ovs-dpdk/ovs-dpdk-init /etc/init.d/openvswitch-switch;chmod +x /etc/init.d/openvswitch-switch; ln -sf /etc/init.d/openvswitch-switch /etc/init.d/ovs-dpdk; cp /etc/openvswitch/conf.db /etc/openvswitch/conf.db.pre_dpdk",
+      command => "mv /etc/init.d/openvswitch-switch /tmp/openvswitch-switch.bak;\
+                  cp ${networking_ovs_dpdk_dir}/devstack/ovs-dpdk/ovs-dpdk-init /etc/init.d/openvswitch-switch;\
+                  chmod +x /etc/init.d/openvswitch-switch;\
+                  ln -sf /etc/init.d/openvswitch-switch /etc/init.d/ovs-dpdk;\
+                  cp /etc/openvswitch/conf.db /etc/openvswitch/conf.db.pre_dpdk",
       user    => root,
       path    => ['/usr/bin','/bin'],
     }
@@ -29,102 +33,36 @@ class ovsdpdk::install_ovs_dpdk (
       require => File['/etc/default/ovs-dpdk'],
     }
 
-#    exec { 'update ovs service':
-#      command => "cp ${plugin_dir}/files/${openvswitch_service_file} ${openvswitch_service_path}/${openvswitch_service_file}",
-#      path    => ['/usr/bin','/bin'],
-#      user    => root,
-#      onlyif  => "test -f ${openvswitch_service_path}/${openvswitch_service_file}",
-#    }
+    package { 'zlib1g-dev':       ensure => 'installed' }
+    package { 'libglib2.0-dev':   ensure => 'installed' }
+    package { 'libxml2-dev':      ensure => 'installed' }
+    package { 'libdevmapper-dev': ensure => 'installed' }
+    package { 'libpciaccess-dev': ensure => 'installed' }
+    package { 'libnl-dev':        ensure => 'installed' } 
+    package { 'pkg-config':       ensure => 'installed' }
+    package { 'bison':            ensure => 'installed' }
+    package { 'flex':             ensure => 'installed' }
+    package { 'libyajl2':         ensure => 'installed' }
+    package { 'libyajl-dev':      ensure => 'installed' }
+    package { 'python-dev':       ensure => 'installed' }
+    package { 'numactl':          ensure => 'installed' }
+    package { 'libdbus-1-dev':    ensure => 'installed' }
+    package { 'libnuma1':         ensure => 'installed' }
+    package { 'libnuma-dev':      ensure => 'installed' }
+    package { 'libgnutls26':      ensure => 'installed' }
+    package { 'libgnutls-dev':    ensure => 'installed' }
 
-#    if $::operatingsystem == 'CentOS' {
-#      exec { 'systemctl daemon-reload':
-#        path    => ['/usr/bin','/bin','/usr/sbin'],
-#        user    => root,
-#        require => Exec['update ovs service'],
-#      }
-#    }
-
-    package { 'zlib1g-dev':
-      ensure   => installed,
-    }
-
-    package { 'libglib2.0-dev':
-      ensure   => installed,
-    }
-
-    package { 'libxml2-dev':
-      ensure   => installed,
-    }
-
-    package { 'libdevmapper-dev':
-      ensure   => installed,
-    }
-
-    package { 'libpciaccess-dev':
-      ensure   => installed,
-    }
-
-    package { 'libnl-dev':
-      ensure   => installed,
-    }
-
-    package { 'pkg-config':
-      ensure   => installed,
-    }
-
-    package { 'bison':
-      ensure   => installed,
-    }
-
-    package { 'flex':
-      ensure   => installed,
-    }
-
-    package { 'libyajl2':
-      ensure   => installed,
-    }
-
-    package { 'libyajl-dev':
-      ensure   => installed,
-    }
-
-    package { 'bc':
-      ensure   => installed,
-    }
-
-    package { 'python-dev':
-       ensure   => installed,
-    }
-
-    package { 'numactl':
-      ensure   => installed,
-    }
-
-    package { 'libdbus-1-dev':
-      ensure   => installed,
-    }
-
-    package { 'libnuma1':
-      ensure   => installed,
-    }
-
-    package { 'libnuma-dev':
-      ensure   => installed,
-    }
-
-    package { 'libgnutls26':
-      ensure   => installed,
-    }
-
-    package { 'libgnutls-dev':
-      ensure   => installed,
-    }
+    package { 'bc':               ensure => 'installed' }
 
     exec {'build qemu':
       command => "true && cd /opt/code/qemu && ./configure --enable-kvm --target-list=x86_64-softmmu && make && make install",
       user    => root,
       path    => ['/usr/bin','/bin'],
-      require => [ Package['flex'], Package['bison'], Package['pkg-config'], Package['libnl-dev'], Package['libpciaccess-dev'], Package['libdevmapper-dev'], Package['libxml2-dev'], Package['libglib2.0-dev'], Package['zlib1g-dev'], Package['numactl'], Package['python-dev'],Package['libdbus-1-dev'],Package['bc'],Package['libnuma1'], Package['libnuma-dev'] , Package['libgnutls26'], Package['libgnutls-dev']],
+      require => [ Package['flex'], Package['bison'], Package['pkg-config'], Package['libnl-dev'],
+                   Package['libpciaccess-dev'], Package['libdevmapper-dev'], Package['libxml2-dev'],
+                   Package['libglib2.0-dev'], Package['zlib1g-dev'], Package['numactl'], Package['python-dev'],
+                   Package['libdbus-1-dev'],Package['bc'],Package['libnuma1'], Package['libnuma-dev'],
+                   Package['libgnutls26'], Package['libgnutls-dev']],
       timeout => 0,
     }
 
@@ -163,16 +101,14 @@ class ovsdpdk::install_ovs_dpdk (
       user    => root,
       onlyif  => 'test -f /etc/init.d/libvirtd',
     }
-#exec {'init ovs-dpdk':
-#command => '/etc/init.d/ovs-dpdk init',
-#user    => root,
-#require => [ Exec['create_ovs_dpdk'], File['/etc/default/ovs-dpdk'] ],
-#}
+
+    # schema convert required as we are not removing original db
     exec { "ovsdb-tool convert /etc/openvswitch/conf.db ${ovs_dir}/vswitchd/vswitch.ovsschema":
       path    => ['/usr/bin','/bin'],
       user    => root,
     }
 
+    # patching of linux_net.py is required for removing error when setting of MTU
     exec { 'patch linux_net':
       command => "cp ${plugin_dir}/files/linux_net.py /usr/lib/python2.7/dist-packages/nova/network/linux_net.py",
       path    => ['/usr/bin','/bin'],
