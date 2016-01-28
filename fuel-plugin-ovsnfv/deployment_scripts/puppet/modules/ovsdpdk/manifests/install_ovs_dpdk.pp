@@ -110,10 +110,11 @@ class ovsdpdk::install_ovs_dpdk (
 
     # patching of linux_net.py is required for removing error when setting of MTU
     exec { 'patch linux_net':
-      command => "cp ${plugin_dir}/files/linux_net.py /usr/lib/python2.7/dist-packages/nova/network/linux_net.py",
-      path    => ['/usr/bin','/bin'],
-      user    => root,
-      onlyif  => 'test -f /usr/lib/python2.7/dist-packages/nova/network/linux_net.py',
+      command   => "${plugin_dir}/files/linux_net.sh",
+      user      => root,
+      path      => ['/usr/bin','/bin'],
+      logoutput => 'true',
+      onlyif    => 'test -f /usr/lib/python2.7/dist-packages/nova/network/linux_net.py',
     }
 
   }
