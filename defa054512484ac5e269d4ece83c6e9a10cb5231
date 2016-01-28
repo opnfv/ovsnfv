@@ -2,6 +2,210 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a4e6583_13962f95",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "Do you not need to specify the DPDK location here? i.e. --with-dpdk\u003d\"SOME LOCATION\"?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_f392739e",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "Does this pull the version as something like 2.3.9 or 2.4.9? It maybe be better to take the version as the commit id. As 2.3.9 just refers to anything between 2.3 and 2.4.",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_d38f7774",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "Maybe get the actual commit id and truncate it?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_b38cfb80",
+        "filename": "build/buildtestovs.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "The name of this file is consfusing .. you have a build_ovs_rpm and and a test_ovs_rpm and a buildtestovs. How do they all relate?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_93821f51",
+        "filename": "build/config",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "I presume this is only default parameters as it can be overridden? Suggest clarifying this in the comments.",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_7387a362",
+        "filename": "build/config",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "\"#\" typo?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_33812b4b",
+        "filename": "build/config",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "What does \"NOCHECK\" do? Can you add a comment?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_53f3870a",
+        "filename": "build/instack_ovs.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "I dont think I am qualified to review this extensively  (or clean.sh).",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_13dd0f71",
+        "filename": "build/instack_ovs.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "Are these needed? Is there any other unnecessary code?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_93e9ff1c",
+        "filename": "build/test_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "Are any of these parameters actually needed here? TAG is not used for example.",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_73ee8324",
+        "filename": "build/test_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "I dont think any of this is needed? You are just installing the rpm.",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_b3b51b33",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-28T21:31:14Z",
+      "side": 1,
+      "message": "typo \"ovs\"",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_f8ac9037",
         "filename": "ci/buildovs.sh",
         "patchSetId": 4
