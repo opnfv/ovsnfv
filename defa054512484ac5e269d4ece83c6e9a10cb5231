@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a4e6583_f8ac9037",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-01-28T18:47:27Z",
+      "side": 1,
+      "message": "To Dan\u0027s comment, this script, upload_artifacts.sh above doesn\u0027t get called unless we are doing a daily build. Once this patch is merged then it will be used for daily builds",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
