@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5a4e6583_bd73aa14",
+        "filename": "fuel-plugin-ovsnfv/deployment_scripts/puppet/modules/ovsdpdk/files/linux_net.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-01-28T12:58:21Z",
+      "side": 1,
+      "message": "Hi Michal, I think you have something for that ready? If so can you push it to master and we can merge and cherry pick to stable/brahmaputra",
+      "parentUuid": "5a4e6583_6226af6a",
+      "revId": "7ce21aebcdabafaa24601104643cbd1c0b4bc8e4",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_422bb330",
         "filename": "fuel-plugin-ovsnfv/deployment_scripts/puppet/modules/ovsdpdk/manifests/install_ovs_dpdk.pp",
         "patchSetId": 1
