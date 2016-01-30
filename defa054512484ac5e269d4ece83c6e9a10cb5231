@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5a4e6583_023c922e",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-01-30T21:49:12Z",
+      "side": 1,
+      "message": "I want to punt on this because I am not sure yet what the location is. The goal is to try to build a combined single RPM, specifying dpdk and dpdk revision on the command line.",
+      "parentUuid": "5a4e6583_13962f95",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_f392739e",
         "filename": "build/build_ovs_rpm.sh",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-01-28T21:31:14Z",
       "side": 1,
       "message": "Does this pull the version as something like 2.3.9 or 2.4.9? It maybe be better to take the version as the commit id. As 2.3.9 just refers to anything between 2.3 and 2.4.",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_22d1cefb",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-01-30T21:49:12Z",
+      "side": 1,
+      "message": "No, it will pull 2.4 or 2.5 if those are specified in the command line argument. Otherwise it will do the build from the top of the master tree which will be 2.5.90. The idea here is to do a daily build of upstream current with the idea of a daily smoke test of the upstream produced RPM. We can also run this script.",
+      "parentUuid": "5a4e6583_f392739e",
       "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5a4e6583_c2ee7ab4",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-01-30T21:49:12Z",
+      "side": 1,
+      "message": "Currently, the RPM name has something like 2.5.90-$DATE. The date is added elsewhere. Let me know if you think this isn\u0027t sufficient. If this script is called twice, it could produce RPMs. Please look in the artifactory to see if you agree with the RPM naming convention. This patch does not change the current RPM naming scheme, http://artifacts.opnfv.org/ovsnfv/opnfv-2016-01-29-openvswitch-debuginfo-2.5.90-1.x86_64.rpm",
+      "parentUuid": "5a4e6583_d38f7774",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_b38cfb80",
         "filename": "build/buildtestovs.sh",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2016-01-28T21:31:14Z",
       "side": 1,
       "message": "The name of this file is consfusing .. you have a build_ovs_rpm and and a test_ovs_rpm and a buildtestovs. How do they all relate?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_e24856ce",
+        "filename": "build/buildtestovs.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-01-30T21:49:12Z",
+      "side": 1,
+      "message": "OK, I will rename it in the next patch series. Do you have a suggestion for the name?",
+      "parentUuid": "5a4e6583_b38cfb80",
       "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -121,6 +193,24 @@
     },
     {
       "key": {
+        "uuid": "5a4e6583_620c6695",
+        "filename": "build/config",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-01-30T21:49:12Z",
+      "side": 1,
+      "message": "NOCHECK specifies the option to rpm builder. Without it, the rpm spec file cause rpm build to do a make check while building the RPM. I will update doc of this option.",
+      "parentUuid": "5a4e6583_33812b4b",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_53f3870a",
         "filename": "build/instack_ovs.sh",
         "patchSetId": 4
@@ -166,6 +256,24 @@
       "writtenOn": "2016-01-28T21:33:54Z",
       "side": 1,
       "message": "Does \"sudo\" run on the jenkins host?",
+      "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_c2e1da9b",
+        "filename": "build/instack_ovs.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-01-30T21:49:12Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "5a4e6583_53ca67a2",
       "revId": "defa054512484ac5e269d4ece83c6e9a10cb5231",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
