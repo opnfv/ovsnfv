@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a4e6583_c8ba190a",
+        "filename": "fuel-plugin-ovsnfv/tasks.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-31T12:41:41Z",
+      "side": 1,
+      "message": "2016!",
+      "revId": "2f175c607642c9b8ddc3025a60ece8efc3855c80",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
