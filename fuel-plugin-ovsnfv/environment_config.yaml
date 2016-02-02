@@ -1,7 +1,7 @@
 attributes:
   fuel-plugin-ovsnfv_text:
-    value: 'Set default value'
-    label: 'Text field'
-    description: 'Description for text field'
+    value: 'ens1f1'
+    label: 'NIC for DPDK'
+    description: 'Specify compute node interface to which OVS-DPDK binds'
     weight: 25
     type: "text"
