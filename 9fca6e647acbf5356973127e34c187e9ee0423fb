@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5a4e6583_1213b6b9",
+        "filename": "fuel-plugin-ovsnfv/pre_build_hook",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-02-05T15:09:28Z",
+      "side": 1,
+      "message": "Licenses are in a separate patch.",
+      "parentUuid": "5a4e6583_72a0aa90",
+      "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_92a3269e",
         "filename": "fuel-plugin-ovsnfv/pre_build_hook",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "5a4e6583_f217faa1",
+        "filename": "fuel-plugin-ovsnfv/pre_build_hook",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-02-05T15:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a4e6583_92a3269e",
+      "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_f2bb7ac2",
         "filename": "fuel-plugin-ovsnfv/pre_build_hook",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-02-05T14:45:48Z",
       "side": 1,
       "message": "Does this limit us to building plugins on debian-based hosts? Is this ok for our fuel builds?",
+      "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_3246b2c0",
+        "filename": "fuel-plugin-ovsnfv/pre_build_hook",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-02-05T15:09:28Z",
+      "side": 1,
+      "message": "That is a good point. \n\nBuild host must have apt-rdepends and aptitude installed \u003d\u003e your .iso build host must be debian based. QED.",
+      "parentUuid": "5a4e6583_f2bb7ac2",
       "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
