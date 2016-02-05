@@ -72,6 +72,23 @@
     },
     {
       "key": {
+        "uuid": "5a4e6583_bd8833e8",
+        "filename": "fuel-plugin-ovsnfv/pre_build_hook",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-02-05T19:05:53Z",
+      "side": 1,
+      "message": "I have 2 major problems with the above two lines:\n\n1) If the script is called with its absolet pathname then DIR\nwill be set to the directory containing the script (not the\ncurrent directory), almost guaranteed to be the wrong location\n(the directory containing the command could very well be\nread-only).\n\n2) If the script is run twice in parallel then the two instances\nwill have the same temporary directory, causing obvious problesm.\n\nI would prefer to just set `TMP\u003dtmp.$$\u0027 and use appropriate\n`cd\u0027 throughout the script.",
+      "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a4e6583_f2bb7ac2",
         "filename": "fuel-plugin-ovsnfv/pre_build_hook",
         "patchSetId": 1
@@ -101,6 +118,40 @@
       "side": 1,
       "message": "That is a good point. \n\nBuild host must have apt-rdepends and aptitude installed \u003d\u003e your .iso build host must be debian based. QED.",
       "parentUuid": "5a4e6583_f2bb7ac2",
+      "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_9d6d7735",
+        "filename": "fuel-plugin-ovsnfv/pre_build_hook",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-02-05T19:05:53Z",
+      "side": 1,
+      "message": "You can use parentheses to solve the errant `cd\u0027 problem.\nJust enclose the commands in `()\u0027, which are executed in\na sub-shell, and you don\u0027t have to worry about having to\n`cd\u0027 back to where you were, e.g.:\n\n(\n  cd $DL_DIR\n  for pkg_name in ...\n  do\n    aptitude ...\n  done\n)\n\nis all that\u0027s required.",
+      "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4e6583_7d6abb1b",
+        "filename": "fuel-plugin-ovsnfv/pre_build_hook",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-02-05T19:05:53Z",
+      "side": 1,
+      "message": "Likewise, enclosing the initial `cd\u0027 and all of these `git\u0027 commands in () would remove the need to `cd\u0027 back when done and allow a simple relative $DIR directory to be used.",
       "revId": "9fca6e647acbf5356973127e34c187e9ee0423fb",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
