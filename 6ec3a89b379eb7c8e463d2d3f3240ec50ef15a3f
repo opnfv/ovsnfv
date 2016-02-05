@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a4e6583_52f12ecc",
+        "filename": "fuel-plugin-ovsnfv/environment_config.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 3241
+      },
+      "writtenOn": "2016-02-05T14:01:17Z",
+      "side": 1,
+      "message": "How this value is connected to $ovs_ifname from manifest file ?",
+      "revId": "6ec3a89b379eb7c8e463d2d3f3240ec50ef15a3f",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
