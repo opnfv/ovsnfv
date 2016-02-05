@@ -1,6 +1,37 @@
 #!/bin/bash
 
-set -eux
+set -e
+set -u
+#set -x
+
+function die
+{
+    msg=${1:-Fatal}
+    echo "$msg at ${BASH_SOURCE[1]}:${BASH_LINENO[0]}" >&2
+    exit 1
+}
+
+function file_to_list
+{
+    FILE=$1
+    [ ! -f $FILE ] && die "$FILE file not found"
+    list_val=""
+    while read val
+    do
+        list_val="$list_val $val"
+    done < $FILE
+    echo "$list_val"
+}
+
+function ensure_sorted_unique
+{
+    FILE=$1
+    TMP_FILE=$(mktemp /tmp/ovsnfv.XXXXXX)
+    cat $FILE | sort -u > $TMP_FILE
+    cp $TMP_FILE $FILE
+    rm $TMP_FILE
+    sort -c $FILE || die "Failed to sort $FILE"
+}
 
 BUILD_FOR=${BUILD_FOR:-ubuntu}
 DIR="$(dirname `readlink -f $0`)"
@@ -14,29 +45,63 @@ networking_ovs_dpdk=${networking_ovs_dpdk:-master}
 rm -rf ${TMP}
 mkdir -p ${TMP}
 
-# sudo apt-get install -qq --reinstall --print-uris bash | perl -lne "/'(.*?)'/;print \$1"
-if [ "$INCLUDE_DEPENDENCIES" = true ]
-then
-  rm -rf ${DIR}/repositories/${BUILD_FOR}/*
-  wget --content-disposition -N -P ${DIR}/repositories/${BUILD_FOR}/ -i "${DIR}/ovs_package/${BUILD_FOR}/dependencies.txt"
-fi
+MANIFEST_DIR=${DIR}/ovs_package/${BUILD_FOR}
+DL_DIR=${DIR}/repositories/${BUILD_FOR}
+REQD_PACKAGES=${MANIFEST_DIR}/reqd_packages
+STD_PACKAGES=${MANIFEST_DIR}/std_packages
+ALL_DEPS=${TMP}/all_deps
+REQD_DL=${TMP}/reqd_dl
+
+mkdir -p $DL_DIR
+rm $DL_DIR/* || true
+
+[ ! -f $REQD_PACKAGES ] && die "$REQD_PACKAGES file not found"
+[ ! -f $STD_PACKAGES ] && die "$STD_PACKAGES file not found"
+
+ensure_sorted_unique $REQD_PACKAGES
+ensure_sorted_unique $STD_PACKAGES
+
+pkg_list=""
+while read pkg_name
+do
+    pkg_list="$pkg_list $pkg_name"
+done < $REQD_PACKAGES
+
+pkg_list=$(file_to_list $REQD_PACKAGES)
+
+apt-rdepends $pkg_list 2> /dev/null | grep "^[a-zA-Z]" | sort > $ALL_DEPS
+all_deps=$(file_to_list $ALL_DEPS)
+
+# ALL_DEPS less STD_PACKAGES = REQD_DOWNLOADS
+comm $ALL_DEPS $STD_PACKAGES -23 > $REQD_DL
+ensure_sorted_unique $REQD_DL
+
+cd $DL_DIR  #aptitude only downloads to curr dir
+for pkg_name in $(cat $REQD_DL)
+do
+    aptitude download $pkg_name || die "Download failed for $pkg_name."
+done
+
+
+cd $DIR
+wget --content-disposition -N -P ${DL_DIR} -i "${MANIFEST_DIR}/dependencies.txt" || die "wget failed."
 
 cd ${TMP}
 
 git clone https://github.com/openstack/networking-ovs-dpdk --branch stable/liberty --single-branch networking-ovs-dpdk
 rm -rf ${TMP}/networking_ovs_dpdk/.git
-tar cfz ${DIR}/repositories/${BUILD_FOR}/networking-ovs-dpdk.tgz networking-ovs-dpdk
+tar cfz ${DL_DIR}/networking-ovs-dpdk.tgz networking-ovs-dpdk
 
 git clone https://github.com/openvswitch/ovs
 cd ovs
 git checkout 1e77bbe565bbf5ae7f4c47f481a4097d666d3d68
 cd ..
 rm -rf ${TMP}/ovs/.git
-tar cfz ${DIR}/repositories/${BUILD_FOR}/ovs.tgz ovs
+tar cfz ${DL_DIR}/ovs.tgz ovs
 
 git clone http://dpdk.org/git/dpdk --branch v2.0.0 --single-branch dpdk
 rm -rf ${TMP}/dpdk/.git
-tar cfz ${DIR}/repositories/${BUILD_FOR}/dpdk.tgz dpdk
+tar cfz ${DL_DIR}/dpdk.tgz dpdk
 
 cd $DIR
-rm -rf ${TMP}
+#rm -rf ${TMP}
