@@ -10,5 +10,4 @@ OVSNFV Guides and Installation
    :numbered:
    :maxdepth: 3
 
-   quickstart.rst
    installation.rst

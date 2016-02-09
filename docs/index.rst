@@ -7,12 +7,9 @@
 ====================
 Open vSwitch for NFV
 ====================
-Welcome to OVSNFV's documentation !
+Welcome to OVSNFV's documentation!
 
-.. _OVSNFV: https://wiki.opnfv.org/open_vswitch_for_nfv
-.. _REPO: https://opnfv.org/gerrit/ovsnfv
-
-OVSNFV_ is an OPNFV collaborative development project.
+OVSNFV is an OPNFV collaborative development project.
 
 The OVSNFV project proposes:
 
@@ -28,8 +25,8 @@ The OVSNFV project proposes:
    :maxdepth: 3
    :numbered: 5
 
-   http://artifacts.opnfv.org/ovsnfv/docs/userguides/index.html
-   http://artifacts.opnfv.org/ovsnfv/docs/release/index.html
+   ./configguide/index.rst
+   ./userguide/index.rst
 
 
 Indices
