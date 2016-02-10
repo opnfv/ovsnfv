@@ -26,6 +26,7 @@ while getopts "a:dg:hi:p:tu:v" opt; do
             ;;
         d)
             DPDK="yes"
+            setdpdk="-d"
             ;;
         g)
             TAG=${OPTARG}
@@ -58,8 +59,10 @@ echo ===============================================
 echo Default Configuration Options.
 echo ===============================================
 echo option NOCHECK is set to $NOCHECK
+echo build DPDK option is set to $DPDK
 echo DPDK Patch URL is set to $DPDK_PATCH
-echo Build and Test OVS Kernel Module is set to $KMOD
+echo DPDK Version is set to $DPDK_VERSION
+echo Option for OVS Kernel Module is set to $KMOD
 echo ===============================================
 if [[ $NOCHECK =~ "yes" ]]; then
     setnocheck="-c"
@@ -236,8 +239,11 @@ done
 ssh -T ${SSH_OPTIONS[@]} "root@$UNDERCLOUD" <<EOI
     set -e
 
-    echo yum -y update
+    echo "----------------------------------------------------------------"
+    echo yum update and install pciutils prereqs for DPDK tools and samples.
+    echo
     yum -y update
+    yum -y install pciutils libvirt
 EOI
 
 # reboot VM
@@ -330,37 +336,66 @@ echo Copy build and test scripts to undercloud vm.
 echo BUILD_BASE is $BUILD_BASE
 scp ${SSH_OPTIONS[@]} $BUILD_BASE/build_ovs_rpm.sh stack@$UNDERCLOUD:
 scp ${SSH_OPTIONS[@]} $BUILD_BASE/test_ovs_rpm.sh stack@$UNDERCLOUD:
-
 #
-# build rpm on undercloud.
+# build dpdk rpm locally.
+#
+if [[ "$DPDK" =~ "yes" ]]; then
+    echo Build DPDK RPMs
+    ./build_dpdk_rpm.sh -g $DPDK_VERSION
+fi
+#
+# Build rpm on undercloud if custom kernel module is required otherwise build
+# locally.
 #
 if [ ! -z $kernel_version ]; then
     echo build rpm on undercloud with kernel version $kernel_version
     ssh -T ${SSH_OPTIONS[@]} "stack@$UNDERCLOUD" <<EOI
         ./build_ovs_rpm.sh -a $kernel_major $setnocheck -g $TAG -i $kernel_minor -k -p $OVS_PATCH -u $OVS_REPO_URL
 EOI
-else
-    # build locally and copy RPMS to undercloud vm for testing
+    scp ${SSH_OPTIONS[@]} stack@UNDERCLOUD:*.rpm $RPMDIR/RPMS/
+elif [[ "$DPDK" =~ "yes" ]]; then
+    echo Build ovs with DPDK locally
+    #
+    # Build locally and copy RPMS to undercloud vm for testing
     # and copy RPMS to temporary release dir.
     #
-    echo build rpm on undercloud
-    ssh -T ${SSH_OPTIONS[@]} "stack@$UNDERCLOUD" <<EOI
-        ./build_ovs_rpm.sh $setnocheck -g $TAG $setkmod -p $OVS_PATCH -u $OVS_REPO_URL
-EOI
+    ./build_ovs_rpm.sh $setnocheck -d -g $TAG -p $OVS_PATCH -u $OVS_REPO_URL
+else
+    # Build locally and copy RPMS to undercloud vm for testing
+    # and copy RPMS to temporary release dir.
+    #
+    echo build OVS rpm locally
+    ./build_ovs_rpm.sh $setnocheck -g $TAG $setkmod -p $OVS_PATCH -u $OVS_REPO_URL
 fi
 #
 # Test rpm on undercloud vm
+# TODO: Undercloud VM doesn't support sse3 instruction needed set to run DPDK
 #
-if [[ ! -z $TESTRPM ]]; then
-    echo Test rpm on undercloud vm
-    ssh -T ${SSH_OPTIONS[@]} "stack@$UNDERCLOUD" <<EOI
-        ./test_ovs_rpm.sh $setkmod
+if [ ! -z $TESTRPM ]; then
+    if [ -z $DPDK ]; then
+        echo "-----------------------------------------"
+        echo Test rpm on undercloud vm
+        echo Copy all RPMS to undercloud for testing.
+        echo
+        scp ${SSH_OPTIONS[@]} $RPMDIR/RPMS/x86_64/* stack@$UNDERCLOUD:
+        scp ${SSH_OPTIONS[@]} $RPMDIR/SOURCES/dpdk*.rpm stack@$UNDERCLOUD:
+        ssh -T ${SSH_OPTIONS[@]} "stack@$UNDERCLOUD" <<EOI
+            ./test_ovs_rpm.sh $setdpdk $setkmod
 EOI
+    else
+        echo "-----------------------------------------"
+        echo "TODO: Undercloud VM doesn't support sse3 instruction needed DPDK."
+        echo "DPDK is required, therefore test DPDK/OVS RPM in host"
+        echo
+        ./test_ovs_rpm.sh $setdpdk $setkmod
+    fi
 fi
+
 #
-# copy rpms from undercloud back to host
+# If tests pass, copy rpms to release dir
 #
+echo copy rpms to release dir
 echo copy rpms from undercloud back to $TMP_RELEASE_DIR in host
-scp ${SSH_OPTIONS[@]} stack@$UNDERCLOUD:rpmbuild/RPMS/x86_64/*.rpm $TMP_RELEASE_DIR
+cp $RPMDIR/RPMS/x86_64/* $TMP_RELEASE_DIR
 
 exit 0
