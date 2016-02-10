@@ -1,16 +1,24 @@
 #!/bin/bash
-##############################################################################
-# Copyright (c) 2016 Red Hat Inc. and others.
-# therbert@redhat.com
-# All rights reserved. This program and the accompanying materials
-# are made available under the terms of the Apache License, Version 2.0
-# which accompanies this distribution, and is available at
-# http://www.apache.org/licenses/LICENSE-2.0
-##############################################################################
+
+# Copyright (c) 2016 Open Platform for NFV Project, Inc. and its contributors
+#
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+#
+#        http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+
 set -e
 
 echo "==============================="
 echo executing $0 $@
+echo
 
 usage() {
     echo "$0 -a <kernel major> -d -g <OVS TAG> -h\
@@ -81,6 +89,10 @@ else
     echo Will use default kernel in ovs test vm
 fi
 
+if [ ! -z $DPDK ]; then
+    setbuilddpdk="-d"
+fi
+
 if [ -z ${WORKSPACE+1} ]; then
     # We are not being run by Jenkins.
     export WORKSPACE=$HOME/opnfv/ovsnfv
@@ -127,19 +139,12 @@ if [ ! -z $TESTRPM ]; then
     if [ ! -z $kernel_version ]; then
         instack_ovs.sh -a $kernel_major -g $TAG -i $kernel_minor -p $OVS_PATCH -t -u $OVS_REPO_URL
     else
-        instack_ovs.sh -g $TAG -p $OVS_PATCH -t -u $OVS_REPO_URL
+        instack_ovs.sh $setbuilddpdk -g $TAG -p $OVS_PATCH -t -u $OVS_REPO_URL
     fi
 else
     # Run build locally.
-    build_ovs_rpm.sh -d -g -p $OVS_PATCH -u $OVS_REPO_URL
+    build_ovs_rpm.sh $setbuilddpdk -g $TAG -p $OVS_PATCH -u $OVS_REPO_URL
     cp $HOME/rpmbuild/RPMS/* $TMP_RELEASE_DIR
 fi
-
-echo "--------------------------------------------------"
-echo "Build OVS RPM from upstream git $OVS_REPO_URL version $TAG"
-if [ ! -z $OVS_PATCH ]; then
-    echo "Apply patches from: $OVS_PATCH"
-fi
-echo
 
 exit 0

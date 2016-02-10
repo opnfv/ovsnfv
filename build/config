@@ -21,7 +21,7 @@
 # built from the top of current master. The tag uses the current ovs naming and
 # release convention. This option can be overriden in the command line.
 #
-export OVSTAG=master
+export OVSTAG=2.4.0
 #
 # when NOCHECK is yes, the ovs rpm is build with the --without check option which
 # Disables running "make check" as the RPM is built.
@@ -34,8 +34,10 @@ export PATCH=none
 #
 # DPDK configuration.
 #
+export WITH_DPDK=yes
 export DPDK_PATCH=none
+export DPDK_VERSION=2.2.0
 #
 # When KMOD is set, the Linux kernel module is built and tested.
 #
-export KMOD=yes
+export KMOD=no
