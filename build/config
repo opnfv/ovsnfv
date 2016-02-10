@@ -15,6 +15,31 @@
 
 # config file to be populated with configuration parameters for build.
 
-# OVS TAG
-export OVSTAG=master
-#export NOCHECK=true
+# OVS configuration.
+#
+# OVS TAG or revision to build. The default is master which causes an RPM to be
+# built from the top of current master. The tag uses the current ovs naming and
+# release convention. This option can be overriden in the command line.
+#
+export OVSTAG=2.4.0
+#
+# when NOCHECK is yes, the ovs rpm is build with the --without check option which
+# Disables running "make check" as the RPM is built.
+#
+export NOCHECK=yes
+#
+# URL to external URL for patches to be applied for Open vSwitch.
+#
+export PATCH=none
+#
+# DPDK configuration.
+#
+export WITH_DPDK=yes
+export DPDK_PATCH=none
+export DPDK_VERSION=16.04-rc4
+export COPR_DPDK_VERSION=039002f07eb1dd96a061235f0bf0493da386bba2
+export COPR_OVS_VERSION=5e311e125035edc706efbd9cc679f67e5972dbb4 
+#
+# When KMOD is set, the Linux kernel module is built and tested.
+#
+export KMOD=no

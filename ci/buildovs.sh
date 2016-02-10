@@ -1,12 +1,23 @@
 #!/bin/bash
-##############################################################################
-# Copyright (c) 2015 Red Hat Inc. and others.
-# therbert@redhat.com
-# All rights reserved. This program and the accompanying materials
-# are made available under the terms of the Apache License, Version 2.0
-# which accompanies this distribution, and is available at
-# http://www.apache.org/licenses/LICENSE-2.0
-##############################################################################
+
+# Copyright (c) 2016 Open Platform for NFV Project, Inc. and its contributors
+#
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+#
+#        http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+
+set -e
+
+echo "==================================="
+echo executing $0 $@
 
 # Check to verify that I am being run by Jenkins CI.
 
@@ -16,9 +27,7 @@ if [ -z ${WORKSPACE+1} ]; then
 fi
 
 
-if [ -z ${OVSTAG+1} ]; then
-    export TAG=master
-else
+if [ ${OVSTAG} ]; then
     export TAG=$OVSTAG
 fi
 
@@ -38,7 +47,6 @@ if [ ! -f $BUILD_BASE/config ]; then
 fi
 
 export PATH=$PATH:$WORKSPACE/ci:$BUILD_BASE
-
 source $BUILD_BASE/config
 
 cd $BUILD_BASE
@@ -51,10 +59,6 @@ export CACHE_DIR=$TOPDIR/cache
 export TMPDIR=$TOPDIR/scratch
 export RPMDIR=$TOPDIR/rpmbuild
 
-echo "--------------------------------------------------"
-echo "Build OVS RPM from upstream git $TAG"
-echo
-
 mkdir -p $RPMDIR/RPMS
 mkdir -p $RPMDIR/SOURCES
 mkdir -p $RPMDIR/SPECS
@@ -65,97 +69,25 @@ then
     mkdir -p $TMP_RELEASE_DIR
 fi
 
-# Centos build server should support the following build prerequisites
-
-# yum install gcc make python-devel openssl-devel kernel-devel graphviz \
-# kernel-debug-devel autoconf automake rpm-build redhat-rpm-config \
-# libtool
-
-if [ -d $TMPDIR ]
-then
-    rm -rf $TMPDIR
-fi
-
-mkdir $TMPDIR
-
-cd $TMPDIR
-
-echo "---------------------"
-echo "Clone git repo $TAG"
-echo
-git clone https://github.com/openvswitch/ovs.git
-
-cd ovs
-echo "--------------------"
-echo "Checkout OVS $TAG"
-echo
-if [[ ! "$TAG" =~ "master" ]]; then
-    git checkout $TAG
-fi
-./boot.sh
-./configure
-echo "--------------------"
-echo "Make OVS $TAG"
-echo
-make
 #
-# Get version for master
+# Build ovs rpm with DPDK
 #
-echo "--------------------"
-echo "Get OVS version for $TAG"
+echo =============================================
+echo =======Build ovs rpm with DPDK and test in VM.
 echo
-if [[ "$TAG" =~ "master" ]]; then
-    v=$($TMPDIR/ovs/utilities/ovs-vsctl --version | head -1 | cut -d' ' -f4)
-    export VERSION=$v
-else
-    export VERSION=${TAG:1}
-fi
-
-echo "--------------------"
-echo "OVS version is $VERSION"
-echo
-echo "--------------------"
-echo "Make OVS distribution $TAG"
-echo
-
-make dist
-
-cd $TMPDIR/ovs
-
-cp openvswitch-$VERSION.tar.gz $TOPDIR/rpmbuild/SOURCES
-cp openvswitch-$VERSION.tar.gz $TMPDIR
-
-cd $TMPDIR
-tar -xzf openvswitch-$VERSION.tar.gz
-
-cd $TMPDIR/openvswitch-$VERSION
-
-
-echo "--------------------"
-echo "Build OVS RPM"
-echo
-
-if [ ! -z ${NOCHECK+1} ]; then
-    # Build RPM without checks
-    #
-    rpmbuild -bb --define "_topdir `echo $RPMDIR`" --without check rhel/openvswitch.spec
-else
-    rpmbuild -bb --define "_topdir `echo $RPMDIR`" rhel/openvswitch.spec
-fi
+$BUILD_BASE/BuildAndTestOVS.sh -d -g master -p none -t
+#
+# Build special version of ovs with patches --TODO
+#
 
 # Once build is done copy product to artifactory.
+# and cleanup
+
 
 echo "---------------------------------------"
-echo "Copy RPM into $TMP_RELEASE_DIR"
+echo "Cleanup temporary dirs"
 echo
-cp $RPMDIR/RPMS/x86_64/*.rpm $TMP_RELEASE_DIR
-
-# cleanup
-
-echo "---------------------------------------"
-echo "Cleanup $TMP_RELEASE_DIR"
-echo
-cd $BUILDDIR
+cd $BUILD_BASE
 
 if [ -d $TMPDIR ]
 then
@@ -166,7 +98,20 @@ fi
 # copy artifacts.
 
 if [[ "$JOB_NAME" =~ "daily" ]]; then
-    upload_artifacts.sh
+    $BUILD_BASE/../ci/upload_artifacts.sh
 fi
+
+if [ -d $TMP_RELEASE_DIR ]; then
+    rm -rf $CACHE_RELEASE_DIR
+fi
+
+if [ -d $RPMDIR ]; then
+    rm -rf $RPMDIR
+fi
+
+# Destroy VM if one has been deployed. Also remove any local installation of
+# DPDK and OVS
+#
+sudo $BUILD_BASE/../ci/clean.sh
 
 exit 0
