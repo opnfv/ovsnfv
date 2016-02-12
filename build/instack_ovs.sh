@@ -234,13 +234,16 @@ done
 
 # yum update undercloud and reboot.
 ssh -T ${SSH_OPTIONS[@]} "root@$UNDERCLOUD" <<EOI
-set -e
+    set -e
 
-echo yum -y update
-yum -y update
+    echo yum -y update
+    yum -y update
 EOI
 
-virsh reboot instack
+# reboot VM
+ssh -T ${SSH_OPTIONS[@]} stack@localhost <<EOI
+    virsh reboot instack
+EOI
 sleep 30
 
 # yum repo, triple-o package and ssh key setup for the undercloud
@@ -312,7 +315,9 @@ scp ${SSH_OPTIONS[@]} stack@$UNDERCLOUD:instackenv.json stack/instackenv.json
 #
 echo If using special kernel version, reboot undercloud vm
 if [ -z $kernel_version ]; then
-    virsh reboot instack
+    ssh -T ${SSH_OPTIONS[@]} stack@localhost <<EOI
+        virsh reboot instack
+EOI
     sleep 15
 fi
 
