@@ -194,7 +194,7 @@ fi
 sudo rm -f /tmp/instack.answers
 
 # ensure that no previous undercloud VMs are running
-clean.sh
+sudo ../ci/clean.sh
 # and rebuild the bare undercloud VMs
 ssh -T ${SSH_OPTIONS[@]} stack@localhost <<EOI
     set -e
