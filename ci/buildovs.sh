@@ -112,6 +112,6 @@ fi
 # Destroy VM if one has been deployed. Also remove any local installation of
 # DPDK and OVS
 #
-clean.sh
+sudo ../ci/clean.sh
 
 exit 0
