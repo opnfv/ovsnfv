@@ -87,7 +87,7 @@ BuildAndTestOVS.sh -d -p none -t
 echo "---------------------------------------"
 echo "Cleanup temporary dirs"
 echo
-cd $BUILDDIR
+cd $BUILD_BASE
 
 if [ -d $TMPDIR ]
 then
@@ -112,6 +112,6 @@ fi
 # Destroy VM if one has been deployed. Also remove any local installation of
 # DPDK and OVS
 #
-clean.sh
+sudo ../ci/clean.sh
 
 exit 0
