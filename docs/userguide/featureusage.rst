@@ -2,7 +2,6 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright (c) 2016 Open Platform for NFV Project, Inc. and its contributors
 
-============
 Open vSwitch
 ============
 
@@ -10,7 +9,6 @@ Open vSwtich (OVS) is a software switch commonly used in OpenStack deployments
 to replace Linux bridges as it offers advantages in terms of mobility, hardware
 integration and use by network controllers.
 
-================
 OPNFV Installers
 ================
 
