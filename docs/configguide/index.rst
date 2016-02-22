@@ -10,4 +10,5 @@ OVSNFV Guides and Installation
    :numbered:
    :maxdepth: 3
 
-   installation.rst
+   featureconfig.rst
+
