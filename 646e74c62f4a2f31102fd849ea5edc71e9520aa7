@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_c98595ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "Get rid of this now",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_a9a93926",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "We should start adding prefixes to indicate that this is for APEX. Maybe something like\n\nApex: Build OVS with DPDK",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_69bc616d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "2.5.90",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_09bbad73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "Can you make sure this \"TODO\" is clear in the code? I haven\u0027t got to it yet so maybe it isn\u0027t.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_296d4905",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "Could this be $0 instead of \"BuildAndTestOVS\" or are you referring to another file? SHoudl it be BuildAndTestOVS.sh?",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_e97611d8",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "Not sure what this line is supposed to show but I think some of it is a bash command and some of it is just contextual text. It may not be clear to a user that the contextual text does not need to be entered.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_09496d8b",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "I think you are generally better using absolute paths. Less chance something will go wrong if someone changes directory just before this section.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_89a67d52",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "Whitespace",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_c95a3550",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "As you cloned the dpdk repo earlier, why not just use that?",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_09404d55",
+        "filename": "build/dpdk.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "Better to pull the spec and patch.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_a92ed9a3",
+        "filename": "build/openvswitch.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "Better to pull and patch.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_892b1d94",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-23T11:08:07Z",
+      "side": 1,
+      "message": "If commented code isnt needed, please remove.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
