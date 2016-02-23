@@ -9,13 +9,13 @@ Open vSwtich (OVS) is a software switch commonly used in OpenStack deployments
 to replace Linux bridges as it offers advantages in terms of mobility, hardware
 integration and use by network controllers.
 
-OPNFV Installers
-================
+Supported OPNFV Installers
+--------------------------
 
 Currently not all installers are supported.
 
 Fuel Installer
---------------
+~~~~~~~~~~~~~~
 
 OVSNFV project supplies a Fuel Plugin to upgrades Open vSwitch on an OPNFV
 installation to use user-space datapath.
