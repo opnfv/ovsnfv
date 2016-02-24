@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_18d651c6",
+        "filename": "build/BuildAndTestOVS.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-02-24T15:03:48Z",
+      "side": 1,
+      "message": "Would [ -n ... ] be a more readable equivalent to [ ! -z ...]  ?",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_f8da55e8",
+        "filename": "build/BuildAndTestOVS.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-02-24T15:03:48Z",
+      "side": 1,
+      "message": "In this branch of the if when is the rpm built? bulid_ovs_rpm.sh is only called in the else branch of the if.",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_b8e4ddac",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-02-24T15:03:48Z",
+      "side": 1,
+      "message": "Would be more readable if all functions were defined either before or after the body of the script.",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_d8d799be",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-02-24T15:03:48Z",
+      "side": 1,
+      "message": "Is there some commonality between the two branches of the if/else that could be extracted? rpbuild lines look identical.",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
