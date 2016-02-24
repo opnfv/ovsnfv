@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a486d77_afd7f4ec",
+        "filename": "build/BuildAndTestOVS.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T22:25:12Z",
+      "side": 1,
+      "message": "-n works to see if a variable is set to a null string and only if string is quoted. In this patch set, the variable might not exist which is not the same thing.\nThe following snippet is from http://www.tldp.org/LDP/abs/html/comparison-ops.html#FTN.AEN3669\n---------\n-n\nstring is not null.\n\nCaution\t\nThe -n test requires that the string be quoted within the test brackets. Using an unquoted string with ! -z, or even just the unquoted string alone within test brackets (see Example 7-6) normally works, however, this is an unsafe practice. Always quote a tested string. [1]\n-------\n\n-n tests if the string is not null it doesn\u0027t test that the variable exists and I wanted a check that will work in both cases.\nThe best way probably is something like [ \"zz$testme\" \u003d\u003d \"zz\" ]\nPreferably, the arguments to the scripts need to be regularized.\n\nI would rather tackle this sort of change with a later patch set once we know that RPMs are being built in the daily builds, placed int he artifactory and are OK.",
+      "parentUuid": "1a486d77_18d651c6",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a486d77_f8da55e8",
         "filename": "build/BuildAndTestOVS.sh",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-24T15:03:48Z",
       "side": 1,
       "message": "In this branch of the if when is the rpm built? bulid_ovs_rpm.sh is only called in the else branch of the if.",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_cfc7d063",
+        "filename": "build/BuildAndTestOVS.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T22:25:12Z",
+      "side": 1,
+      "message": "If the option to test the RPM is selected, the RPM is built and tested in a VM which is instanced in the script in_stack.sh, otherwise the RPM is built only and the building is done in the host.",
+      "parentUuid": "1a486d77_f8da55e8",
       "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1a486d77_8f04387f",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T22:25:12Z",
+      "side": 1,
+      "message": "Wil fix in next patch set.",
+      "parentUuid": "1a486d77_b8e4ddac",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a486d77_d8d799be",
         "filename": "build/build_ovs_rpm.sh",
         "patchSetId": 9
@@ -64,6 +118,24 @@
       "writtenOn": "2016-02-24T15:03:48Z",
       "side": 1,
       "message": "Is there some commonality between the two branches of the if/else that could be extracted? rpbuild lines look identical.",
+      "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_6f09fc94",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T22:25:12Z",
+      "side": 1,
+      "message": "OK, I will take user space rpm build line out of conditional in next patch set.",
+      "parentUuid": "1a486d77_d8d799be",
       "revId": "e5500eab86479f2ab631eddb17c3369c8992a00e",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
