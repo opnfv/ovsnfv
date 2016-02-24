@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "1a486d77_f2715678",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "Yes, I will headline the comment but it is not just for Apex. Aren\u0027t there other consumers that will consume \"Raw\" RPMs such as VSPERF?",
+      "parentUuid": "1a486d77_a9a93926",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a486d77_69bc616d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -47,6 +65,24 @@
       "writtenOn": "2016-02-23T11:08:07Z",
       "side": 1,
       "message": "2.5.90",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_d26e5a96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "Will fix in next patchset.",
+      "parentUuid": "1a486d77_69bc616d",
       "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "1a486d77_b26bde84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "Yes, it should be fairly clear. All builds and tests are done in host for now. I hope to work out this SSE3 problem with Apex during the run up to C release.",
+      "parentUuid": "1a486d77_09bbad73",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a486d77_296d4905",
         "filename": "build/build_dpdk_rpm.sh",
         "patchSetId": 5
@@ -81,6 +135,24 @@
       "writtenOn": "2016-02-23T11:08:07Z",
       "side": 1,
       "message": "Could this be $0 instead of \"BuildAndTestOVS\" or are you referring to another file? SHoudl it be BuildAndTestOVS.sh?",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_9268e288",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "All scripts have a common API. By running BuildAndTestOvs script, you will get a more thorough description of arguments. Probably should make this clearer. Thanks!",
+      "parentUuid": "1a486d77_296d4905",
       "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "1a486d77_720566c1",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "OK, took out the line in the next patch set.",
+      "parentUuid": "1a486d77_e97611d8",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a486d77_09496d8b",
         "filename": "build/build_dpdk_rpm.sh",
         "patchSetId": 5
@@ -115,6 +205,24 @@
       "writtenOn": "2016-02-23T11:08:07Z",
       "side": 1,
       "message": "I think you are generally better using absolute paths. Less chance something will go wrong if someone changes directory just before this section.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_520a6ad3",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "OK, I will fix in next patch set.",
+      "parentUuid": "1a486d77_09496d8b",
       "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -155,6 +263,24 @@
     },
     {
       "key": {
+        "uuid": "1a486d77_320feee3",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "Yes, This is changed in next patch set.",
+      "parentUuid": "1a486d77_c95a3550",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a486d77_09404d55",
         "filename": "build/dpdk.spec",
         "patchSetId": 5
@@ -166,6 +292,24 @@
       "writtenOn": "2016-02-23T11:08:07Z",
       "side": 1,
       "message": "Better to pull the spec and patch.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_1214f2f3",
+        "filename": "build/dpdk.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "This creates problem when COPR upstream updates. I fixed this in the next patch set and deleted spec files.",
+      "parentUuid": "1a486d77_09404d55",
       "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
@@ -189,6 +333,24 @@
     },
     {
       "key": {
+        "uuid": "1a486d77_f2f836c6",
+        "filename": "build/openvswitch.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "Likewise for dpdk spec. Fixed in next patch set.",
+      "parentUuid": "1a486d77_a92ed9a3",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a486d77_892b1d94",
         "filename": "ci/buildovs.sh",
         "patchSetId": 5
@@ -200,6 +362,24 @@
       "writtenOn": "2016-02-23T11:08:07Z",
       "side": 1,
       "message": "If commented code isnt needed, please remove.",
+      "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_d2f53acc",
+        "filename": "ci/buildovs.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-02-24T00:25:51Z",
+      "side": 1,
+      "message": "Fixed in next patch set.",
+      "parentUuid": "1a486d77_892b1d94",
       "revId": "646e74c62f4a2f31102fd849ea5edc71e9520aa7",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
