@@ -75,7 +75,7 @@ fi
 echo =============================================
 echo =======Build ovs rpm with DPDK and test in VM.
 echo
-BuildAndTestOVS.sh -d -g master -p none -t
+$BUILD_BASE/BuildAndTestOVS.sh -d -g master -p none -t
 #
 # Build special version of ovs with patches --TODO
 #
@@ -98,7 +98,7 @@ fi
 # copy artifacts.
 
 if [[ "$JOB_NAME" =~ "daily" ]]; then
-    upload_artifacts.sh
+    $BUILD_BASE/../ci/upload_artifacts.sh
 fi
 
 if [ -d $TMP_RELEASE_DIR ]; then
@@ -112,6 +112,6 @@ fi
 # Destroy VM if one has been deployed. Also remove any local installation of
 # DPDK and OVS
 #
-sudo ../ci/clean.sh
+sudo $BUILD_BASE/../ci/clean.sh
 
 exit 0
