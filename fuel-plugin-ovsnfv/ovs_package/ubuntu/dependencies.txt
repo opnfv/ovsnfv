@@ -83,7 +83,7 @@ http://archive.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11_1.5.3-2u
 http://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib1g-dev_1.2.8.dfsg-1ubuntu1_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/libt/libtasn1-6/libtasn1-6-dev_3.4-3ubuntu0.3_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/p11-kit/libp11-kit-dev_0.20.2-2ubuntu2_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls-openssl27_2.12.23-12ubuntu2.4_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls26_2.12.23-12ubuntu2.4_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutlsxx27_2.12.23-12ubuntu2.4_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls-dev_2.12.23-12ubuntu2.4_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls-openssl27_2.12.23-12ubuntu2.5_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls26_2.12.23-12ubuntu2.5_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutlsxx27_2.12.23-12ubuntu2.5_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls-dev_2.12.23-12ubuntu2.5_amd64.deb
