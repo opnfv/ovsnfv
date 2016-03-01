@@ -152,8 +152,8 @@ if [ ! -z $DPDK ]; then
     echo
     snapser=`git log --pretty=oneline | wc -l`
     basever=`grep AC_INIT configure.ac | cut -d' ' -f2 | cut -d, -f1`
-    prefix=openvswitch-${basever}-${snapser}.git${snapgit}
-    archive=$prefix.tar.gz
+    prefix=openvswitch-${basever}
+    archive=openvswitch-${basever}.tar.gz
     git archive --prefix=${prefix}/ HEAD  | gzip -9 > $RPMDIR/SOURCES/${archive}
     cd $TMPDIR/openvswitch
     echo "--------------------------------------------"
