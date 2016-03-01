@@ -16,6 +16,24 @@
       "revId": "84fcfb99a602435fbbdca212dacf80452b2675c9",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_18f647d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-03-01T12:56:13Z",
+      "side": 1,
+      "message": "This is not the RPM name. This is the name of the snapshot generated for the rpm build. It is necessary to generate the snapshot name that is a\nprerequisite in the spec file. This is a throw away. We don\u0027t retain the snapshot. Perhaps I should have called it a snapshot",
+      "parentUuid": "1a486d77_78cadba2",
+      "revId": "84fcfb99a602435fbbdca212dacf80452b2675c9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
