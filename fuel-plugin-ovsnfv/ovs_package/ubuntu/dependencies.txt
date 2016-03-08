@@ -71,11 +71,11 @@ http://archive.ubuntu.com/ubuntu/pool/main/b/bc/bc_1.06.95-8ubuntu1_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/pkg-config/pkg-config_0.26-1ubuntu4_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/d/dbus/libdbus-1-dev_1.6.18-0ubuntu4.3_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/python-defaults/libpython-dev_2.7.5-5ubuntu3_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/universe/n/numactl/numactl_2.0.9~rc5-1ubuntu3.14.04.1_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/universe/n/numactl/numactl_2.0.9~rc5-1ubuntu3.14.04.2_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/python2.7/python2.7-dev_2.7.6-8ubuntu0.2_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/python-defaults/python-dev_2.7.5-5ubuntu3_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/n/numactl/libnuma1_2.0.9~rc5-1ubuntu3.14.04.1_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/n/numactl/libnuma-dev_2.0.9~rc5-1ubuntu3.14.04.1_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/n/numactl/libnuma1_2.0.9~rc5-1ubuntu3.14.04.2_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/n/numactl/libnuma-dev_2.0.9~rc5-1ubuntu3.14.04.2_amd64.deb
 https://pypi.python.org/packages/source/l/libvirt-python/libvirt-python-1.2.12.tar.gz
 http://archive.ubuntu.com/ubuntu/pool/main/libg/libgpg-error/libgpg-error-dev_1.12-0.2ubuntu1_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11-dev_1.5.3-2ubuntu4.3_amd64.deb
