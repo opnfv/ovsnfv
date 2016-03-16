@@ -85,3 +85,4 @@ http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls-openssl27_2.12.2
 http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls26_2.12.23-12ubuntu2.5_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutlsxx27_2.12.23-12ubuntu2.5_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls-dev_2.12.23-12ubuntu2.5_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/s/systemd/libudev1_204-5ubuntu20.18_amd64.deb
