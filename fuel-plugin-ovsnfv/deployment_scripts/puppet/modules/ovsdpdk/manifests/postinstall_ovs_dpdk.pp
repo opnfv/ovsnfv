@@ -149,7 +149,7 @@ CoreFilter,DiskFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFil
 
   # common part
   exec {'adapt_ml2_conf_mechanism_driver':
-    command => "sudo crudini --set ${ml2_conf} ml2 mechanism_drivers ovsdpdk",
+    command => "sudo crudini --set ${ml2_conf} ml2 mechanism_drivers ovsdpdk,openvswitch",
     path    => ['/usr/bin','/bin'],
     user    => root,
     onlyif  => "test -f ${ml2_conf}",
