@@ -123,7 +123,7 @@ if [ ! -z $DPDK ]; then
     echo "----------------------------------"
     echo "Clone Fedora copr repo and copy files."
     echo
-    git clone http://copr-dist-git.fedorainfracloud.org/cgit/pmatilai/dpdk/openvswitch.git
+    git clone http://copr-dist-git.fedorainfracloud.org/cgit/pmatilai/dpdk-snapshot/openvswitch.git
     cp $TMPDIR/openvswitch/openvswitch.spec $RPMDIR/SPECS
     cp $TMPDIR/openvswitch/* $RPMDIR/SOURCES
     snapgit=`grep "define snapver" $TMPDIR/openvswitch/openvswitch.spec | cut -c26-33`
@@ -131,10 +131,14 @@ if [ ! -z $DPDK ]; then
     echo "Remove old dpdk, ovs and dpdk development rpms"
     echo
     cleanrpms
+
+    if [ -z $DPDK_VERSION ]; then
+        DPDK_VERSION=16.04.0
+    fi
     echo "-------------------------------------------"
-    echo "Install dpdk and dpdk development rpms"
+    echo "Install dpdk and dpdk development rpms for version $DPDK_VERSION"
     echo
-    sudo rpm -ivh $HOME/dpdk-2*.rpm
+    sudo rpm -ivh $HOME/dpdk-${DPDK_VERSION:0:1}*.rpm
     sudo rpm -ivh $HOME/dpdk-devel*.rpm
     echo "----------------------------------------"
     echo "Copy DPDK RPM to SOURCES"
@@ -153,8 +157,8 @@ if [ ! -z $DPDK ]; then
     snapser=`git log --pretty=oneline | wc -l`
     basever=`grep AC_INIT configure.ac | cut -d' ' -f2 | cut -d, -f1`
     prefix=openvswitch-${basever}
-    archive=openvswitch-${basever}.tar.gz
-    git archive --prefix=${prefix}/ HEAD  | gzip -9 > $RPMDIR/SOURCES/${archive}
+    archive=${prefix}-${snapser}.git${snapgit}.tar.gz
+    git archive --prefix=${prefix}-${snapser}.git${snapgit}/ HEAD  | gzip -9 > $RPMDIR/SOURCES/${archive}
     cd $TMPDIR/openvswitch
     echo "--------------------------------------------"
     echo "Build openvswitch RPM"

@@ -102,12 +102,15 @@ stopovs
 cleanrpms
 
 if [ ! -z $DPDK ]; then
+    if [ -z $DPDK_VERSION ]; then
+        DPDK_VERSION=16.04.0
+    fi
     echo "-----------------------------------"
-    echo "Install DPDK RPMs"
+    echo "Install DPDK RPMs for version $DPDK_VERSION"
     echo
-    sudo rpm -ivh $RPMDIR/RPMS/x86_64/dpdk-2*.rpm
-    sudo rpm -ivh $RPMDIR/RPMS/x86_64/dpdk-tools-2*.rpm
-    sudo rpm -ivh $RPMDIR/RPMS/x86_64/dpdk-examples-2*.rpm
+    sudo rpm -ivh $RPMDIR/RPMS/x86_64/dpdk-${DPDK_VERSION:0:1}*.rpm
+    sudo rpm -ivh $RPMDIR/RPMS/x86_64/dpdk-tools-${DPDK_VERSION:0:1}*.rpm
+    sudo rpm -ivh $RPMDIR/RPMS/x86_64/dpdk-examples-${DPDK_VERSION:0:1}*.rpm
 fi
 
 if [ ! -z $kmod ]; then

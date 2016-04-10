@@ -87,7 +87,7 @@ echo "---------------------"
 echo "Get copr distribution git"
 mkdir -p copr
 cd copr
-git clone http://copr-dist-git.fedorainfracloud.org/cgit/pmatilai/dpdk/dpdk.git
+git clone http://copr-dist-git.fedorainfracloud.org/cgit/pmatilai/dpdk-snapshot/dpdk.git
 
 echo "---------------------"
 echo "Build DPDK RPM version $DPDK_VERSION"
@@ -111,7 +111,7 @@ snapser=`git log --pretty=oneline | wc -l`
 makever=`make showversion`
 basever=`echo ${makever} | cut -d- -f1`
 
-prefix=dpdk-$basever
+prefix=dpdk-$basever-${snapser}.git${snapgit}
 archive=${prefix}.tar.gz
 DPDK_VERSION=$basever
 
@@ -124,6 +124,13 @@ echo "-------------------------------"
 echo building RPM for DPDK version $DPDK_VERSION
 echo
 rpmbuild -bb --define "_topdir $RPMDIR" dpdk.spec
+
+echo "-------------------------------"
+echo Delete all rpms from $HOME
+echo
+set +e
+rm $HOME/*.rpm
+set -e
 
 echo "-------------------------------"
 echo Copy dpdk RPM

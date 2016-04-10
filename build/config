@@ -36,7 +36,7 @@ export PATCH=none
 #
 export WITH_DPDK=yes
 export DPDK_PATCH=none
-export DPDK_VERSION=2.2.0
+export DPDK_VERSION=16.04-rc4
 #
 # When KMOD is set, the Linux kernel module is built and tested.
 #
