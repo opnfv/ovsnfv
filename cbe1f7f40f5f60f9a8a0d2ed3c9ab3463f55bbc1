@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_84ce3b82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-04-11T12:41:47Z",
+      "side": 1,
+      "message": "When I look at the commit message, this looks like separate patches. Its merged now, but I think this should have been split.",
+      "revId": "cbe1f7f40f5f60f9a8a0d2ed3c9ab3463f55bbc1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_e4bf2fcf",
+        "filename": "build/config",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-04-11T12:41:47Z",
+      "side": 1,
+      "message": "Everywhere else you mention 16.04.0. Any reason for this?",
+      "revId": "cbe1f7f40f5f60f9a8a0d2ed3c9ab3463f55bbc1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
