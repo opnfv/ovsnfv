@@ -110,8 +110,8 @@ snapser=`git log --pretty=oneline | wc -l`
 
 makever=`make showversion`
 basever=`echo ${makever} | cut -d- -f1`
+prefix=dpdk-${basever:0:5}
 
-prefix=dpdk-$basever-${snapser}.git${snapgit}
 archive=${prefix}.tar.gz
 DPDK_VERSION=$basever
 
