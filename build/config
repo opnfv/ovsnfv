@@ -37,6 +37,8 @@ export PATCH=none
 export WITH_DPDK=yes
 export DPDK_PATCH=none
 export DPDK_VERSION=16.04-rc4
+export COPR_DPDK_VERSION=b0ffc82446b72b7e950c0d8c74d942704ec7aa68
+export COPR_OVS_VERSION=25179223d133d87569d169c60f72d9707eb486c5
 #
 # When KMOD is set, the Linux kernel module is built and tested.
 #
