@@ -88,6 +88,8 @@ echo "Get copr distribution git"
 mkdir -p copr
 cd copr
 git clone http://copr-dist-git.fedorainfracloud.org/cgit/pmatilai/dpdk-snapshot/dpdk.git
+cd dpdk
+git checkout $COPR_OVS_VERSION
 
 echo "---------------------"
 echo "Build DPDK RPM version $DPDK_VERSION"

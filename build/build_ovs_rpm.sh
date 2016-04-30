@@ -124,6 +124,8 @@ if [ ! -z $DPDK ]; then
     echo "Clone Fedora copr repo and copy files."
     echo
     git clone http://copr-dist-git.fedorainfracloud.org/cgit/pmatilai/dpdk-snapshot/openvswitch.git
+    cd openvswitch
+    git checkout $COPR_OVS_VERSION
     cp $TMPDIR/openvswitch/openvswitch.spec $RPMDIR/SPECS
     cp $TMPDIR/openvswitch/* $RPMDIR/SOURCES
     snapgit=`grep "define snapver" $TMPDIR/openvswitch/openvswitch.spec | cut -c26-33`
