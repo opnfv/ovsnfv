@@ -87,8 +87,8 @@ echo "---------------------"
 echo "Get copr distribution git"
 mkdir -p copr
 cd copr
-git clone http://copr-dist-git.fedorainfracloud.org/cgit/pmatilai/dpdk-snapshot/dpdk.git
-cd dpdk
+git clone https://github.com/tfherbert/dpdk-snap.git
+cd dpdk-snap
 git checkout $COPR_DPDK_VERSION
 
 echo "---------------------"
@@ -102,12 +102,12 @@ if [[ "$DPDK_VERSION" =~ "master" ]]; then
     snapgit=`git log --pretty=oneline -n1|cut -c1-8`
 else
     git checkout v$DPDK_VERSION
-    snapgit=`grep "define snapver" $TMPDIR/copr/dpdk/dpdk.spec | cut -c25-33`
+    snapgit=`grep "define snapver" $TMPDIR/copr/dpdk-snap/dpdk.spec | cut -c25-33`
 fi
 
-cp $TMPDIR/copr/dpdk/dpdk.spec $TMPDIR/dpdk
-cp $TMPDIR/copr/dpdk/dpdk.spec $RPMDIR/SPECS
-cp $TMPDIR/copr/dpdk/*.patch $TMPDIR/copr/dpdk/sources $TMPDIR/copr/dpdk/dpdk-snapshot.sh $RPMDIR/SOURCES
+cp $TMPDIR/copr/dpdk-snap/dpdk.spec $TMPDIR/dpdk
+cp $TMPDIR/copr/dpdk-snap/dpdk.spec $RPMDIR/SPECS
+cp $TMPDIR/copr/dpdk-snap/*.patch $TMPDIR/copr/dpdk-snap/sources $TMPDIR/copr/dpdk-snap/dpdk-snapshot.sh $RPMDIR/SOURCES
 snapser=`git log --pretty=oneline | wc -l`
 
 makever=`make showversion`
