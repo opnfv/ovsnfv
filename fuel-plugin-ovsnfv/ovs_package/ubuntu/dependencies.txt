@@ -63,7 +63,8 @@ http://archive.ubuntu.com/ubuntu/pool/main/b/bison/libbison-dev_3.0.2.dfsg-2_amd
 http://archive.ubuntu.com/ubuntu/pool/main/b/bison/bison_3.0.2.dfsg-2_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/y/yajl/libyajl2_2.0.4-4_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/y/yajl/libyajl-dev_2.0.4-4_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/e/expat/libexpat1-dev_2.1.0-4ubuntu1.1_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/e/expat/libexpat1-dev_2.1.0-4ubuntu1.2_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/e/expat/libexpat1_2.1.0-4ubuntu1.2_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/python2.7/libpython2.7-dev_2.7.6-8ubuntu0.2_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/b/bc/bc_1.06.95-8ubuntu1_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/pkg-config/pkg-config_0.26-1ubuntu4_amd64.deb
@@ -79,7 +80,7 @@ http://archive.ubuntu.com/ubuntu/pool/main/libg/libgpg-error/libgpg-error-dev_1.
 http://archive.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11-dev_1.5.3-2ubuntu4.3_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11_1.5.3-2ubuntu4.3_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib1g-dev_1.2.8.dfsg-1ubuntu1_amd64.deb
-http://archive.ubuntu.com/ubuntu/pool/main/libt/libtasn1-6/libtasn1-6-dev_3.4-3ubuntu0.3_amd64.deb
+http://archive.ubuntu.com/ubuntu/pool/main/libt/libtasn1-6/libtasn1-6-dev_3.4-3ubuntu0.4_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/p/p11-kit/libp11-kit-dev_0.20.2-2ubuntu2_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls-openssl27_2.12.23-12ubuntu2.5_amd64.deb
 http://archive.ubuntu.com/ubuntu/pool/main/g/gnutls26/libgnutls26_2.12.23-12ubuntu2.5_amd64.deb
