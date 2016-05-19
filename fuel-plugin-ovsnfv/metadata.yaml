@@ -17,9 +17,9 @@ name: fuel-plugin-ovsnfv
 # Human-readable name for your plugin
 title: Userspace OVS support
 # Plugin version
-version: '0.0.1'
+version: '0.0.3'
 # Description
-description: 'This plugin deploys openvswitch with dpdk'
+description: 'This plugin deploys OpenvSwitch with DPDK, VLAN only.'
 # Required fuel version
 fuel_version: ['8.0']
 # Specify license of your plugin
@@ -27,7 +27,7 @@ licenses: ['Apache License Version 2.0']
 # Specify author or company name
 authors: ['Intel Corporation', 'mark.d.gray@intel.com', 'billy.o.mahony@intel.com']
 # A link to the plugin's page
-homepage: 'https://github.com/mrmarkgray/fuel-plugin-ovsnfv'
+homepage: 'https://wiki.opnfv.org/display/ovsnfv/Open+vSwitch+For+NFV+Home'
 # Specify a group which your plugin implements, possible options:
 # network, storage, storage::cinder, storage::glance, hypervisor
 groups: ['network']
