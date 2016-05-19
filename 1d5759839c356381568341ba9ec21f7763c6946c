@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91bd0f_53afcde3",
+        "filename": "fuel-plugin-ovsnfv/metadata.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-05-19T13:26:50Z",
+      "side": 1,
+      "message": "Maybe this could be updated aswell. If you dont do it in this patch because you dont need to rebase it, I can do it.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "1d5759839c356381568341ba9ec21f7763c6946c",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
