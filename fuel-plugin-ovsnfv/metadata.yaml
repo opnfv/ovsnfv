@@ -17,9 +17,9 @@ name: fuel-plugin-ovsnfv
 # Human-readable name for your plugin
 title: Userspace OVS support
 # Plugin version
-version: '0.0.1'
+version: '0.0.3'
 # Description
-description: 'This plugin deploys openvswitch with dpdk'
+description: 'This plugin deploys OpenvSwitch with DPDK, VLAN only.'
 # Required fuel version
 fuel_version: ['8.0']
 # Specify license of your plugin
