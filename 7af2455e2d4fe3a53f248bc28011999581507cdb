@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91bd0f_fbeef38a",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-05-24T16:14:35Z",
+      "side": 1,
+      "message": "I think the key parameters in the test are the ratio of priority to non-priority traffic and the total amount of Ingress Traffic relative to the maximum capacity of the vSwitch. I\u0027ve called this Offered Load below but that may only be correct if ethernet flow control is disabled.\n\nI\u0027d suggest something like the following with corresponding changes in the diagram. (It\u0027s technically equivalent to the current draft but I think it\u0027s more intuitive).\n\n\"\"\"\nTest Parameters:\nPacket Size: The size of the ethernet packets \nTmax: RFC2544 Max. Throughput for traffic of \"Packet Size\"\nTotal Offered Rate: The offered rate of both traffic classes combined expressed as a % of Tmax\nPriority Rate: Offered Rate of Priority Traffic as a % of Total Offered Rate: P \n\nThe test should be performed for each combination of Packet Sizes in (64, 512), Total Offered Rate in (80, 120, 150) and Priority Rate (0, 20, 50).\n\"\"\"",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 38
+      },
+      "revId": "7af2455e2d4fe3a53f248bc28011999581507cdb",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
