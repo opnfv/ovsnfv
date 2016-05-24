@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91bd0f_7bb0a38b",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "Suggest: A network design may need to adequately accommodate multiple classes of traffic, each class requiring different levels of service in critical network elements.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_9bad6734",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "Suggest: ... handling voice and *elastic* data traffic.",
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_3baa1b1a",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "suggest: some numerical limit (in msec)",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 51
+      },
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_fb635318",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "suggest: Elastic data traffic does not impose the same demanding requirements on the network (there will be essentially no requirement on jitter).",
+      "range": {
+        "startLine": 22,
+        "startChar": 68,
+        "endLine": 22,
+        "endChar": 80
+      },
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_5ba7df4f",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "suggest: ...ensure sufficient Quality of Service (QoS) for the ...",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_1b6957f9",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "Suggest: The class of service determines the priority treatment which flows in the class will receive, while maintaining a relative level of priority for other classes and a default level of treatment for the lowest priority class of service.",
+      "range": {
+        "startLine": 48,
+        "startChar": 67,
+        "endLine": 50,
+        "endChar": 60
+      },
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_bb6dcb06",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "Note: Priority treatment of the classes of service cannot cause any one of the classes (even the default class) from being transferred at all. In other words, a strict priority treatment would likely not be successful for serving all classes eventually, and this is a key consideration.",
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a91bd0f_db720fe5",
+        "filename": "specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-05-24T17:35:55Z",
+      "side": 1,
+      "message": "Suggest: The relative priority treatment that frames get ...",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 25
+      },
+      "revId": "124f9cd86d70cc622d9b1d6ec52bcd728fccdcd0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
