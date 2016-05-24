@@ -168,6 +168,9 @@ references are unavailable. Examples of what you could include are:
 
 - https://wiki.opnfv.org/download/attachments/5046510/qos_mechanisms.pdf?version=1&modificationDate=1459187636000&api=v2
 
+Notes from discussion at QoS breakout at ONS March 2015
+- http://people.redhat.com/therbert/OPNFVatONS_0315/QoSBreakoutSession1.jpg
+
 * Related specifications as appropriate
 
 * Anything else you feel it is worthwhile to refer to
