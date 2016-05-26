@@ -10,171 +10,109 @@ High Priority Traffic Path
 
 https://wiki.opnfv.org/display/ovsnfv/OVSFV+Requirement+-+High+Priority+Traffic+Path
 
-Introduction paragraph -- why are we doing anything? A single paragraph of
-prose that operators can understand. The title and this first paragraph
-should be used as the subject line and body of the commit message
-respectively.
-
-Some notes about the process:
-
-* The aim of this document is first to define the problem we need to solve,
-  and second agree the overall approach to solve that problem.
-
-* This is not intended to be extensive documentation for a new feature.
-
-* You should aim to get your spec approved before writing your code.
-  While you are free to write prototypes and code before getting your spec
-  approved, its possible that the outcome of the spec review process leads
-  you towards a fundamentally different solution than you first envisaged.
-
-* But, API changes are held to a much higher level of scrutiny.
-  As soon as an API change merges, we must assume it could be in production
-  somewhere, and as such, we then need to support that API change forever.
-  To avoid getting that wrong, we do want lots of details about API changes
-  upfront.
-
-Some notes about using this template:
-
-* Your spec should be in ReSTructured text, like this template.
-
-* Please wrap text at 79 columns.
-
-* Please do not delete any of the sections in this template.  If you have
-  nothing to say for a whole section, just write: None
-
-* For help with syntax, see http://sphinx-doc.org/rest.html
-
-* To test out your formatting, build the docs using sphinx
-
-* If you would like to provide a diagram with your spec, ascii diagrams are
-  required.  http://asciiflow.com/ is a very nice tool to assist with making
-  ascii diagrams.  The reason for this is that the tool used to review specs is
-  based purely on plain text.  Plain text will allow review to proceed without
-  having to look at additional files which can not be viewed in gerrit.  It
-  will also allow inline feedback on the diagram itself.
-
 Problem description
 ===================
 
-A detailed description of the problem. What problem is this blueprint
-addressing?
+A network design may need to adequately accommodate multiple classes of traffic, each
+class requiring different levels of service in critical network elements.
+
+As a concrete example, a network element managed by a service provider may be
+handling voice and elastic data traffic. Voice traffic requires that the end-to-end
+latency and jitter is bounded to some numerical limit (in msec) accuracy in order to ensure
+sufficient quality-of-service (QoS) for the participants in the voice call.
+Elastic data traffic does not impose the same demanding requirements on the network
+(there will be essentially no requirement on jitter. For example, when downloading a
+large file across the Internet, although the bandwidth requirements may be high there
+is usually no requirement that the file arrives within a bounded time interval.
+
+Depending on the scheduling algorithms running on the network element,
+frames belonging to the data traffic may get transmitted before frames
+belonging to the voice traffic introducing unwanted latency or jitter.
+Therefore, in order to ensure deterministic latency and jitter characteristics
+end-to-end, each network element through which the voice traffic traverses
+must ensure that voice traffic is handled deterministically.
+
+Hardware switches have typically been designed to ensure certain classes
+of traffic can be scheduled ahead of other classes and are also
+over-provisioned which further ensures deterministic behavior when
+handling high priority traffic. However, software switches (which includes
+virtual switches such as Open vSwitch) may require modification in order
+to achieve this deterministic behavior.
 
 Use Cases
 ---------
 
-What use cases does this address? What impact on actors does this change have?
-Ensure you are clear about the actors in each use case: Developer, End User,
-Deployer etc.
+1. Program classes of service
+
+The End User specifies a number of classes of service. Each class of service
+will be represented by the value of a particular field in a frame. The class of
+service will determine the order which flows of this type will get handled
+with respect to other flows of differing classes of service. As such, each
+class of service will be associated with a priority. The End User will
+associate classes of service and priorities to ingress ports with the
+expectation that frames that arrive on these ingress ports will get
+scheduled following the specified priorities.
+
+2. Forward high priority network traffic
+
+A remote network element sends traffic to Open vSwitch. The remote network
+element, indicates the class of service to which this flow of traffic belongs
+to by modifying a pre-determined but arbitrary field in the frame as specified
+in Use Case 1. Some examples include the Differentiated Services Code Point
+(DSCP) in an IP packet or the Priority Code Point (PCP) in an Ethernet frame.
+The relative priority treatment that frames get processed by Open vSwitch can be guaranteed by the
+values populated in these fields when the fields are different. If the fields
+are the same, ordering is not deterministic.
+
+For example: Packet A is sent with a DSCP value of 0 and packet B is sent
+with a value of 46; 0 has a lower priority than 46. Packet A arrives
+before packet B. If Open vSwitch has been configured as such, Packet
+B will be transmitted before Packet A.
 
 Proposed change
 ===============
 
-Here is where you cover the change you propose to make in detail. How do you
-propose to solve this problem?
-
-If this is one part of a larger effort make it clear where this piece ends. In
-other words, what's the scope of this effort?
-
-At this point, if you would like to just get feedback on the problem and
-proposed change, you can stop here and post this for review to get
-preliminary feedback. If so please say:
-Posting to get preliminary feedback on the scope of this spec.
+TBD
 
 Alternatives
 ------------
 
-What other ways could we do this thing? Why aren't we using those? This doesn't
-have to be a full literature review, but it should demonstrate that thought has
-been put into why the proposed solution is an appropriate one.
+TBD
 
 OVSDB schema impact
 -------------------
 
-Changes which require modifications to the data model often have a wider impact
-on the system.  The community often has strong opinions on how the data model
-should be evolved, from both a functional and performance perspective. It is
-therefore important to capture and gain agreement as early as possible on any
-proposed changes to the data model.
-
-Questions which need to be addressed by this section include:
-
-* What new data objects and/or database schema changes is this going to
-  require?
+TBD
 
 User interface impact
 ---------------------
 
-Each user interface that is either added, changed or removed should have the
-following:
-
-* Specification for the user interface
-
-* Example use case including typical examples for both data supplied
-  by the caller and the response
+TBD
 
 Security impact
 ---------------
 
-Describe any potential security impact on the system.  Some of the items to
-consider include:
-
-* Does this change touch sensitive data such as tokens, keys, or user data?
-
-* Does this change alter the interface in a way that may impact security, such as
-  a new way to access sensitive information?
-
-* Does this change involve cryptography or hashing?
-
-* Does this change require the use of sudo or any elevated privileges?
-
-* Does this change involve using or parsing user-provided data? This could
-  be directly at the API level or indirectly such as changes to a cache layer.
-
-* Can this change enable a resource exhaustion attack, such as allowing a
-  single interaction to consume significant server resources?
+TBD
 
 Other end user impact
 ---------------------
 
-Aside from the user interfaces, are there other ways a user will interact with this
-feature?
+TBD
 
 Performance Impact
 ------------------
 
-Describe any potential performance impact on the system, for example
-how often will new code be called, and is there a major change to the calling
-pattern of existing code.
-
-Examples of things to consider here include:
-
-* Will the change include any locking, and if so what considerations are there
-  on holding the lock?
+TBD
 
 Other deployer impact
 ---------------------
 
-Discuss things that will affect how you deploy and configure Open vSwitch
-that have not already been mentioned, such as:
-
-* What config options are being added? Should they be more generic than
-  proposed? Are the default values ones which will work well in
-  real deployments?
-
-* Is this a change that takes immediate effect after its merged, or is it
-  something that has to be explicitly enabled?
-
-* If this change is a new binary, how would it be deployed?
-
-* Please state anything that those doing continuous deployment, or those
-  upgrading from the previous release, need to be aware of. Also describe
-  any plans to deprecate configuration values or features.
+TBD
 
 Developer impact
 ----------------
 
-Discuss things that will affect other developers working on Open vSwitch,
-such as:
+TBD
 
 Implementation
 ==============
@@ -197,45 +135,22 @@ Other contributors:
 Work Items
 ----------
 
-Work items or tasks -- break the feature up into the things that need to be
-done to implement it. Those parts might end up being done by different people,
-but we're mostly trying to understand the timeline for implementation.
-
+TBD
 
 Dependencies
 ============
 
-* If this requires functionality of another project that is not currently used
-  document that fact.
-
-* Does this feature require any new library dependencies or code otherwise not
-  included in Open vSwitch? Or does it depend on a specific version of library?
-
+TBD
 
 Testing
 =======
 
-Please discuss the important scenarios needed to test here, as well as
-specific edge cases we should be ensuring work correctly. For each
-scenario please specify if this requires specialized hardware.
-
-Please discuss how the change will be tested: Open vSwitch unit tests, VSPERF
-performance tests, Yardstick tests, etc.
-
-Is this untestable in gate given current limitations (specific hardware /
-software configurations available)? If so, are there mitigation plans (3rd
-party testing, gate enhancements, etc).
-
+TBD
 
 Documentation Impact
 ====================
 
-Which audiences are affected most by this change, and which documentation
-should be updated because of this change? Don't
-repeat details discussed above, but reference them here in the context of
-documentation for multiple audiences. If a config option
-changes or is deprecated, note here that the documentation needs to be updated
-to reflect this specification's change.
+TBD
 
 References
 ==========
