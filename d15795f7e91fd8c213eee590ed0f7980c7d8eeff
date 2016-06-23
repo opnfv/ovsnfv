@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_5b3e00ba",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-06-23T18:49:36Z",
+      "side": 1,
+      "message": "I meant to say \"...submitted against dpdk master...\"",
+      "parentUuid": "5a7ca5a3_db521013",
+      "range": {
+        "startLine": 96,
+        "startChar": 24,
+        "endLine": 96,
+        "endChar": 50
+      },
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_400ccd42",
         "filename": "build/patches/dpdk-16.04-virtio-devargs.patch",
         "patchSetId": 2
