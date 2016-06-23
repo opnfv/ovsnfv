@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_1b3168ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-06-23T18:39:03Z",
+      "side": 1,
+      "message": "OK, I will resubmit this patch and try doing this.",
+      "parentUuid": "5a7ca5a3_202c31ab",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_c018dd86",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_bb4dd474",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-06-23T18:39:03Z",
+      "side": 1,
+      "message": "Yes, I am going to resubmit this as 2 separate patches. However both patches will have to be merged together before daily build because one patch changes the RPM and the other introduces a hash tag which will identify the new RPM as a different build.",
+      "parentUuid": "5a7ca5a3_c018dd86",
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_e01dd974",
         "filename": "build/build_dpdk_rpm.sh",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2016-06-23T10:21:30Z",
       "side": 1,
       "message": "Is there any way to pull this from the internet?",
+      "range": {
+        "startLine": 96,
+        "startChar": 24,
+        "endLine": 96,
+        "endChar": 50
+      },
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_db521013",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-06-23T18:39:03Z",
+      "side": 1,
+      "message": "I would prefer to pull that patch from patchwork. However it is submitted against OVS master and it wouldn\u0027t apply without rebasing. It is a simple change and should be easy to identify and I added language to the description that should match it to the upstream patch.",
+      "parentUuid": "5a7ca5a3_e01dd974",
       "range": {
         "startLine": 96,
         "startChar": 24,
@@ -99,6 +165,24 @@
     },
     {
       "key": {
+        "uuid": "5a7ca5a3_9b5c9827",
+        "filename": "build/patches/spec_file_add_virtio_patch.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-06-23T18:39:03Z",
+      "side": 1,
+      "message": "OK, I will fix in next series.",
+      "parentUuid": "5a7ca5a3_6009c930",
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_0006d520",
         "filename": "build/patches/spec_file_add_virtio_patch.patch",
         "patchSetId": 2
@@ -110,6 +194,24 @@
       "writtenOn": "2016-06-23T10:21:30Z",
       "side": 1,
       "message": "Can we not add this patch to the rpm? It seems like this is where it belongs?",
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_7b573c03",
+        "filename": "build/patches/spec_file_add_virtio_patch.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-06-23T18:39:03Z",
+      "side": 1,
+      "message": "This is actually a patch to add the \"real\" patch that is in the new patches directory to the RPM. If you list the files in the resulting RPM, you should see the patch.",
+      "parentUuid": "5a7ca5a3_0006d520",
       "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
