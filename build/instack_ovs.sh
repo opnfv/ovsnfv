@@ -167,13 +167,13 @@ ssh -T ${SSH_OPTIONS[@]} stack@localhost "rm -f instack*.qcow2"
 if ! rpm -q rdo-release > /dev/null && [ "$1" != "-master" ]; then
     sudo yum -y install yum-plugin-priorities
     sudo yum-config-manager --disable openstack-${RDO_RELEASE}
-    sudo curl -o /etc/yum.repos.d/delorean.repo http://trunk.rdoproject.org/centos7-liberty/current-passed-ci/delorean.repo
+    sudo curl -o /etc/yum.repos.d/delorean.repo http://trunk.rdoproject.org/centos7/da/0a/da0a8aff88e67fce7603b03a220b77b451349e7d_2a87ad3a/delorean.repo
     sudo curl -o /etc/yum.repos.d/delorean-deps.repo http://trunk.rdoproject.org/centos7-liberty/delorean-deps.repo
     sudo rm -f /etc/yum.repos.d/delorean-current.repo
 elif [ "$1" == "-master" ]; then
     sudo yum -y install yum-plugin-priorities
     sudo yum-config-manager --disable openstack-${RDO_RELEASE}
-    sudo curl -o /etc/yum.repos.d/delorean.repo http://trunk.rdoproject.org/centos7/current-passed-ci/delorean.repo
+    sudo curl -o /etc/yum.repos.d/delorean.repo http://trunk.rdoproject.org/centos7/da/0a/da0a8aff88e67fce7603b03a220b77b451349e7d_2a87ad3a/delorean.repo
     sudo curl -o /etc/yum.repos.d/delorean-deps.repo http://trunk.rdoproject.org/centos7-liberty/delorean-deps.repo
     sudo rm -f /etc/yum.repos.d/delorean-current.repo
 fi
@@ -262,7 +262,7 @@ ssh -T ${SSH_OPTIONS[@]} "root@$UNDERCLOUD" <<EOI
     fi
 
     yum -y install yum-plugin-priorities
-    curl -o /etc/yum.repos.d/delorean.repo http://trunk.rdoproject.org/centos7-liberty/current-passed-ci/delorean.repo
+    curl -o /etc/yum.repos.d/delorean.repo http://trunk.rdoproject.org/centos7/da/0a/da0a8aff88e67fce7603b03a220b77b451349e7d_2a87ad3a/delorean.repo
     curl -o /etc/yum.repos.d/delorean-deps.repo http://trunk.rdoproject.org/centos7-liberty/delorean-deps.repo
 
     cp /root/.ssh/authorized_keys /home/stack/.ssh/authorized_keys
