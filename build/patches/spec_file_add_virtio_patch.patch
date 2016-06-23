@@ -1,0 +1,22 @@
+diff --git a/dpdk.spec b/dpdk.spec
+index 2ee5bdd..af2dede 100644
+--- a/dpdk.spec
++++ b/dpdk.spec
+@@ -24,6 +24,9 @@ Source100: dpdk-snapshot.sh
+ 
+ # Some tweaking and tuning needed due to Fedora %%optflags
+ Patch2: dpdk-2.2-warningflags.patch
++# Before checking if the virtio device is whitelisted, check if devargs
++# is specified.
++Patch4: dpdk-16.04-virtio-devargs.patch
+ 
+ Summary: Set of libraries and drivers for fast packet processing
+ 
+@@ -106,6 +109,7 @@ as L2 and L3 forwarding.
+ %prep
+ %setup -q -n %{name}-%{srcver}
+ %patch2 -p1 -z .warningflags
++%patch4 -p1 -z .virtiofix
+ 
+ %build
+ function setconf()
