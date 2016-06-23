@@ -91,6 +91,14 @@ cd copr
 git clone https://github.com/tfherbert/dpdk-snap.git
 cd dpdk-snap
 git checkout $COPR_DPDK_VERSION
+echo "---------------------"
+echo "Apply dpdk dpdk spec file patch"
+echo
+git apply $HOME/patches/spec_file_add_virtio_patch.patch
+echo "---------------------"
+echo "Copy in local dpdk patches"
+echo
+cp $HOME/patches/dpdk-16.04-virtio-devargs.patch $TMPDIR/copr/dpdk-snap
 
 echo "---------------------"
 echo "Build DPDK RPM version $DPDK_VERSION"
