@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_202c31ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-23T10:21:30Z",
+      "side": 1,
+      "message": "Can you clean up the commit message and remove this.\n\nCan we start adding a prefix to our commit messages?\n\ne.g. apex: \u003ctitle\u003e\n\n\u003cdetails\u003e\n\nor \n\nfuel: \u003ctitle\u003e\n\n\u003cdetails\u003e\n\nor \n\nspec: \u003ctitle\u003e\n\n\u003cdetails\u003e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_c018dd86",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-23T10:21:30Z",
+      "side": 1,
+      "message": "This looks like two patches. Can you split them?",
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_e01dd974",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-23T10:21:30Z",
+      "side": 1,
+      "message": "Is there any way to pull this from the internet?",
+      "range": {
+        "startLine": 96,
+        "startChar": 24,
+        "endLine": 96,
+        "endChar": 50
+      },
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_400ccd42",
+        "filename": "build/patches/dpdk-16.04-virtio-devargs.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-23T10:21:30Z",
+      "side": 1,
+      "message": "I think you should add the signed-off-by of the original author or pull this from the internet?",
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_6009c930",
+        "filename": "build/patches/spec_file_add_virtio_patch.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-23T10:21:30Z",
+      "side": 1,
+      "message": "Whitespace in all this file.",
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_0006d520",
+        "filename": "build/patches/spec_file_add_virtio_patch.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-23T10:21:30Z",
+      "side": 1,
+      "message": "Can we not add this patch to the rpm? It seems like this is where it belongs?",
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_2003d110",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-23T10:21:30Z",
+      "side": 1,
+      "message": "Make this a seperate patch",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "d15795f7e91fd8c213eee590ed0f7980c7d8eeff",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
