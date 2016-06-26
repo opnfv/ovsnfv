@@ -35,7 +35,19 @@ export DATE=`date +%Y-%m-%d`
 
 export BUILD_BASE=$WORKSPACE/build
 
-
+echo cd /etc/yum.repos.d
+sudo cd /etc/yum.repos.d
+echo ls -lf
+ls -lf
+echo rm delorean.repo
+sudo rm -f delorean.repo
+echo rm delorean-deps.repo
+sudo rm -f delorean-deps.repo
+echo yum clean all
+yum clean all
+echo yum update
+sudo yum update
+exit 0
 
 if [ ! -d $BUILD_BASE ]
 then
