@@ -35,7 +35,33 @@ export DATE=`date +%Y-%m-%d`
 
 export BUILD_BASE=$WORKSPACE/build
 
-
+echo ls -lf /etc/yum.repos.d
+sudo ls -lf /etc/yum.repos.d
+echo rm -f /etc/yum.repos.d/delorean.repo
+sudo rm -f /etc/yum.repos.d/delorean.repo
+echo rm -f /etc/yum.repos.d/delorean-deps.repo
+sudo rm -f /etc/yum.repos.d/delorean-deps.repo
+echo yum -y clean all
+sudo yum -y clean all
+echo yum -y update
+sudo yum -y update
+echo yum -y install epel-release
+sudo yum -y install epel-release
+echo uname -r
+uname -r
+set +e
+echo ls -lai /lib/modules/`uname -r`/build
+sudo ls -lai /lib/modules/`uname -r`/build
+echo ls -lai /usr/src/kernels/`uname -r`
+sudo ls -lai /usr/src/kernels/`uname -r`
+echo ls -lai /usr/src/kernels
+sudo ls -lai /usr/src/kernels
+echo yum -y install kernel-headers
+sudo  yum -y reinstall kernel-headers
+echo yum -y reinstall kernel-devel
+sudo  yum -y reinstall kernel-devel
+set -e
+exit 0
 
 if [ ! -d $BUILD_BASE ]
 then
