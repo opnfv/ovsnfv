@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_9b401858",
+        "filename": "build/instack_ovs.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-27T14:12:12Z",
+      "side": 1,
+      "message": "Seems weird to have this commmit(?) message here? Is this intended?",
+      "range": {
+        "startLine": 170,
+        "startChar": 90,
+        "endLine": 170,
+        "endChar": 139
+      },
+      "revId": "27b557155d47d4fad344aa9de369634f46d46391",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
