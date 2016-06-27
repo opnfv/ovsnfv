@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_db1d3075",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-27T14:19:06Z",
+      "side": 1,
+      "message": "Minor nit, but I wont block. If the format of pretty\u003donline chnages in some future version of git, this will break. The following might be more future-proof\n\ngit log --pretty\u003dformat:\"%H\" -n 1\n\nor\n\ngit rev-parse HEAD",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "e265d304342183ec7f7d153dac94aa8704c9c5a1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
