@@ -61,13 +61,14 @@ then
     rm -rf $TMPDIR
 fi
 
-echo "---------------------"
-echo "Install dependencies for dpdk"
-echo
-sudo yum -y install gcc make python-devel openssl-devel autoconf automake rpm-build \
-            redhat-rpm-config libtool libpcap-devel numactl-devel python-sphinx \
-            libvirt-devel
-
+function install_pre_reqs() {
+    echo "----------------------------------------"
+    echo Install dependencies for dpdk.
+    echo
+    sudo yum -y install gcc make python-devel openssl-devel kernel-devel graphviz \
+                kernel-debug-devel autoconf automake rpm-build redhat-rpm-config \
+                libtool python-twisted-core desktop-file-utils groff PyQt4
+}
 
 mkdir -p $TMPDIR
 

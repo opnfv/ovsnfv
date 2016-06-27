@@ -1,6 +1,6 @@
-#/bin/bash
+#!/bin/bash
 
-# Copyright (c) 2016 Red Hat Inc.
+# Copyright (c) 2016 Open Platform for NFV Project, Inc. and its contributors
 #
 #    Licensed under the Apache License, Version 2.0 (the "License");
 #    you may not use this file except in compliance with the License.
@@ -16,27 +16,27 @@
 
 set -e
 
-echo "==============================="
-echo "Requires sudo privileges"
-echo executing $0 $@
-echo executing on machine `uname -a`
+usage() {
+    echo $0 [-d] [-k]
+    echo -d -- Test with DPDK
+    echo -k -- Load linux kernel module
+}
 
-if [ -z ${WORKSPACE+1} ]; then
-    # We are not being run by Jenkins.
-    export WORKSPACE=`pwd`
-fi
-
-export BUILD_BASE=$WORKSPACE
-source $BUILD_BASE/../build/functions.sh
-
-
-cleanrpms
-set +e
-rm -rf ovsrpm
-rm -rf rpmbuild
-rm -rf rpms
-rm -rf build
-rm *.rpm
-ccache -C
-set -e
-exit 0
+function delrpm() {
+    set +e
+    rpm -q $1
+    if [ $? -eq 0 ]; then
+        sudo rpm -e --allmatches $1
+    fi
+    set -e
+}
+function cleanrpms() {
+    delrpm openvswitch
+    delrpm dpdk-devel
+    delrpm dpdk-tools
+    delrpm dpdk-examples
+    delrpm dpdk
+}
+function uninstallrpms() {
+    cleanrpms
+}

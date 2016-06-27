@@ -72,8 +72,26 @@ while getopts "a:dg:hi:p:tu:v" opt; do
     esac
 done
 
-if [ -z $TAG ]; then
-    TAG=master
+#
+# Default Config options
+#
+echo ===============================================
+echo Default Configuration Options.
+echo ===============================================
+echo option NOCHECK is set to $NOCHECK
+echo build DPDK option is set to $DPDK
+echo DPDK Patch URL is set to $DPDK_PATCH
+echo DPDK Version is set to $DPDK_VERSION
+echo Option for OVS Kernel Module is set to $KMOD
+echo ===============================================
+if [[ $NOCHECK =~ "yes" ]]; then
+    setnocheck="-c"
+fi
+if [[ $KMOD =~ "yes" ]]; then
+    setkmod="-k"
+fi
+if [[ $DPDK =~ "yes" ]]; then
+    setdpdk="-d"
 fi
 
 if [ -z $OVS_REPO_URL ]; then
@@ -89,33 +107,24 @@ else
     echo Will use default kernel in ovs test vm
 fi
 
+if [ -z $TAG ]; then
+    TAG=master
+fi
+
 if [ ! -z $DPDK ]; then
     setbuilddpdk="-d"
 fi
 
 if [ -z ${WORKSPACE+1} ]; then
     # We are not being run by Jenkins.
-    export WORKSPACE=$HOME/opnfv/ovsnfv
-    mkdir -p opnfv
-    cd opnfv
-    git clone https://git.opnfv.org/ovsnfv
+    export WORKSPACE=`pwd`
 fi
 
-export BUILD_BASE=$WORKSPACE/build
-
-
-
-if [ ! -d $BUILD_BASE ]
-then
-    mkdir -p $BUILD_BASE
+if [ -z ${BUILD_BASE+1} ]; then
+    export BUILD_BASE=$WORKSPACE
 fi
 
-if [ ! -f $BUILD_BASE/config ]; then
-    touch $BUILD_BASE/config
-fi
-
-export PATH=$PATH:$WORKSPACE/ci:$BUILD_BASE
-source $BUILD_BASE/config
+export PATH=$PATH:$BUILD_BASE
 
 cd $BUILD_BASE
 export TOPDIR=$BUILD_BASE
@@ -132,19 +141,35 @@ mkdir -p $RPMDIR/RPMS
 mkdir -p $RPMDIR/SOURCES
 mkdir -p $RPMDIR/SPECS
 mkdir -p $RPMDIR/SRPMS
-
-
-if [ ! -z $TESTRPM ]; then
-    # Spawn VM to do the testing.
-    if [ ! -z $kernel_version ]; then
-        instack_ovs.sh -a $kernel_major -g $TAG -i $kernel_minor -p $OVS_PATCH -t -u $OVS_REPO_URL
-    else
-        instack_ovs.sh $setbuilddpdk -g $TAG -p $OVS_PATCH -t -u $OVS_REPO_URL
-    fi
-else
-    # Run build locally.
-    build_ovs_rpm.sh $setbuilddpdk -g $TAG -p $OVS_PATCH -u $OVS_REPO_URL
-    cp $HOME/rpmbuild/RPMS/* $TMP_RELEASE_DIR
+#
+# build dpdk rpm locally.
+#
+if [[ "$DPDK" =~ "yes" ]]; then
+    echo "==============================="
+    echo Build DPDK RPMs
+    echo
+    $BUILD_BASE/build_dpdk_rpm.sh -g $DPDK_VERSION
 fi
+#
+# Build locally and copy RPMS
+#
+echo "==============================="
+echo build OVS rpm locally
+echo
+    ./build_ovs_rpm.sh $setnocheck -g $TAG $setdpdk $setkmod -p $OVS_PATCH -u $OVS_REPO_URL
+#
+# Test rpm
+#
+if [ ! -z $TESTRPM ]; then
+    ./test_ovs_rpm.sh $setdpdk $setkmod
+fi
+
+#
+# If tests pass, copy rpms to release dir
+#
+echo "==============================="
+echo copy rpms to release dir
+echo
+cp $RPMDIR/RPMS/x86_64/* $TMP_RELEASE_DIR
 
 exit 0

@@ -17,28 +17,19 @@
 set -e
 
 echo "==============================="
+echo "Requires sudo privileges"
 echo executing $0 $@
 echo executing on machine `uname -a`
 
 
 usage() {
-    echo run BuildAndTest -h for help
+    echo $0 [-d] [-k]
+    echo -d -- Test with DPDK
+    echo -k -- Load linux kernel module
 }
 
-function delrpm() {
-    set +e
-    rpm -q $1
-    if [ $? -eq 0 ]; then
-        sudo rpm -e --allmatches $1
-    fi
-    set -e
-}
-function cleanrpms() {
-    delrpm openvswitch
-    delrpm dpdk-devel
-    delrpm dpdk-tools
-    delrpm dpdk-examples
-    delrpm dpdk
+function uninstallrpms() {
+    cleanrpms
 }
 
 while getopts "dg:hkp:u:v" opt; do
@@ -68,6 +59,9 @@ done
 HOME=`pwd`
 TOPDIR=$HOME
 TMPDIR=$TOPDIR/ovsrpm
+
+BUILDDIR=$HOME
+source $BUILDDIR/functions.sh
 
 if [ -d $TMPDIR ]
 then
@@ -134,5 +128,6 @@ sudo ovs-vsctl add-br brtest
 sudo ovs-ofctl dump-flows brtest
 sudo ovs-vsctl del-br brtest
 sudo service openvswitch stop
+uninstallrpms
 
 exit 0
