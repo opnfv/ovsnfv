@@ -88,12 +88,67 @@ TBD
 OVSDB schema impact
 -------------------
 
-TBD
+As the control interface may be implemented via Open
+vSwitch, configuration may require updates to the ovsdb
+schema. An example of how this could be done is presented
+below:
+
+::
+
+   "Classes_of_Service": {
+     "columns": {
+       "cos_type": {
+         "type": "string"},
+       "cos": {
+         "type": {"key": "integer", "value": "integer", "min": 0, "max": "200"}},
+     }
+    }
 
 User interface impact
 ---------------------
 
-TBD
+A control interface is required which allows the user to:
+
+* Specify the type of field used for determining the class
+  of service. Examples are: dscp, vlan-pcp
+
+* Add a value of that field to a particular priority.
+  Examples are: ::
+
+    Value = 46, Priority = 0
+    Value = 0, Priority = 7
+
+  It should be possible to specify up to a maximum number (n) of
+  values for each priority. All other traffic is presumed to
+  have the lowest priority. There will be a fixed number of
+  priorities.
+
+* Remove a value from a particular priority
+
+* List priority of a particular class of service
+
+This configuration will be valid for all traffic being
+handled by the switch.
+
+This control interface may be implemented in via Open vSwitch
+commands or via an external application (controlling, for
+example, a NIC or another piece of software).
+
+An example of how this could be controlled via Open vSwitch
+commands follows: ::
+
+    ovs-vsctl add-cos <type> <value> <priority>
+
+    ovs-vsctl add-cos dscp 46 0
+
+    ovs-vsctl del-cos <type> <value>
+
+    ovs-vsctl del-cos dscp 46
+
+    ovs-vsctl show-cos 46
+
+A similar interface could be used to control an external
+application.
 
 Security impact
 ---------------
@@ -207,7 +262,7 @@ prioritization scheme that is developed.
 Tests should be performed for each combination of:
 
 * Packet Sizes in (64, 512)
-* Total Offered Rate in (80, 120, 150) 
+* Total Offered Rate in (80, 120, 150)
 * rate_ingress_b(n) / rate_ingress_a(n) in (0.1, 0.2, 0.5)
 
 For each set, the following metrics should be collected for each traffic
