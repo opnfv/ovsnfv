@@ -17,12 +17,15 @@
 set -e
 
 echo "==============================="
+echo "Requires sudo privileges"
 echo executing $0 $@
 echo executing on machine `uname -a`
 
 
 usage() {
-    echo run BuildAndTest -h for help
+    echo $0 [-d] [-k]
+    -d -- Test with DPDK
+    -k -- Load linux kernel module
 }
 
 function delrpm() {
@@ -39,6 +42,9 @@ function cleanrpms() {
     delrpm dpdk-tools
     delrpm dpdk-examples
     delrpm dpdk
+}
+function uninstallrpms() {
+    cleanrpms
 }
 
 while getopts "dg:hkp:u:v" opt; do
@@ -134,5 +140,6 @@ sudo ovs-vsctl add-br brtest
 sudo ovs-ofctl dump-flows brtest
 sudo ovs-vsctl del-br brtest
 sudo service openvswitch stop
+uninstallrpms
 
 exit 0

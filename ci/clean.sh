@@ -1,43 +1,57 @@
-#!/usr/bin/env bash
-##############################################################################
-# Copyright (c) 2016 Red Hat Inc. and others.
-# therbert@redhat.com
-# All rights reserved. This program and the accompanying materials
-# are made available under the terms of the Apache License, Version 2.0
-# which accompanies this distribution, and is available at
-# http://www.apache.org/licenses/LICENSE-2.0
-##############################################################################
-#Clean script to uninstall provisioning server for Apex
-#author: Dan Radez (dradez@redhat.com)
+#/bin/bash
+
+# Copyright (c) 2016 Red Hat Inc.
 #
-vm_index=4
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
+#
+#        http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
 
-# Clean off instack VM
-virsh destroy instack 2> /dev/null || echo -n ''
-virsh undefine instack --remove-all-storage 2> /dev/null || echo -n ''
-virsh vol-delete instack.qcow2 --pool default 2> /dev/null
-rm -f /var/lib/libvirt/images/instack.qcow2 2> /dev/null
+set -e
 
-# Clean off baremetal VMs in case they exist
-for i in $(seq 0 $vm_index); do
-  virsh destroy baremetalbrbm_brbm1_$i 2> /dev/null || echo -n ''
-  virsh undefine baremetalbrbm_brbm1_$i --remove-all-storage 2> /dev/null || echo -n ''
-  virsh vol-delete baremetalbrbm_brbm1_${i}.qcow2 --pool default 2> /dev/null
-  rm -f /var/lib/libvirt/images/baremetalbrbm_brbm1_${i}.qcow2 2> /dev/null
-done
+echo "==============================="
+echo "Requires sudo privileges"
+echo executing $0 $@
+echo executing on machine `uname -a`
 
-# Clean off brbm bridges
-virsh net-destroy brbm 2> /dev/null
-virsh net-undefine brbm 2> /dev/null
-vs-vsctl del-br brbm 2> /dev/null
+function delrpm() {
+    set +e
+    rpm -q $1
+    if [ $? -eq 0 ]; then
+        sudo rpm -e --allmatches $1
+    fi
+    set -e
+}
+function cleanrpms() {
+    delrpm openvswitch
+    delrpm dpdk-devel
+    delrpm dpdk-tools
+    delrpm dpdk-examples
+    delrpm dpdk
+}
 
-virsh net-destroy brbm1 2> /dev/null
-virsh net-undefine brbm1 2> /dev/null
-vs-vsctl del-br brbm1 2> /dev/null
+if [ -z ${WORKSPACE+1} ]; then
+    # We are not being run by Jenkins.
+    export WORKSPACE=`pwd`
+fi
 
-# clean pub keys from root's auth keys
-sed -i '/stack@instack.localdomain/d' /root/.ssh/authorized_keys
-sed -i '/virtual-power-key/d' /root/.ssh/authorized_keys
+export BUILD_BASE=$WORKSPACE
 
 
-echo "Cleanup Completed"
+cleanrpms
+set +e
+rm -rf ovsrpm
+rm -rf rpmbuild
+rm -rf rpms
+rm -rf build
+rm *.rpm
+ccache -C
+set -e
+exit 0
