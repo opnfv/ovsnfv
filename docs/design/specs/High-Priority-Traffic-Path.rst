@@ -273,7 +273,11 @@ Maximum Egress Jitter (ms)
 Documentation Impact
 ====================
 
-TBD
+The following documentation should be updated in OVS
+
+* "man" pages
+* NEWS
+* INSTALL.DPDK.md
 
 References
 ==========
