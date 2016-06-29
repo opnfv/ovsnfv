@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_1c64fdb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-29T16:04:34Z",
+      "side": 1,
+      "message": "You are not going to like this comment but I think patches like this should be split into smaller patches to make it easier to understand what is going on.",
+      "revId": "b99b265476714bf46edb603c6f00034a97d4c55b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_bc0f09e1",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-29T16:04:34Z",
+      "side": 1,
+      "message": "Surprised this worked. I thought you needed quotes. I guess not.",
+      "revId": "b99b265476714bf46edb603c6f00034a97d4c55b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_dc1445f7",
+        "filename": "build/test_ovs_rpm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-29T16:04:34Z",
+      "side": 1,
+      "message": "Would it not be better to check for this?",
+      "revId": "b99b265476714bf46edb603c6f00034a97d4c55b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_7cf971c7",
+        "filename": "build/test_ovs_rpm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-29T16:04:34Z",
+      "side": 1,
+      "message": "Is there an \"echo\" missing here?",
+      "revId": "b99b265476714bf46edb603c6f00034a97d4c55b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_9cf6cdd6",
+        "filename": "build/test_ovs_rpm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-29T16:04:34Z",
+      "side": 1,
+      "message": "you could maybe run the unit tests.",
+      "range": {
+        "startLine": 141,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "b99b265476714bf46edb603c6f00034a97d4c55b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_3c03f9b9",
+        "filename": "ci/clean.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-29T16:04:34Z",
+      "side": 1,
+      "message": "this is a duplicate function. There is another one doing the same thing in the test ovs file.",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "b99b265476714bf46edb603c6f00034a97d4c55b",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
