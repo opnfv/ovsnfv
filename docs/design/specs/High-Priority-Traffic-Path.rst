@@ -78,12 +78,119 @@ B will be transmitted before Packet A.
 Proposed change
 ===============
 
-TBD
+Two possible alternative implementations are outlined below. Further
+prototyping will be required to determine the favoured solution.
 
 Alternatives
 ------------
 
-TBD
+There are currently two alternative implementations for this feature.
+Further prototyping will be required to determine the proposed
+change.
+
+Option 1:
+
+Implement an external application that prioritizes traffic before
+sending to a virtual switch port. This option should not require
+modifications to OVS but will require more complicated management
+due the addition of a scheduling application.
+
+Each OVS ingress queue should have an equivalent ingress queue in
+the scheduler. The scheduler has responsibility of ordering the
+frames in it's own queues to ensure they respect the configured
+priorities.
+
+In this model, OVS receives packets from rte_ring ports that
+have been provided by the scheduler.
+
+::
+
+      + Queue 0                 rte_ring ports
+      |
+      |  +  Queue 1                  ^
+      |  |                           |
+      |  |  +  Queue 2               |
+      |  |  |                        |
+      |  |  |  +-------------------+ | +-----------------+
+      |  |  |  |                   | + |                 |
+      |  |  |  |  +-------------+  |   |  +------------+ |
+      |  |  +-----+    Queue    +---------+ PMD Thread | |
+      |  |     |  +-------------+  |   |  +------------+ |
+      |  |     |  +-------------+  |   |  +------------+ |
+      |  +--------+    Queue    +---------+ PMD Thread | |
+      |        |  +-------------+  |   |  +------------+ |
+      |        |  +-------------+  |   |  +------------+ |
+      +-----------+    Queue    +---------+ PMD Thread | |
+               |  +-------------+  |   |  +------------+ |
+               |                   |   |                 |
+               |                   |   |                 |
+               |     Scheduler     |   |       OVS       |
+               |     (IO Core)     |   | (vSwitch Cores )|
+               |                   |   |                 |
+               +-------------------+   +-----------------+
+
+Option 2:
+
+Modify the OVS application to prioritize packets before processing.
+This will require an IO core in OVS to handle prioritisation of
+traffic coming from the rx queues in OVS.
+
+::
+
+      + Port 0                   Internal
+      |                           queues
+      |  +  Port 1
+      |  |                           ^
+      |  |  +  Port 2                |
+      |  |  |                        |
+      |  |  |  +-----------------------------------------+
+      |  |  |  |                     +                   |
+      |  |  |  |  +-------------+         +------------+ |
+      |  |  +-----+    Queue    +---------+ PMD Thread | |
+      |  |     |  +-------------+         +------------+ |
+      |  |     |  +-------------+         +------------+ |
+      |  +--------+    Queue    +---------+ PMD Thread | |
+      |        |  +-------------+         +------------+ |
+      |        |  +-------------+         +------------+ |
+      +-----------+    Queue    +---------+ PMD Thread | |
+               |  +-------------+         +------------+ |
+               |                                         |
+               |                                         |
+               |                    OVS                  |
+               |     (IO Core)              (PMD Cores)  |
+               |                                         |
+               +-----------------------------------------+
+
+It should be noted that for both solutions, it should be possible
+to offload the scheduling to a capable NIC on ingress. An example
+of how this could be done for option 1 is seen below.
+
+::
+
+                      + Port 0
+                      |
+                      |  +  Port 1
+                      |  |
+                      |  |  +  Port 2
+                      |  |  |
+                      |  |  |  +-------------------+   +-----------------+
+      +---------------+--++ |  |                   |   |                 |
+      |                   | |  |  +-------------+  |   |  +------------+ |
+      |   NIC Scheduler   | +-----+    Queue    +---------+ PMD Thread | |
+      |                   |    |  +-------------+  |   |  +------------+ |
+      +--+------------+---+    |  +-------------+  |   |  +------------+ |
+         ^            |  +--------+    Queue    +---------+ PMD Thread | |
+         |            |        |  +-------------+  |   |  +------------+ |
+         |            |        |  +-------------+  |   |  +------------+ |
+         |            +-----------+    Queue    +---------+ PMD Thread | |
+         |                     |  +-------------+  |   |  +------------+ |
+         |                     |                   |   |                 |
+         |                     |                   |   |                 |
+         +---------------------+     Scheduler     |   |       OVS       |
+       Configure NIC scheduler |     (IO Core)     |   | (vSwitch Cores) |
+                               |                   |   |                 |
+                               +-------------------+   +-----------------+
+
 
 OVSDB schema impact
 -------------------
