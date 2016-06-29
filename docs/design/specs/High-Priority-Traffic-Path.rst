@@ -343,7 +343,9 @@ Other contributors:
 Work Items
 ----------
 
-TBD
+* Carry out tests to determine current behaviour
+* Implement proposed solution alternative 1 as a proof point
+*
 
 Dependencies
 ============
