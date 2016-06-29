@@ -76,12 +76,161 @@ B will be transmitted before Packet A.
 Proposed change
 ===============
 
-TBD
+Two possible alternative implementations are outlined below. Further
+prototyping will be required to determine the favoured solution.
 
 Alternatives
 ------------
 
-TBD
+There are currently two alternative implementations for this feature.
+Further prototyping will be required to determine the proposed
+change.
+
+Option 1:
+
+Figure 1 shows how an external application could be implemented
+that prioritizes traffic before sending to a virtual switch port.
+This option should not require modifications to OVS but will
+require more complicated management due the addition of a scheduling
+application.
+
+Each OVS ingress queue should have an equivalent ingress queue in
+the scheduler. The scheduler has responsibility of ordering the
+frames in it's own queues to ensure they respect the configured
+priorities.
+
+In this model, OVS receives packets from rte_ring ports that
+have been provided by the scheduler.
+
+::
+
+   Figure 1: Scheduling carried out by a secondary application. DPDK rings are
+   used to send frames to OVS.
+
+                                            +----> To connect to an external
+                                            |      application, these will
+                                            |      need to be rte_rings
+                                            |
+                                            |           +--> Frames arrive in
+                                            |           |    priority order to
+       + Queue 0 (e.g. NIC queue)           |           |    OVS packet processing
+       |                                    |           |    threads
+       |  +  Queue 1 (e.g. rte_ring)        |           |
+       |  |                                 |           |         +-> Packets processed
+       |  |  +  Queue 2 (e.g. vhost)        |           |         |   in priority order
+       |  |  |                              |           |         |
+       |  |  |  +-------------------+       |           | +----------------+
+       |  |  |  |                   |       |           | |       |        |
+       |  |  |  | +-----------+     |   +-------------+ | | +------------+ |
+       |  |  +----+           +---------+    Queue    +-----+ PMD Thread +----------+
+       |  |     | |           |     |   +-------------+   | +------------+ |
+       |  |     | |           |     |   +-------------+   | +------------+ |
+       |  +-------+ Scheduler +---------+    Queue    +-----+ PMD Thread +----------+
+       |        | |           |     |   +-------------+   | +------------+ |
+       |        | |           |     |   +-------------+   | +------------+ |
+       +----------+           +---------+    Queue    +-----+ PMD Thread +----------+
+                | +-----------+     |   +-------------+   | +------------+ |
+                |           |       |                     |                |
+                | Scheduler |       |                     |                |
+                | App       |       |                     |      OVS       |
+                |           |       |                     |(vSwitch Cores )|
+                |           |       |                     |                |
+                +-------------------+                     +----------------+
+                            |
+                            |
+                            |    Pluggable scheduler will
+                            |    need to be a DPDK secondary
+                            +--> process in order to interact
+                                 with OVS (primary process).
+                                 First implementation would be
+                                 a strict priority scheduler
+
+Option 2:
+
+Figure 2 shows how the OVS application could be modified to prioritize
+packets before processing. This would require an IO core in OVS to
+handle prioritisation of traffic coming from the rx queues in OVS.
+
+::
+
+   Figure 2: Scheduling carried out by threads within OVS.
+
+
+                                         +--> OVS internal ring
+                                         |    structures
+                                         |
+                                         |     +> Frames arrive in
+                                         |     |  priority order to
+    + Queue 0 (e.g. NIC queue)           |     |  OVS packet processing
+    |                                    |     |  threads
+    |  +  Queue 1 (e.g. rte_ring)        |     |
+    |  |                                 |     |       +-> Packets processed
+    |  |  +  Queue 2 (e.g. vhost)        |     |       |   in priority order
+    |  |  |                              |     |       |
+    |  |  |  +--------------------------------------------------+
+    |  |  |  |                           |     |       |        |
+    |  |  |  | +-----------+   +---------+---- | +-----+------+ |
+    |  |  +----+           +---+    Queue    +-+-+ PMD Thread +----------+
+    |  |     | |           |   +-------------+   +------------+ |
+    |  |     | |           |   +-------------+   +------------+ |
+    |  +-------+ Scheduler +---+    Queue    +---+ PMD Thread +----------+
+    |        | |           |   +-------------+   +------------+ |
+    |        | |           |   +-------------+   +------------+ |
+    +----------+           +---+    Queue    +---+ PMD Thread +----------+
+             | +-+---------+   +-------------+   +------------+ |
+             |   |                                              |
+             |   |    OVS                                       |
+             |   |(Scheduler                          OVS       |
+             |   |  Core(s))                    (vSwitch Cores )|
+             |   |                                              |
+             +--------------------------------------------------+
+                 |
+                 |
+                 +--> Pluggable scheduler
+                      First implementation would be
+                      a strict priority scheduler
+
+It should be noted that for both solutions, it should be possible
+to offload the scheduling to a capable NIC on ingress. An example
+of how this could be done for option 1 can be seen in Figure 3.
+
+::
+
+    Figure 3: Example of how a NIC scheduler could be used to
+    offload scheduling
+
+          +   Queue 0 (e.g. NIC queue)
+          |
+          |   +   Queue 1 (e.g. NIC queue)
+          |   |
+          |   |   +  Queue 2 (e.g. vhost)
+          |   |   |
+          |   |   |  +-------------------+                     +----------------+
+          |   |   |  |                   |                     |                |
+    +-----+---+-+ |  | +-----------+     |   +-------------+   | +------------+ |
+    |           | +----+           +---------+    Queue    +-----+ PMD Thread +----------+
+    |    NIC    |    | |           |     |   +-------------+   | +------------+ |
+    | Scheduler |    | |           |     |   +-------------+   | +------------+ |
+    |           +------+ Scheduler +---------+    Queue    +-----+ PMD Thread +----------+
+    |           |    | |           |     |   +-------------+   | +------------+ |
+    |           +------+           |     |   +-------------+   | +------------+ |
+    |           |    | |           +---------+    Queue    +-----+ PMD Thread +----------+
+    +-----+-----+    | +-----------+     |   +-------------+   | +------------+ |
+          |          |                   |                     |                |
+          |          | Scheduler         |                     |                |
+          +----------+ App               |                     |      OVS       |
+                     |                   |                     |(vSwitch Cores )|
+       Scheduler app |                   |                     |                |
+       configures    +-------------------+                     +----------------+
+       NIC scheduler
+
+Other key points:
+* How do we handle egress? I assume we will only seal with ingress scheduling?
+* How do we prioritize upcalls to the slowpath? In OVS the first packets in a
+flow get handled by the slow path, there is no priority scheme for this data
+path.
+* We are really only implementing strict priority here. Do we need to implement
+other scheduling algorithms?
 
 OVSDB schema impact
 -------------------
