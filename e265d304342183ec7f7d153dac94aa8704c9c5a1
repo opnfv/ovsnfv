@@ -22,6 +22,30 @@
       "revId": "e265d304342183ec7f7d153dac94aa8704c9c5a1",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_6d31b9eb",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-06-30T16:10:45Z",
+      "side": 1,
+      "message": "You are probably right but  didn\u0027t fix this. This technique is used everywhere by Panu in the COPR spec files. This patch goes along with the virtue fix patch. Right now, it is most important to be able to identify the RPMs in the artifactory and this will do that.\n\nTodo: I should probably also change the RPM names right after they are generated before they are put in the release directory.",
+      "parentUuid": "5a7ca5a3_db1d3075",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "e265d304342183ec7f7d153dac94aa8704c9c5a1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
