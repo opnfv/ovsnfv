@@ -46,6 +46,30 @@
       "revId": "e265d304342183ec7f7d153dac94aa8704c9c5a1",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_53ad8087",
+        "filename": "ci/upload_artifacts.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-07-01T10:23:09Z",
+      "side": 1,
+      "message": "Ok, it was a minor nit anyway.",
+      "parentUuid": "5a7ca5a3_6d31b9eb",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "e265d304342183ec7f7d153dac94aa8704c9c5a1",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
