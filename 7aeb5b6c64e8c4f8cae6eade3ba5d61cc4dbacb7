@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_622543c1",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-07-04T10:51:26Z",
+      "side": 1,
+      "message": "I\u0027m a little confused about the Queue in the diagrams as I thought maintaining run-to-completion processing meant no pkt queues within the OVS datapath.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 53
+      },
+      "revId": "7aeb5b6c64e8c4f8cae6eade3ba5d61cc4dbacb7",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
