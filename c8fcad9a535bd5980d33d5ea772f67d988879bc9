@@ -34,6 +34,24 @@
       "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_4569318a",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-07-04T13:49:32Z",
+      "side": 1,
+      "message": "So (brainstorming) if the early classifier only looked at packet marking(s), it could prioritize the subsequent processing, but that assumes a queue between the two processing stages.",
+      "parentUuid": "5a7ca5a3_139628f1",
+      "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
