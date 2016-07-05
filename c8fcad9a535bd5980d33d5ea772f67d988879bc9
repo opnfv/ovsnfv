@@ -52,6 +52,24 @@
       "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_18e5e0a7",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-07-05T12:02:11Z",
+      "side": 1,
+      "message": "Yes we would need a queue in this case\n\nThe code flow (at a high level) in OVS is \n\nflow extraction -\u003e table lookup to retrieve actions -\u003e action execute\n\nIf we were to do some reordering based on the regular flow classification path, we would need to insert it after the table lookup. At that stage we would have executed the majority of the code path which would probably negate the benefit of this addition. Is there another way we could do this using the regular flow classification?",
+      "parentUuid": "5a7ca5a3_4569318a",
+      "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
