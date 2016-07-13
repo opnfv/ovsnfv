@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a7ca5a3_90745bfe",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-07-13T23:03:32Z",
+      "side": 1,
+      "message": "seal?",
+      "revId": "b95dd4664762bdb9e50e90a10925686bca69dfd9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_3061c739",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-07-13T23:03:32Z",
+      "side": 1,
+      "message": "IIRC, I suggested changes to the description to avoid strict priority, because the lower priority traffic can be held-up forever (starved). So, we definitely need other scheduling algs. but strict can be a starting point.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 28
+      },
+      "revId": "b95dd4664762bdb9e50e90a10925686bca69dfd9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
