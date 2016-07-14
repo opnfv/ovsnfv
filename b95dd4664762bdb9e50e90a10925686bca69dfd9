@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a7ca5a3_b3f961ca",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2016-07-14T07:46:10Z",
+      "side": 1,
+      "message": "Is there any difference between having this scheduling functionality within OVSDPDK or outside it?\n\nIf packets have to be queued on the host (so that higher priority packets can be processed then) then does it matter in which process on the host this occurs?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 9
+      },
+      "revId": "b95dd4664762bdb9e50e90a10925686bca69dfd9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a7ca5a3_90745bfe",
         "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
         "patchSetId": 5
