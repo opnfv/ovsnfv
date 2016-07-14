@@ -70,6 +70,24 @@
       "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a7ca5a3_732f49a2",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-07-14T11:12:21Z",
+      "side": 1,
+      "message": "I have been looking at Open Flow 1.5. I think OF 1.5 has what is needed to support QoS with flows. OF now has support for queues in a port, egress tables and packet type aware pipeline processing. OF 1.5 pg 14, section 5.1 on page 19, Figure 3, Section 7.3.5.8, 5.8 Actions, Page 28 and Appendix B18.\n\nDoing QoS with flows would provide a mechanism for looking at an ingress packet moving it to a separate higher priority pipeline and then on egress doing a set_queue action to forward it. These new mechanism in addition to match on PCP and DSCP would provide all the bits to implement QoS.",
+      "parentUuid": "5a7ca5a3_18e5e0a7",
+      "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
