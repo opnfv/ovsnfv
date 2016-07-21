@@ -37,6 +37,13 @@ export PATCH=none
 export WITH_DPDK=yes
 export DPDK_PATCH=none
 export DPDK_VERSION=16.04-rc4
+#
+# OVS VERSION or commit for OVS without DPDK
+#
+export OVS_VERSION=7d433ae57ebb90cd68e8fa948a096f619ac4e2d8
+#
+# VERSION for DPDK and OVS with DPDK determined by COPR commit
+#
 export COPR_DPDK_VERSION=039002f07eb1dd96a061235f0bf0493da386bba2
 export COPR_OVS_VERSION=5e311e125035edc706efbd9cc679f67e5972dbb4 
 #

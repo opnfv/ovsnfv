@@ -171,5 +171,37 @@ echo "==============================="
 echo copy rpms to release dir
 echo
 cp $RPMDIR/RPMS/x86_64/* $TMP_RELEASE_DIR
+rm $RPMDIR/RPMS/x86_64/*
 
+#
+# Build OVS without DPDK, apply patches and build kmod.
+#
+setkmod="-k"
+OVS_PATCH="yes"
+setdpdk=
+
+echo "==================================================="
+echo build OVS without DPDK, apply patches and build kmod.
+echo
+    ./build_ovs_rpm.sh $setnocheck -g $TAG $setdpdk $setkmod -p $OVS_PATCH -u $OVS_REPO_URL
+#
+# Test rpm
+#
+if [ ! -z $TESTRPM ]; then
+    ./test_ovs_rpm.sh $setdpdk $setkmod
+fi
+
+#
+# If tests pass, copy rpms to release dir
+#
+echo "==============================="
+echo copy rpms to release dir and add experimental tag
+echo
+cd $RPMDIR/RPMS/x86_64
+for i in `ls openvswitch*.rpm`
+do
+    echo copying $i to $TMP_RELEASE_DIR/EXPERIMENTAL-$i
+    cp $i $TMP_RELEASE_DIR/EXPERIMENTAL-$i
+    echo
+done
 exit 0
