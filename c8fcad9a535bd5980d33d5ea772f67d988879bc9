@@ -106,6 +106,24 @@
       "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2e418d39",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2016-07-28T13:41:26Z",
+      "side": 1,
+      "message": "I think that statement in 7.3.5.8 is only stating that packet scheduling implementation is the decision of the switch. However I think 1.5 clearly provides the framework for implementing queues with scheduling. Openflow is the specification of the control path and switch behavior, not switch implementation.\n\nI agree that we need actual queues implemented and I assumed perhaps wrongly that it could that be in dpdk data path. \n\n I thought it was architecturally cleaner to control the queues via open flow then with ovsdb metadata. This is now possible in 1.5 because of the addition of queue IDs and egress tables. Since 1.5 now supports egress tables, the initial action on the ingress table would direct the queue differentiated traffic toward the egress table that would separate the queues. The action on the egress table would direct a packet toward the output queue.\n\nAs for the bursts and mixed traffic per queue. I think this is the same problem that ghost-user multi-queue has and maybe could be solved the same way.",
+      "parentUuid": "1a76adc5_bc3085e9",
+      "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
