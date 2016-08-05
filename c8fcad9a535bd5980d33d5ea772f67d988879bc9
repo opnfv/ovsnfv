@@ -124,6 +124,24 @@
       "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_a2bb6971",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-08-05T08:12:40Z",
+      "side": 1,
+      "message": "I agree it would be architecturally cleaner and I would prefer this approach if it was possible and it would be easier to upstream. What I think that would help me to internalize how the solution would look like would be an openflow program (or set of commands) to show how the user would configure it. If you could do that, it would help me update this document to reflect that.",
+      "parentUuid": "1a76adc5_2e418d39",
+      "revId": "c8fcad9a535bd5980d33d5ea772f67d988879bc9",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
