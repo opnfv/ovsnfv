@@ -70,6 +70,24 @@
       "revId": "aeadadbbbd2403044572d0a7d6980132033739ba",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_d352f512",
+        "filename": "docs/design/specs/High-Priority-Traffic-Path.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 385
+      },
+      "writtenOn": "2016-08-08T15:36:12Z",
+      "side": 1,
+      "message": "Configurable, yes. In a two-class system, one service time sets the minimum for the other class.  If either class does not have sufficient frames to fill the minimum service time,\nthe other class should be able to send in the underutilized time.  The good news is that with batch delivery of all frames, we get to look ahead, but we may not be able to predict the exact processing times in the switch (that seems to be where the fun starts, IOW, if we can always switch the full 32 frame batch we haven\u0027t established a need for priority processing other than to re-order the frames...).",
+      "parentUuid": "1a76adc5_3820e648",
+      "revId": "aeadadbbbd2403044572d0a7d6980132033739ba",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
