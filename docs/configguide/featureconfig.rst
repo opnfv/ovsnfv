@@ -6,7 +6,12 @@ Installing OVSNFV Fuel Plugin
 =============================
 
 * On the Fuel UI, create a new environment.
-* In Settings > Userspace OVS support, check "Userspace OVS support".
+* On the nodes' interface settings enable DPDK on the interface running the
+  private network.
+* In Settings > Other
+  * Enable "Install Openvswitch with NSH/DPDK"
+  * Enable "Install DPDK"
+  * Disable "Install NSH"
 * Continue with environment configuration and deployment as normal.
 
 Upgrading the plugin

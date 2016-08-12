@@ -17,30 +17,21 @@ Currently not all installers are supported.
 Fuel Installer
 ~~~~~~~~~~~~~~
 
-OVSNFV project supplies a Fuel Plugin to upgrades Open vSwitch on an OPNFV
-installation to use user-space datapath.
-
-As part of the upgrade the following changes are also made:
-
-* change libvirt on compute node to 1.2.12
-* change qemu on compute node to 2.2.1
-* installs DPDK 2.0.0
-* installs OVS 2.1 (specifically git tag 1e77bbe)
-* removes existing OVS neutron plugin
-* installs new OVS plugin as part of networking_ovs_dpdk OpenStack plugin
-  version stable/kilo
-* work around _set_device_mtu issue
+OVSNFV project supplies a Fuel Plugin to upgrade DPDK enabled Open vSwitch
+on an OPNFV to 2.5.90.
 
 Limitations
 ~~~~~~~~~~~
 
-This release should be considered experimental. In particular:
+The same limitations that apply to using Fuel DPDK-enabled interfaces also apply
+when using this plugin. Including:
 
-* performance will be addressed specifically in subsequent releases.
-* OVS and other components are updated only on compute nodes.
+* Fuel9 OVS-DPDK support works only for VLAN segmentation.
+* Only interfaces running the private network (and no other network) can be
+  supported so each node needs a separate interface dedicated to the private network.
+* The nodes with dpdk enabled interfaces will need to have hugepages
+  configured and some cores reserved for dpdk.
 
 Bugs
 ~~~~
-
-* There may be issues assigning floating and public ip address to VMs.
 
