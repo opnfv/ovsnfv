@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_76ad0531",
+        "filename": "docs/release/NEWS.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-08-12T15:07:25Z",
+      "side": 1,
+      "message": "2016 :) .. I hope!",
+      "range": {
+        "startLine": 10,
+        "startChar": 7,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "0a27666bd5becbbe9334a9f7ead6376bcee3db10",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
