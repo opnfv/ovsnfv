@@ -1,8 +1,6 @@
-..
- This work is licensed under a Creative Commons Attribution 3.0 Unported
- License.
-
- http://creativecommons.org/licenses/by/3.0/legalcode
+.. This work is licensed under a Creative Commons Attribution 3.0 Unported
+.. License.
+.. http://creativecommons.org/licenses/by/3.0/legalcode
 
 ==========================================
 High Priority Traffic Path
@@ -207,7 +205,7 @@ prioritization scheme that is developed.
 Tests should be performed for each combination of:
 
 * Packet Sizes in (64, 512)
-* Total Offered Rate in (80, 120, 150) 
+* Total Offered Rate in (80, 120, 150)
 * rate_ingress_b(n) / rate_ingress_a(n) in (0.1, 0.2, 0.5)
 
 For each set, the following metrics should be collected for each traffic
