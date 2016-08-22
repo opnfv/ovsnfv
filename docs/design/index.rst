@@ -10,5 +10,4 @@ OVSNFV Specs
    :numbered:
    :maxdepth: 3
 
-   specs/template.rst
    specs/High-Priority-Traffic-Path.rst
