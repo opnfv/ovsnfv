@@ -28,7 +28,9 @@ The OVSNFV project proposes:
 
    ./configguide/index.rst
    ./userguide/index.rst
-
+   ./scenarios/os-nosdn-ovs/index.rst
+   ./design/index.rst
+   ./release/index.rst
 
 Indices
 =======
