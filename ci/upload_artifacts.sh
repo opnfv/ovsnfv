@@ -22,13 +22,12 @@ set -o pipefail
 echo "Uploading the OVS and DPDK RPM artifacts. "
 echo "-----------------------------------------"
 echo
-gitver=`git log --pretty=oneline -n1|cut -c1-8`
 
 cd $TMP_RELEASE_DIR
 for i in `ls *.rpm`
 do
     echo copying $i to gs://$GS_URL/ovs4opnfv-$gitver
-    gsutil cp $TMP_RELEASE_DIR/$i gs://$GS_URL/ovs4opnfv-$gitver-$i
+    gsutil cp $TMP_RELEASE_DIR/$i gs://$GS_URL/ovs4opnfv-$filever-$i
     echo
 done
 
