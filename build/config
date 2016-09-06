@@ -47,6 +47,12 @@ export OVS_VERSION=7d433ae57ebb90cd68e8fa948a096f619ac4e2d8
 export COPR_DPDK_VERSION=039002f07eb1dd96a061235f0bf0493da386bba2
 export COPR_OVS_VERSION=5e311e125035edc706efbd9cc679f67e5972dbb4 
 #
+# Filename version for frozen features.
+# Corresponds to git hash where last OVS and DPDK feature was added.
+# Embedded in output filenames in artifactory of OVSNFV.
+#
+export filever=e8acab14
+#
 # When KMOD is set, the Linux kernel module is built and tested.
 #
 export KMOD=no
