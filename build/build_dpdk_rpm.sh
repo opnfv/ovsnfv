@@ -74,6 +74,8 @@ mkdir -p $TMPDIR
 
 cd $TMPDIR
 
+install_pre_reqs
+
 mkdir -p $HOME/rpmbuild/RPMS
 mkdir -p $HOME/rpmbuild/SOURCES
 mkdir -p $HOME/rpmbuild/SPECS
