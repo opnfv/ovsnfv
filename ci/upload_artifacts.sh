@@ -26,7 +26,7 @@ echo
 cd $TMP_RELEASE_DIR
 for i in `ls *.rpm`
 do
-    echo copying $i to gs://$GS_URL/ovs4opnfv-$gitver
+    echo copying $i to gs://$GS_URL/ovs4opnfv-$filever
     gsutil cp $TMP_RELEASE_DIR/$i gs://$GS_URL/ovs4opnfv-$filever-$i
     echo
 done
