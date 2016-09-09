@@ -88,7 +88,12 @@ function apply_nsh_patches() {
     fi
     git clone https://github.com/yyang13/ovs_nsh_patches.git
     cp $TMPDIR/ovs_nsh_patches/*.patch $RPMDIR/SOURCES
-    cp $BUILDDIR/patches/ovs_nsh_patches/*.spec $BUILDDIR
+    cd $TMPDIR
+    if [ -e buildovsnsh ]; then
+        rm -rf buildovsnsh
+    fi
+    git clone https://github.com/tfherbert/buildovsnsh.git
+    cp buildovsnsh/*.spec $BUILDDIR
 }
 
 VERSION=2.3.90
