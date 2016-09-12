@@ -7,3 +7,8 @@ January 2016
 
 - Initial Release of OVSNFV Fuel Plugin.
 
+September 2016
+============
+
+- Colorado Release of the OVSNFV RPM for Apex.
+
