@@ -6,12 +6,19 @@ Installing OVSNFV Fuel Plugin
 =============================
 
 * On the Fuel UI, create a new environment.
-* On the nodes' interface settings enable DPDK on the interface running the
+* Assign nodes as normal.
+* In Settings > Compute, ensure KVM is selected which is required to enable DPDK on nodes' interfaces.
+* On the compute nodes' interface settings enable DPDK on the interface running the
   private network.
+* *Do not enable DPDK on the control nodes.*
 * In Settings > Other
     * Enable "Install Openvswitch with NSH/DPDK"
     * Enable "Install DPDK"
     * Disable "Install NSH"
+* In Nodes, for each compute node:
+    * Reserve some memory for DPDK hugepages - typically 128-512MB per NUMA node.
+    * Reserve some memory for Nova hugepages - typically 70-90% of total memory.
+    * Pin DPDK cores - typically 2.
 * Continue with environment configuration and deployment as normal.
 
 
