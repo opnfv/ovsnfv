@@ -72,7 +72,7 @@ Unsupported Experimental OVS with NSH
 
 For more information see:
 
-- https://github.com/yyang13/ovs_nsh_patches.git/README
+- https://github.com/yyang13/ovs_nsh_patches/blob/master/README.md
 
 Document version changes
 ~~~~~~~~~~~~~~~~~~~~~~~~
