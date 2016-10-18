@@ -4,16 +4,19 @@
 
 Introduction
 ============
-This scenario installs the latest DPDK-enabled Open vSwitch component,
+For Fuel this scenario installs the latest DPDK-enabled Open vSwitch component,
 version - 2.5.90 based on DPDK 16.07.
+
+For Apex this scenario installs the latest DPDK-enabled Open vSwitch component,
+version - 2.5.90 based on DPDK 16.04.
 
 Scenario components and composition
 ===================================
 This scenario is currently able to be installed using the Fuel and Apex installers.
 For details on how to install the ovsnfv scenarion using these installer tools
 please refer to the installation instructions at:
-  * Fuel installation instruction: http://artifacts.opnfv.org/colorado/fuel/docs/installation-instruction.html
-  * Apex installation instruction: http://artifacts.opnfv.org/colorado/apex/docs/installation-instruction/index.html
+  * Fuel installation instruction: http://artifacts.opnfv.org/fuel/colorado/2.0/docs/installation-instruction/index.html
+  * Apex installation instruction: http://artifacts.opnfv.org/apex/colorado/2.0/docs/installation-instruction/index.html
 
 .. Above links need to be updated with the eventual release URL's.  This will need to be done closer to the
 .. release date once the project and docs team have a solution ready and the final version of the installation
