@@ -1,0 +1,7 @@
+Verified+1: jenkins-ci <jenkins-opnfv-ci@opnfv.org>
+Code-Review+2: Billy O'Mahony <billy.o.mahony@intel.com>
+Submitted-by: Billy O'Mahony <billy.o.mahony@intel.com>
+Submitted-at: Fri, 21 Oct 2016 10:10:18 +0000
+Reviewed-on: https://gerrit.opnfv.org/gerrit/23503
+Project: ovsnfv
+Branch: refs/heads/stable/colorado
