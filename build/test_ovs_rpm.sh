@@ -124,6 +124,7 @@ echo
 sudo service openvswitch start
 
 sudo ovs-vsctl show
+sudo ovs-vsctl del-br brtest || true
 sudo ovs-vsctl add-br brtest
 sudo ovs-ofctl dump-flows brtest
 sudo ovs-vsctl del-br brtest
