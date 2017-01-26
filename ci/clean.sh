@@ -37,6 +37,6 @@ rm -rf rpmbuild
 rm -rf rpms
 rm -rf build
 rm *.rpm
-ccache -C
+ccache -C || true
 set -e
 exit 0

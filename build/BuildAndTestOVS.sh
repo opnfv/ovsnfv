@@ -157,16 +157,7 @@ echo "==============================="
 echo build OVS rpm locally
 echo
     ./build_ovs_rpm.sh $setnocheck -g $TAG $setdpdk $setkmod -p $OVS_PATCH -u $OVS_REPO_URL
-#
-# Test rpm
-#
-if [ ! -z $TESTRPM ]; then
-    ./test_ovs_rpm.sh $setdpdk $setkmod
-fi
 
-#
-# If tests pass, copy rpms to release dir
-#
 echo "==============================="
 echo copy rpms to release dir
 echo
@@ -184,16 +175,7 @@ echo "==================================================="
 echo build OVS without DPDK, apply patches and build kmod.
 echo
     ./build_ovs_rpm.sh $setnocheck -g $TAG $setdpdk $setkmod -p $OVS_PATCH -u $OVS_REPO_URL
-#
-# Test rpm
-#
-if [ ! -z $TESTRPM ]; then
-    ./test_ovs_rpm.sh $setdpdk $setkmod
-fi
 
-#
-# If tests pass, copy rpms to release dir
-#
 echo "==============================="
 echo copy rpms to release dir and add experimental tag
 echo
