@@ -21,7 +21,7 @@
 # built from the top of current master. The tag uses the current ovs naming and
 # release convention. This option can be overriden in the command line.
 #
-export OVSTAG=2.4.0
+export OVSTAG=2.6.0
 #
 # when NOCHECK is yes, the ovs rpm is build with the --without check option which
 # Disables running "make check" as the RPM is built.
@@ -36,11 +36,11 @@ export PATCH=none
 #
 export WITH_DPDK=yes
 export DPDK_PATCH=none
-export DPDK_VERSION=16.04-rc4
+export DPDK_VERSION=16.11
 #
 # OVS VERSION or commit for OVS without DPDK
 #
-export OVS_VERSION=7d433ae57ebb90cd68e8fa948a096f619ac4e2d8
+export OVS_FORK_COMMIT_FOR_NSH=7d433ae57ebb90cd68e8fa948a096f619ac4e2d8
 #
 # VERSION for DPDK and OVS with DPDK determined by COPR commit
 #

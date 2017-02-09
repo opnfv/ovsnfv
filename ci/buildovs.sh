@@ -56,7 +56,7 @@ export TOPDIR=$BUILD_BASE
 
 export TMP_RELEASE_DIR=$TOPDIR/release
 export CACHE_DIR=$TOPDIR/cache
-export TMPDIR=$TOPDIR/scratch
+export TEMPDIR=$TOPDIR/scratch
 export RPMDIR=$TOPDIR/rpmbuild
 
 mkdir -p $RPMDIR/RPMS
@@ -89,10 +89,10 @@ echo "Cleanup temporary dirs"
 echo
 cd $BUILD_BASE
 
-if [ -d $TMPDIR ]
+if [ -d $TEMPDIR ]
 then
-    echo rm -rf $TMPDIR
-    rm -rf $TMPDIR
+    echo rm -rf $TEMPDIR
+    rm -rf $TEMPDIR
 fi
 
 # copy artifacts.

@@ -55,7 +55,7 @@ done
 
 HOME=`pwd`
 TOPDIR=$HOME
-TMPDIR=$TOPDIR/ovsrpm
+TEMPDIR=$TOPDIR/ovsrpm
 
 BUILDDIR=$HOME
 BUILD_BASE=$BUILDDIR
@@ -65,9 +65,9 @@ source $BUILDDIR/functions.sh
 echo "---------------------------------------"
 echo "Clean out old working dir."
 echo
-if [ -d $TMPDIR ]
+if [ -d $TEMPDIR ]
 then
-    rm -rf $TMPDIR
+    rm -rf $TEMPDIR
 fi
 
 function install_pre_reqs() {
@@ -76,19 +76,20 @@ function install_pre_reqs() {
     echo
     sudo yum -y install gcc make python-devel openssl-devel kernel-devel graphviz \
                 kernel-debug-devel autoconf automake rpm-build redhat-rpm-config \
-                libtool python-twisted-core desktop-file-utils groff PyQt4
+                libtool python-twisted-core desktop-file-utils groff PyQt4 \
+                selinux-policy-devel libpcap libpcap-devel libcap-ng-devel
 }
 function apply_nsh_patches() {
     echo "-------------------------------------------"
     echo "Clone NSH patch and copy patch files."
     echo
-    cd $TMPDIR
+    cd $TEMPDIR
     if [ -e ovs_nsh_patches ]; then
         rm -rf ovs_nsh_patches
     fi
     git clone https://github.com/yyang13/ovs_nsh_patches.git
-    cp $TMPDIR/ovs_nsh_patches/*.patch $RPMDIR/SOURCES
-    cd $TMPDIR
+    cp $TEMPDIR/ovs_nsh_patches/*.patch $RPMDIR/SOURCES
+    cd $TEMPDIR
     if [ -e buildovsnsh ]; then
         rm -rf buildovsnsh
     fi
@@ -120,63 +121,38 @@ mkdir -p $HOME/rpmbuild/SPECS
 mkdir -p $HOME/rpmbuild/SRPMS
 
 
-mkdir -p $TMPDIR
+mkdir -p $TEMPDIR
 
 install_pre_reqs
 
-cd $TMPDIR
+cd $TEMPDIR
 
 if [ ! -z $DPDK ]; then
-    echo "----------------------------------"
-    echo "Build OVS for dpdk. Use Fedora copr repo"
-    echo
-    echo "----------------------------------"
-    echo "Clone Fedora copr repo and copy files."
-    echo
-    git clone https://github.com/tfherbert/ovs-snap.git
-    cd ovs-snap
-    git checkout $COPR_OVS_VERSION
-    echo "-----------------------------------"
-    cp $TMPDIR/ovs-snap/openvswitch.spec $RPMDIR/SPECS
-    cp $TMPDIR/ovs-snap/* $RPMDIR/SOURCES
-    snapgit=`grep "define snapver" $TMPDIR/ovs-snap/openvswitch.spec | cut -c26-33`
-    echo "-----------------------------------------------"
-    echo "Remove any old installed ovs and dpdk rpms."
-    echo
     cleanrpms
 
     if [ -z $DPDK_VERSION ]; then
-        DPDK_VERSION=16.04.0
+        DPDK_VERSION=16.11
     fi
     echo "-------------------------------------------"
     echo "Install dpdk and dpdk development rpms for version $DPDK_VERSION"
     echo
-    sudo rpm -ivh $HOME/dpdk-${DPDK_VERSION:0:1}*.rpm
+    sudo rpm -ivh $HOME/dpdk-${DPDK_VERSION}*.rpm
     sudo rpm -ivh $HOME/dpdk-devel*.rpm
     echo "----------------------------------------"
     echo "Copy DPDK RPM to SOURCES"
     echo
     cp $HOME/*.rpm $RPMDIR/SOURCES
-    echo "--------------------------------------------"
-    echo "Get commit from $snapgit User Space OVS version $TAG"
-    echo
-    cd $TMPDIR
+    cd $TEMPDIR
     git clone $OVS_REPO_URL
-    cd $TMPDIR/ovs
-    git checkout $snapgit
-    echo "--------------------------------------------"
-    echo "Creating snapshot, $archive with name same as in spec file."
+    cd $TEMPDIR/ovs
+    git checkout v$OVSTAG
+    echo "----------------------------------------------------"
+    echo "Build openvswitch RPM for version $OVSTAG"
     echo
-    snapser=`git log --pretty=oneline | wc -l`
-    basever=`grep AC_INIT configure.ac | cut -d' ' -f2 | cut -d, -f1`
-    prefix=openvswitch-${basever}
-    archive=${prefix}-${snapser}.git${snapgit}.tar.gz
-    git archive --prefix=${prefix}-${snapser}.git${snapgit}/ HEAD  | gzip -9 > $RPMDIR/SOURCES/${archive}
-    cd $TMPDIR/ovs-snap
     echo "--------------------------------------------"
-    echo "Build openvswitch RPM"
-    echo
-    rpmbuild -bb -vv --define "_topdir `echo $RPMDIR`" $setnocheck openvswitch.spec
+    ./boot.sh
+    ./configure
+    make rpm-fedora RPMBUILD_OPT="--with dpdk --without check"
 else
     echo "-------------------------------------------------"
     echo "Build OVS without DPDK:"
@@ -186,10 +162,10 @@ else
     echo "Remove old rpms."
     echo
     cleanrpms
-    cd $TMPDIR
+    cd $TEMPDIR
     git clone $OVS_REPO_URL
-    cd $TMPDIR/ovs
-    git checkout $OVS_VERSION
+    cd $TEMPDIR/ovs
+    git checkout $OVS_FORK_COMMIT_FOR_NSH
     echo "--------------------------------------------"
     echo "Get commit from $snapgit User Space OVS version $TAG"
     echo
@@ -220,7 +196,7 @@ else
     echo "--------------------------------------------"
     echo "Creating snapshot, $archive with name same as in spec file."
     echo
-    cd $TMPDIR/ovs
+    cd $TEMPDIR/ovs
     git archive --prefix=${prefix}-${snapser}.NSH${snapgit}/ HEAD  | gzip -9 > $RPMDIR/SOURCES/${archive}
     echo "--------------------------------------------"
     echo "Build openvswitch RPM"
@@ -235,13 +211,13 @@ if [ ! -z $kmod ]; then
     echo "--------------------------------------------"
     echo Build Open vswitch kernel module
     echo
-    cd $TMPDIR
+    cd $TEMPDIR
     if [ -e ovs ]; then
         rm -rf ovs
     fi
     git clone $OVS_REPO_URL
-    cd $TMPDIR/ovs
-    git checkout $OVS_VERSION
+    cd $TEMPDIR/ovs
+    git checkout $OVS_FORK_COMMIT_FOR_NSH
     echo "--------------------------------------------"
     echo "Get commit from $snapgit User Space OVS version $TAG"
     echo
@@ -275,7 +251,7 @@ if [ ! -z $kmod ]; then
     echo "--------------------------------------------"
     echo "Creating snapshot, $archive with name same as in spec file."
     echo
-    cd $TMPDIR/ovs
+    cd $TEMPDIR/ovs
     git archive --prefix=${prefix}-${snapser}.NSH${snapgit}/ HEAD  | gzip -9 > $RPMDIR/SOURCES/${archive}
     echo "--------------------------------------------"
     echo "Building openvswitch kernel module RPM"
@@ -284,6 +260,7 @@ if [ ! -z $kmod ]; then
     rpmbuild -bb -vv -D "kversion $kernel_version" -D "kflavors default" --define "_topdir `echo $RPMDIR`" $setnocheck openvswitch-kmod.spec
 fi
 
-cp $RPMDIR/RPMS/x86_64/*.rpm $HOME
+cp $RPMDIR/RPMS/x86_64/*.rpm $HOME || true
+cp $TEMPDIR/ovs/rpm/rpmbuild/RPMS/x86_64/*.rpm $HOME || true
 
 exit 0
