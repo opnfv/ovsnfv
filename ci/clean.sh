@@ -29,14 +29,12 @@ fi
 export BUILD_BASE=$WORKSPACE
 source $BUILD_BASE/../build/functions.sh
 
-
+cd $BUILD_BASE
 cleanrpms
-set +e
-rm -rf ovsrpm
-rm -rf rpmbuild
-rm -rf rpms
-rm -rf build
-rm *.rpm
+rm -rf ovsrpm || true
+rm -rf rpmbuild || true
+rm -rf rpms || true
+#rm -rf release || true
+rm *.rpm || true
 ccache -C || true
-set -e
 exit 0

@@ -49,17 +49,28 @@ if [ -z $DPDK_REPO_URL ]; then
     DPDK_REPO_URL=http://dpdk.org/git/dpdk
 fi
 if [ -z $DPDK_VERSION ]; then
-    DPDK_VERSION=2.2.0
+    DPDK_VERSION=16.11
+fi
+export REPO_PATH="/etc/yum.repos.d/fdio-release.repo"
+if [ ! -f $REPO_PATH ]; then
+    echo "-------------------------------------------"
+    echo install upstream repo  - Use fd.io nexus repo for now
+    echo until dpdk rpm is in epel or Centos NFV SIG
+    FDIORELEASE=$(mktemp)
+    cat - > $FDIORELEASE <<"_EOF"
+[fdio-release]
+name=fd.io release branch latest merge
+baseurl=https://nexus.fd.io/content/repositories/fd.io.master.centos7/
+enabled=1
+gpgcheck=0
+_EOF
+    sudo cp $FDIORELEASE $REPO_PATH
+    sudo chmod 644 $REPO_PATH
 fi
 
 HOME=`pwd`
 TOPDIR=$HOME
-TMPDIR=$TOPDIR/rpms
-
-if [ -d $TMPDIR ]
-then
-    rm -rf $TMPDIR
-fi
+TEMPDIR=$TOPDIR/rpms
 
 function install_pre_reqs() {
     echo "----------------------------------------"
@@ -67,87 +78,31 @@ function install_pre_reqs() {
     echo
     sudo yum -y install gcc make python-devel openssl-devel kernel-devel graphviz \
                 kernel-debug-devel autoconf automake rpm-build redhat-rpm-config \
-                libtool python-twisted-core desktop-file-utils groff PyQt4
+                libtool python-twisted-core desktop-file-utils groff PyQt4 \
+                yum-utils
 }
 
-mkdir -p $TMPDIR
+if [ ! -d $TEMPDIR ]; then
+    mkdir -p $TEMPDIR
+fi
 
-cd $TMPDIR
 
 install_pre_reqs
 
-mkdir -p $HOME/rpmbuild/RPMS
-mkdir -p $HOME/rpmbuild/SOURCES
-mkdir -p $HOME/rpmbuild/SPECS
-mkdir -p $HOME/rpmbuild/SRPMS
+cd $TEMPDIR
+echo "---------------------------------"
+echo Download DPDK RPMs
+yumdownloader dpdk-$DPDK_VERSION
+yumdownloader dpdk-devel-$DPDK_VERSION
+yumdownloader dpdk-debuginfo-$DPDK_VERSION
+yumdownloader dpdk-doc-$DPDK_VERSION
+yumdownloader dpdk-examples-$DPDK_VERSION
+yumdownloader dpdk-tools-$DPDK_VERSION
 
-RPMDIR=$HOME/rpmbuild
-
-#
-# Use Fedora copr spec file
-#
-echo "---------------------"
-echo "Get copr distribution git"
-mkdir -p copr
-cd copr
-git clone https://github.com/tfherbert/dpdk-snap.git
-cd dpdk-snap
-git checkout $COPR_DPDK_VERSION
-echo "---------------------"
-echo "Apply dpdk dpdk spec file patch"
-echo
-git apply $HOME/patches/spec_file_add_virtio_patch.patch
-echo "---------------------"
-echo "Copy in local dpdk patches"
-echo
-cp $HOME/patches/dpdk-16.04-virtio-devargs.patch $TMPDIR/copr/dpdk-snap
-
-echo "---------------------"
-echo "Build DPDK RPM version $DPDK_VERSION"
-echo
-cd $TMPDIR
-git clone $DPDK_REPO_URL
-cd dpdk
-if [[ "$DPDK_VERSION" =~ "master" ]]; then
-    git checkout master
-    snapgit=`git log --pretty=oneline -n1|cut -c1-8`
-else
-    git checkout v$DPDK_VERSION
-    snapgit=`grep "define snapver" $TMPDIR/copr/dpdk-snap/dpdk.spec | cut -c25-33`
-fi
-
-cp $TMPDIR/copr/dpdk-snap/dpdk.spec $TMPDIR/dpdk
-cp $TMPDIR/copr/dpdk-snap/dpdk.spec $RPMDIR/SPECS
-cp $TMPDIR/copr/dpdk-snap/*.patch $TMPDIR/copr/dpdk-snap/sources $TMPDIR/copr/dpdk-snap/dpdk-snapshot.sh $RPMDIR/SOURCES
-snapser=`git log --pretty=oneline | wc -l`
-
-makever=`make showversion`
-basever=`echo ${makever} | cut -d- -f1`
-prefix=dpdk-${basever:0:5}
-
-archive=${prefix}.tar.gz
-DPDK_VERSION=$basever
-
-echo "-------------------------------"
-echo "Creating ${archive}"
-echo
-git archive --prefix=${prefix}/ HEAD  | gzip -9 > ${archive}
-cp ${archive} $RPMDIR/SOURCES/
-echo "-------------------------------"
-echo building RPM for DPDK version $DPDK_VERSION
-echo
-rpmbuild -bb --define "_topdir $RPMDIR" dpdk.spec
-
-echo "-------------------------------"
-echo Delete all rpms from $HOME
-echo
-set +e
-rm $HOME/*.rpm
-set -e
 
 echo "-------------------------------"
 echo Copy dpdk RPM
 echo
-cp $RPMDIR/RPMS/x86_64/*.rpm $HOME
+cp $TEMPDIR/*.rpm $HOME
 
 exit 0

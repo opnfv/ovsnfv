@@ -133,7 +133,7 @@ export TOPDIR=$BUILD_BASE
 
 export TMP_RELEASE_DIR=$TOPDIR/release
 export CACHE_DIR=$TOPDIR/cache
-export TMPDIR=$TOPDIR/scratch
+export TEMPDIR=$TOPDIR/scratch
 export RPMDIR=$TOPDIR/rpmbuild
 
 
@@ -161,8 +161,11 @@ echo
 echo "==============================="
 echo copy rpms to release dir
 echo
-cp $RPMDIR/RPMS/x86_64/* $TMP_RELEASE_DIR
-rm $RPMDIR/RPMS/x86_64/*
+cp $RPMDIR/RPMS/x86_64/*.rpm $TMP_RELEASE_DIR || true
+rm $RPMDIR/RPMS/x86_64/*.rpm || true
+cp $BUILD_BASE/rpms/*.rpm $TMP_RELEASE_DIR || true
+cp $BUILD_BASE/ovsrpm/ovs/rpm/rpmbuild/RPMS/x86_64/*.rpm $TMP_RELEASE_DIR || true
+cp $BUILD_BASE/ovsrpm/ovs/rpm/rpmbuild/RPMS/no_arch/*.rpm $TMP_RELEASE_DIR || true
 
 #
 # Build OVS without DPDK, apply patches and build kmod.
