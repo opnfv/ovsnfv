@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_8c4a2754",
+        "filename": "build/BuildAndTestOVS.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-02-13T12:19:51Z",
+      "side": 1,
+      "message": "NO the destination directories didn\u0027t change. The big change is all spec files are upstream so the build procedure changes and therefore where the RPMs appear. These are temporary destinations. The RPMs are moved to the artifactory in a separate script.",
+      "parentUuid": "dabed58f_e908752f",
+      "revId": "68444d67424763ad483df9c02732847e243c4887",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_29176d53",
         "filename": "build/build_dpdk_rpm.sh",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-02-13T11:30:53Z",
       "side": 1,
       "message": "I presume this is standard DPDK. I thought fido applied some patches?",
+      "revId": "68444d67424763ad483df9c02732847e243c4887",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_4c742f9c",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-02-13T12:19:51Z",
+      "side": 1,
+      "message": "There is only one patch to a PMD driver which has been submitted upstream and is probably merged by now.",
+      "parentUuid": "dabed58f_29176d53",
       "revId": "68444d67424763ad483df9c02732847e243c4887",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
