@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "dabed58f_cc67bfe9",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-02-13T12:22:09Z",
+      "side": 1,
+      "message": "Yes, this is upstream version 2.6 with no changes.",
+      "parentUuid": "dabed58f_89053916",
+      "revId": "68444d67424763ad483df9c02732847e243c4887",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dabed58f_c90b312a",
         "filename": "ci/clean.sh",
         "patchSetId": 2
