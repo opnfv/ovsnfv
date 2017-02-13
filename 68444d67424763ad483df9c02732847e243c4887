@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_e908752f",
+        "filename": "build/BuildAndTestOVS.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2017-02-13T11:30:53Z",
+      "side": 1,
+      "message": "Are these additional rpms or did the destination build directory change?",
+      "revId": "68444d67424763ad483df9c02732847e243c4887",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_29176d53",
+        "filename": "build/build_dpdk_rpm.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2017-02-13T11:30:53Z",
+      "side": 1,
+      "message": "I presume this is standard DPDK. I thought fido applied some patches?",
+      "revId": "68444d67424763ad483df9c02732847e243c4887",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_89053916",
+        "filename": "build/build_ovs_rpm.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2017-02-13T11:30:53Z",
+      "side": 1,
+      "message": "This is newly added in OVS?",
+      "revId": "68444d67424763ad483df9c02732847e243c4887",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_c90b312a",
+        "filename": "ci/clean.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2017-02-13T11:30:53Z",
+      "side": 1,
+      "message": "Why not just remove the line? Does it need to be commented?",
+      "revId": "68444d67424763ad483df9c02732847e243c4887",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
