@@ -1,3 +1,5 @@
+.. _ovsnfv-releasenotes:
+
 ************************
 OPNFV OPNFV Release Notes
 ************************
