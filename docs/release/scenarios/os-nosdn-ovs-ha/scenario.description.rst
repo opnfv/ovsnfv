@@ -6,14 +6,14 @@
 Scenario: "OpenStack - ovs-nfv"
 =============================
 
-Scenario: apex-os-nosdn-ovs-noha
+Scenario: apex-os-nosdn-ovs-ha
 
-"apex-os-ovs-noha" is a scenario developed as part of the OVS for NFV
-OPNFV project. The main components of the "apex-os-nosdn-ovs-noha" scenario
+"apex-os-ovs-ha" is a scenario developed as part of the OVS for NFV
+OPNFV project. The main components of the "apex-os-nosdn-ovs-ha" scenario
 are:
 
  - APEX (TripleO) installer (please also see APEX installer documentation)
- - Openstack (in non-HA configuration)
+ - Openstack (in HA configuration)
  - OVS/DPDK Open vSwitch with DPDK data plane virtual forwarder for tenant networking
 
 Introduction
@@ -32,7 +32,7 @@ The "Openstack - Open vSwitch/DPDK" scenario provides
 use-cases for deployment of NFV nodes instantiated by
 an Openstack orchestration system on OVS/DPDK enabled compute nodes.
 
-A deployment of the "apex-os-nosdn-ovs-noha" scenario consists of 3 or more
+A deployment of the "apex-os-nosdn-ovs-ha" scenario consists of 3 or more
 servers:
 
   * 1 Jumphost hosting the APEX installer - running the Undercloud
@@ -50,7 +50,7 @@ Internet" (i.e. br-ext) is performed via non-accelerated OVS.
 Features of the scenario
 ------------------------
 
-Main features of the "apex-os-ovs-nosdn-noha" scenario:
+Main features of the "apex-os-ovs-nosdn-ha" scenario:
 
   * Automated installation using the APEX installer
   * Accelerated tenant networking using OVS/DPDK as the forwarder
@@ -58,7 +58,7 @@ Main features of the "apex-os-ovs-nosdn-noha" scenario:
 Networking in this scenario using OVS with accelerated User space IO.
 ---------------------------------------------------------------------
 
-The apex-os-nosdn-ovs-noha scenario combines components from three open
+The apex-os-nosdn-ovs-ha scenario combines components from three open
 source projects: OpenStack, Open vSwitch and DPDK. To make accelerated networking
 available for this scenario Open vSwitch is bound via its netdev interface
 with DPDK user space accelerated capability.
@@ -66,13 +66,13 @@ with DPDK user space accelerated capability.
 Scenario Configuration
 ======================
 
-Simply deploy this scenario by using the os-ovs-nosdn-noha.yaml deploy
+Simply deploy this scenario by using the os-ovs-nosdn-ha.yaml deploy
 settings file.
 
 Validated deployment environments
 =================================
 
-The "os-odl_l2-ovs-noha" scenario has been deployed and tested
+The "os-odl_l2-ovs-ha" scenario has been deployed and tested
 on the following sets of hardware:
  * TBD
 

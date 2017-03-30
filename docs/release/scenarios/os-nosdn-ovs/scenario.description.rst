@@ -43,6 +43,6 @@ when using this scenario. Including:
 References
 ==========
 
-For more information on the OPNFV Colorado release, please visit
+For more information on the OPNFV Danube release, please visit
 http://www.opnfv.org/colorado
 
