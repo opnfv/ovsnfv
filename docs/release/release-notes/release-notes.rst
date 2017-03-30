@@ -1,5 +1,5 @@
 =============================================================
-OPNFV Release Notes for the Colorado release of OVS for OPNFV
+OPNFV Release Notes for the Danube release of OVS for OPNFV
 =============================================================
 
 
@@ -10,7 +10,7 @@ OPNFV Release Notes for the Colorado release of OVS for OPNFV
 Abstract
 ========
 
-This document provides the release notes for Colorado release of
+This document provides the release notes for Danube release of
 OVS for OPNFV.
 
 Version history
@@ -25,8 +25,8 @@ Version history
 Summary
 =======
 
-The Colorado release of OVSNFV will provide RPMs for DPDK and OVS with DPDK.
-Also for the Colorado release an RPM of an interim release of OVS and the
+The Danube release of OVSNFV will provide RPMs for DPDK and OVS with DPDK.
+Also for the Danube release an RPM of an interim release of OVS and the
 OVS kernel module with NSH patches.
 
 - Documentation is built by Jenkins
@@ -39,16 +39,16 @@ Release Data
 | **Project**                          | ovsnfv                               |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Repo/tag**                         | ovsnfv/colorado.1.0                  |
+| **Repo/tag**                         | ovsnfv/Danube.1.0                    |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release designation**              | colorado.1.0                         |
+| **Release designation**              | Danube 1.0                           |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release date**                     | 2016-09-14                           |
+| **Release date**                     | 2017-3-31                            |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Purpose of the delivery**          | OPNFV Colorado release               |
+| **Purpose of the delivery**          | OPNFV Danube release                 |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 
@@ -57,11 +57,11 @@ Version change
 
 Module version changes
 ~~~~~~~~~~~~~~~~~~~~~~
-This is the first tracked version of OVSNFV for the Colorado release.
+This is the first tracked version of OVSNFV for the Danube release.
 
-- Open vSwitch 2.5.90
+- Open vSwitch 2.6
 
-- DPDK 16.04
+- DPDK 16.11
 
 Unsupported Experimental OVS with NSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,10 +77,10 @@ For more information see:
 Document version changes
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is the first tracked version of Colorado release of OVSNFV
+This is the first tracked version of Danube release of OVSNFV
 The following documentation is provided with this release:
 
-- OVSNFV Build instructions of the RPMs for the Colorado release
+- OVSNFV Build instructions of the RPMs for the Danube release
   ver. 1.0.0
 
 Feature additions
@@ -148,6 +148,27 @@ ovsnfv/colorado directory.
   -  ovs4opnfv-e8acab14-openvswitch-ovn-host-2.5.90-0.12032.gitc61e93d6.1.el7.centos.x86_64.rpm
   -  ovs4opnfv-e8acab14-openvswitch-ovn-vtep-2.5.90-0.12032.gitc61e93d6.1.el7.centos.x86_64.rpm
 
+- DPDK 16.11
+
+
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-debuginfo-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-devel-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-doc-16.11-5.el7.centos.noarch.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-examples-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-tools-16.11-5.el7.centos.x86_64.rpm
+
+- OVS 2.6
+
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-debuginfo-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-devel-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-central-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-common-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-docker-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-host-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-vtep-2.6.0-1.el7.centos.x86_64.rpm
+
 EXPERIMENTAL artifacts produced by OVS for NFV
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -164,8 +185,8 @@ EXPERIMENTAL artifacts produced by OVS for NFV
 
 Documentation deliverables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-- RPM build instructions for the Colorado release version 1.0.0
-- OVSNFV Release Notes for the Colorado release version 1.0.0
+- RPM build instructions for the Danube release version 1.0.0
+- OVSNFV Release Notes for the Danube release version 1.0.0
 - Configuration Guide for OVSNFV
 - Supported Scenario Description and Documentation
 
@@ -181,7 +202,8 @@ Known issues
 | **JIRA REFERENCE**                   | **SLOGAN**                           |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-|                                      |                                      |
+|  APEX-415                            |  br-phy dpdk interfaces are not      |
+|                                      |  brought up by net-config            |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 
@@ -193,7 +215,7 @@ Workarounds
 Test Result
 ===========
 
-The Colorado release of OVS/DPDK RPM deployed with the Apex deployment
+The DAnube release of OVS/DPDK RPM deployed with the Apex deployment
 toolchain has undergone QA test runs with the following results:
 
 +--------------------------------------+--------------------------------------+
@@ -207,9 +229,9 @@ toolchain has undergone QA test runs with the following results:
 References
 ==========
 
-For more information on the OPNFV Colorado release, please see:
+For more information on the OPNFV Danube release, please see:
 
-http://wiki.opnfv.org/releases/Colorado
+http://wiki.opnfv.org/releases/Danube
 
 :Author: Thomas F Herbert (therbert@redhat.com)
 :Version: 1.0.0
