@@ -45,7 +45,7 @@ Release Data
 | **Release designation**              | colorado.1.0                         |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-| **Release date**                     | 2016-09-14                           |
+| **Release date**                     | 2017-3-31                            |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 | **Purpose of the delivery**          | OPNFV Colorado release               |
@@ -59,9 +59,9 @@ Module version changes
 ~~~~~~~~~~~~~~~~~~~~~~
 This is the first tracked version of OVSNFV for the Colorado release.
 
-- Open vSwitch 2.5.90
+- Open vSwitch 2.6
 
-- DPDK 16.04
+- DPDK 16.11
 
 Unsupported Experimental OVS with NSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,6 +96,9 @@ Feature additions
 | JIRA: OVSNFV-27                      | A deployment with Apex using         |
 |                                      | OVS/DPDK passes all relevant         |
 |                                      | functest tests.                      |
++--------------------------------------+--------------------------------------+
+| JIRA: OVSNFV-29                      | Apex consume ovsnfv generated RPM    |
+|                                      |                                      |
 +--------------------------------------+--------------------------------------+
 | JIRA: OVSNFV-29                      | Apex consume ovsnfv generated RPM    |
 |                                      |                                      |
@@ -148,6 +151,27 @@ ovsnfv/colorado directory.
   -  ovs4opnfv-e8acab14-openvswitch-ovn-host-2.5.90-0.12032.gitc61e93d6.1.el7.centos.x86_64.rpm
   -  ovs4opnfv-e8acab14-openvswitch-ovn-vtep-2.5.90-0.12032.gitc61e93d6.1.el7.centos.x86_64.rpm
 
+- DPDK 16.11
+
+
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-debuginfo-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-devel-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-doc-16.11-5.el7.centos.noarch.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-examples-16.11-5.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-dpdk-tools-16.11-5.el7.centos.x86_64.rpm
+
+- OVS 2.6
+
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-debuginfo-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-devel-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-central-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-common-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-docker-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-host-2.6.0-1.el7.centos.x86_64.rpm
+  - ovsnfv/ovs4opnfv-e8acab14-openvswitch-ovn-vtep-2.6.0-1.el7.centos.x86_64.rpm
+
 EXPERIMENTAL artifacts produced by OVS for NFV
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -181,7 +205,8 @@ Known issues
 | **JIRA REFERENCE**                   | **SLOGAN**                           |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
-|                                      |                                      |
+|  APEX-415                            |  br-phy dpdk interfaces are not      |
+|                                      |  brought up by net-config            |
 |                                      |                                      |
 +--------------------------------------+--------------------------------------+
 

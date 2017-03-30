@@ -6,15 +6,16 @@
 Scenario: "OpenStack - ovs-nfv"
 =============================
 
-Scenario: apex-os-nosdn-ovs-noha
+Scenario: apex-os-odl_l3-ovs-noha
 
-"apex-os-ovs-noha" is a scenario developed as part of the OVS for NFV
-OPNFV project. The main components of the "apex-os-nosdn-ovs-noha" scenario
+"apex-os-odl_l3-ovs-noha" is a scenario developed as part of the OVS for NFV
+OPNFV project. The main components of the "apex-os-odl_l3-ovs-noha" scenario
 are:
 
  - APEX (TripleO) installer (please also see APEX installer documentation)
  - Openstack (in non-HA configuration)
  - OVS/DPDK Open vSwitch with DPDK data plane virtual forwarder for tenant networking
+ - ODL  Open Daylight service running on a single controller
 
 Introduction
 ============
@@ -28,15 +29,17 @@ soft switch that includes an accelerated data plane component. For this, any vir
 switch should make use of
 hardware accelerators and optimized cache operation to be run in user space.
 
-The "Openstack - Open vSwitch/DPDK" scenario provides
+The apex-os-odl_l3-ovs-noha scenario provides
 use-cases for deployment of NFV nodes instantiated by
-an Openstack orchestration system on OVS/DPDK enabled compute nodes.
+an Openstack orchestration system on OVS/DPDK enabled compute nodes
+with Open Daylight controller service.
 
-A deployment of the "apex-os-nosdn-ovs-noha" scenario consists of 3 or more
+A deployment of the "apex-os-odl_l3-ovs-noha" scenario consists of 3 or more
 servers:
 
   * 1 Jumphost hosting the APEX installer - running the Undercloud
   * 1 Controlhost, which runs the Overcloud and Openstack services
+  * and Open Daylight service
   * 1 or more Computehosts
 
 .. image:: ovs4nfv.png
@@ -58,7 +61,7 @@ Main features of the "apex-os-ovs-nosdn-noha" scenario:
 Networking in this scenario using OVS with accelerated User space IO.
 ---------------------------------------------------------------------
 
-The apex-os-nosdn-ovs-noha scenario combines components from three open
+The apex-os-odl_l3-ovs-noha scenario combines components from three open
 source projects: OpenStack, Open vSwitch and DPDK. To make accelerated networking
 available for this scenario Open vSwitch is bound via its netdev interface
 with DPDK user space accelerated capability.
@@ -66,13 +69,13 @@ with DPDK user space accelerated capability.
 Scenario Configuration
 ======================
 
-Simply deploy this scenario by using the os-ovs-nosdn-noha.yaml deploy
+Simply deploy this scenario by using the os-odl_l3-ovs-noha.yaml deploy
 settings file.
 
 Validated deployment environments
 =================================
 
-The "os-odl_l2-ovs-noha" scenario has been deployed and tested
+The "os-odl_l3-ovs-noha" scenario has been deployed and tested
 on the following sets of hardware:
  * TBD
 
