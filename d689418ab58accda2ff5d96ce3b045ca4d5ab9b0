@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_f446d322",
+        "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-03-31T04:16:50Z",
+      "side": 1,
+      "message": "Fixed in other scenarios too.",
+      "parentUuid": "9ab8dda7_a1f81f7d",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "d689418ab58accda2ff5d96ce3b045ca4d5ab9b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_c1f51384",
         "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-31T01:26:15Z",
       "side": 1,
       "message": "Compute hosts (or nodes)",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "d689418ab58accda2ff5d96ce3b045ca4d5ab9b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_34646bb8",
+        "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-03-31T04:16:50Z",
+      "side": 1,
+      "message": "Fixed in all scenarios",
+      "parentUuid": "9ab8dda7_c1f51384",
       "range": {
         "startLine": 40,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_944bd72a",
+        "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-03-31T04:16:50Z",
+      "side": 1,
+      "message": "Fixed. Also checking in other 3 scenarios",
+      "parentUuid": "9ab8dda7_e1fe176b",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "d689418ab58accda2ff5d96ce3b045ca4d5ab9b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_c13c3332",
         "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
         "patchSetId": 4
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "9ab8dda7_b4485b2e",
+        "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-03-31T04:16:50Z",
+      "side": 1,
+      "message": "Well actually, your comment applies to the two l3 scenarios, not this scenario. I will fix it there.",
+      "parentUuid": "9ab8dda7_c13c3332",
+      "revId": "d689418ab58accda2ff5d96ce3b045ca4d5ab9b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ab8dda7_81ef1bb0",
         "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
         "patchSetId": 4
@@ -99,6 +189,30 @@
       "writtenOn": "2017-03-31T01:26:15Z",
       "side": 1,
       "message": "it\u0027s been validated in virtual deployments.  Not yet validated on UCS",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 6
+      },
+      "revId": "d689418ab58accda2ff5d96ce3b045ca4d5ab9b0",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ab8dda7_7452e3de",
+        "filename": "docs/release/scenarios/os-nosdn-ovs-ha/scenario.description.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-03-31T04:16:50Z",
+      "side": 1,
+      "message": "Good point. I will change in all 3 scenarios aassuming that l3 scenarios also are virtual deployments as well.",
+      "parentUuid": "9ab8dda7_81ef1bb0",
       "range": {
         "startLine": 77,
         "startChar": 0,
