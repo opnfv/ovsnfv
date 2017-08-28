@@ -17,8 +17,8 @@ set -e
 
 echo "Hello OVSNFV community!"
 
-echo "Build ovs RPM for Linux kernel data plane from master branch of OVS."
+echo "Disable building of RPMs."
 
-./buildovs.sh
+# ./buildovs.sh
 
 exit 0
