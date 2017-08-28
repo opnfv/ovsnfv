@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da33351e_31cf5381",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2017-08-28T13:20:44Z",
+      "side": 1,
+      "message": "I am supportive of this but we should wait for a bit before pushing it, in case anyone objects.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "c3a3c73c8c0cc49a44a8fa590085eb29ac721172",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_d1b8a7e7",
+        "filename": "ci/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2017-08-28T13:20:44Z",
+      "side": 1,
+      "message": "Does this disable the build or does it create a build that does nothing. Should we disable something in Jenkins?",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "c3a3c73c8c0cc49a44a8fa590085eb29ac721172",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
+    }
+  ]
+}
