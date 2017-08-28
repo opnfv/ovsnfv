@@ -45,6 +45,30 @@
       "revId": "c3a3c73c8c0cc49a44a8fa590085eb29ac721172",
       "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da33351e_b196c3ee",
+        "filename": "ci/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1401
+      },
+      "writtenOn": "2017-08-28T15:11:43Z",
+      "side": 1,
+      "message": "Yes, I can submit a patch to releng to make sure it doesn\u0027t call into our project. However, I was concerned that would break something else such as producing and building documentation.",
+      "parentUuid": "da33351e_d1b8a7e7",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "c3a3c73c8c0cc49a44a8fa590085eb29ac721172",
+      "serverId": "bbac25d2-bf60-4904-9ba8-a72fc000d6c5",
+      "unresolved": false
     }
   ]
 }
