@@ -1,0 +1,60 @@
+---
+project: 'Open vSwitch for NFV (ovsnfv)'
+project_creation_date: '21st July 2015'
+project_category: 'Collaborative Development'
+lifecycle_state: 'Incubation'
+project_lead: &opnfv_ovsnfv_ptl
+    name: 'Mark D. Gray'
+    email: 'mark.d.gray@intel.com'
+    id: 'mrmarkgray'
+    company: 'intel.com'
+    timezone: 'Unknown'
+primary_contact: *opnfv_ovsnfv_ptl
+issue_tracking:
+    type: 'jira'
+    url: 'https://jira.opnfv.org/projects/OVSNFV'
+    key: 'OVSNFV'
+mailing_list:
+    type: 'mailman2'
+    url: 'opnfv-tech-discuss@lists.opnfv.org'
+    tag: '[ovsnfv]'
+realtime_discussion:
+    type: irc
+    server: 'freenode.net'
+    channel: '#opnfv-ovsnfv'
+meetings:
+    - type: 'gotomeeting+irc'
+      agenda:  # eg: 'https://wiki.opnfv.org/display/'
+      url:  # eg: 'https://global.gotomeeting.com/join/819733085'
+      server: 'freenode.net'
+      channel: '#opnfv-meeting'
+      repeats: 'weekly'
+      time:  # eg: '16:00 UTC'
+repositories:
+    - 'ovsnfv'
+committers:
+    - <<: *opnfv_ovsnfv_ptl
+    - name: 'Joseph Gasparakis'
+      email: 'joseph.gasparakis@intel.com'
+      company: 'intel.com'
+      id: 'jgasparakis'
+    - name: 'Billy O Mahony'
+      email: 'billy.o.mahony@intel.com'
+      company: 'intel.com'
+      id: 'billyomahony'
+    - name: 'Thomas F Herbert'
+      email: 'therbert@redhat.com'
+      company: 'redhat.com'
+      id: 'tfherbert'
+    - name: 'hongbo tian'
+      email: 'hongbo.tianhongbo@huawei.com'
+      company: 'huawei.com'
+      id: 'hongbotian'
+    - name: 'Gabor Halasz'
+      email: 'gabor.halasz@ericsson.com'
+      company: 'ericsson.com'
+      id: 'egbohal'
+tsc:
+    # yamllint disable rule:line-length
+    approval: 'http//ircbot.wl.linuxfoundation.org/meetings/opnfv-meeting/2015/opnfv-meeting.2015-07-21-14.02.txt'
+    # yamllint enable rule:line-length
