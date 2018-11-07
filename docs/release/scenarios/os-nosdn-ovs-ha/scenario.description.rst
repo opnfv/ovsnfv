@@ -4,7 +4,7 @@
 .. http://creativecommons.org/licenses/by/4.0
 
 Scenario: "OpenStack - ovs-nfv"
-=============================
+===============================
 
 Scenario: apex-os-nosdn-ovs-ha
 
@@ -90,4 +90,4 @@ References
   * OVS for NFV OPNFV project wiki: https://wiki.opnfv.org/display/ovsnfv
   * Open vSwitch: http://openvswitch.org/
   * DPDK: http://dpdk.org
-  * OPNFV Danube release - more information: http://www.opnfv.org/colorado
+  * OPNFV Gambia release - more information: http://www.opnfv.org/gambia
